@@ -5,13 +5,21 @@
 ## ..
 ##
 
-NAME	=	gomoku
+NAME	=	pbrain-gomoku-ai
 
-CC	=	gcc
+CC	=	gcc -g
 
 RM	=	rm -f
 
-SRCS	=	./src/board.c 
+SRCS	=	./src/cmd.c							\
+			./src/run_start.c					\
+			./src/run_board.c					\
+			./src/run_end.c						\
+			./src/my_str_to_word_array.c		\
+			./src/utils.c						\
+			./src/board.c						\
+			./src/read.c						\
+			./src/main.c
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -36,7 +44,7 @@ fclean: clean
 
 re: fclean all
 
-tests_run: $(OBJS)
+tests_run: 
 	$(MAKE) -C $(TEST_DIR)
 
 .PHONY: all clean fclean re tests_run

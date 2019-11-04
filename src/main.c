@@ -7,16 +7,12 @@
 
 #include "gomoku.h"
 
-void    readstandard()
-{
-    char    str[BUFF_SIZE];
-
-    puts("Entre une commande :");
-    read(0, str, BUFF_SIZE);
-}
-
 int main(void)
 {
-    readstandard();
+    t_gomoku    *gomoku = malloc(sizeof(*gomoku));
+
+    init_struct(gomoku);
+    if (readstandard(gomoku) == 84)
+        return (84);
     return (0);
 }

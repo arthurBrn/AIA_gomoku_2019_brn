@@ -11,7 +11,7 @@ void    readstandard()
 {
     char    str[BUFF_SIZE];
 
-    puts("Entre une commande");
+    puts("Entre une commande :");
     read(0, str, BUFF_SIZE);
 }
 

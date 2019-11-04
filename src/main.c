@@ -39,6 +39,5 @@ int main(void)
     init_struct(gomoku);
     if (readstandard(gomoku) == 84)
         return (84);
-    free(*gomoku);
     return (0);
 }

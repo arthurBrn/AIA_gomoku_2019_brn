@@ -7,11 +7,15 @@
 
 NAME	=	pbrain-gomoku-ai
 
-CC	=	gcc
+CC	=	gcc -g
 
 RM	=	rm -f
 
-SRCS	=	./src/main.c 
+SRCS	=	./src/cmd.c			\
+		./src/run_start.c		\
+		./src/run_board.c		\
+		./src/run_end.c			\
+		./src/main.c 
 
 OBJS	=	$(SRCS:.c=.o)
 

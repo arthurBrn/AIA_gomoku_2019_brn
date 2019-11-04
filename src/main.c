@@ -7,16 +7,36 @@
 
 #include "gomoku.h"
 
-void    readstandard()
+void    init_struct(t_gomoku *gomoku)
 {
-    char    str[BUFF_SIZE];
+    gomoku->start = 0;
+    gomoku->end = 0;
+}
 
-    puts("Entre une commande :");
-    read(0, str, BUFF_SIZE);
+int readstandard(t_gomoku * gomoku)
+{
+    char    *str = NULL;
+    ssize_t size;
+    
+    while (gomoku->end != 1) {
+        str = malloc(sizeof(char) * BUFF_SIZE);
+        puts("The manager sends:");
+        if ((size = read(0, str, BUFF_SIZE)) < 0)
+            return (84);
+        str[size - 1] = '\0';
+        if (run_cmd(gomoku, str) == 84)
+            return (84);
+        free(str);
+    }
+    return (0);
 }
 
 int main(void)
 {
-    readstandard();
+    t_gomoku    *gomoku = malloc(sizeof(gomoku));
+
+    init_struct(gomoku);
+    if (readstandard(gomoku) == 84)
+        return (84);
     return (0);
 }

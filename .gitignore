@@ -1,0 +1,5 @@
+mr_clean
+push_that.sh
+*.o
+libmy.a
+readme.txt

@@ -11,6 +11,7 @@ void    init_struct(t_gomoku *gomoku)
 {
     gomoku->start = 0;
     gomoku->end = 0;
+    gomoku->size = 20;
 }
 
 int readstandard(t_gomoku * gomoku)
@@ -33,10 +34,11 @@ int readstandard(t_gomoku * gomoku)
 
 int main(void)
 {
-    t_gomoku    *gomoku = malloc(sizeof(gomoku));
+    t_gomoku    *gomoku = malloc(sizeof(*gomoku));
 
     init_struct(gomoku);
     if (readstandard(gomoku) == 84)
         return (84);
+    free(*gomoku);
     return (0);
 }

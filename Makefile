@@ -11,10 +11,12 @@ CC	=	gcc -g
 
 RM	=	rm -f
 
-SRCS	=	./src/cmd.c			\
-		./src/run_start.c		\
-		./src/run_board.c		\
-		./src/run_end.c			\
+SRCS	=	./src/cmd.c				\
+		./src/run_start.c			\
+		./src/run_board.c			\
+		./src/run_end.c				\
+		./src/my_str_to_word_array.c		\
+		./src/utils.c				\
 		./src/main.c 
 
 OBJS	=	$(SRCS:.c=.o)

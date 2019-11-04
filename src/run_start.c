@@ -7,14 +7,22 @@
 
 #include "gomoku.h"
 
-void    run_start(t_gomoku *gomoku, char *str)
+
+
+int    run_start(t_gomoku *gomoku, char *str)
 {
-    if (strcmp("START", str) == 0) {
-        if (gomoku->start == 0) {
+    char   **tab = my_str_to_word_array(str, " ");
+
+    if (tab[1] == NULL)
+        return (84);
+    if (strcmp("START", tab[0]) == 0) {
+        if (gomoku->start == 0 && isnum(tab[1]) != 84) {
+            gomoku->size = atoi(tab[1]);
             printf("OK - everything is good\n");
             gomoku->start = 1;
         }
 	else
             printf("ERROR message - unsupported size or other error\n");
     }
+    return (0);
 }

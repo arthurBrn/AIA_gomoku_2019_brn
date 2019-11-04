@@ -1,34 +1,32 @@
 ##
 ## EPITECH PROJECT, 2019
-## Make file lib
+## Makefile
 ## File description:
-## create exe
+## ..
+##
 
-SRC	=	main.c\
-		gomoku.c\
-		error.c\
-		start.c\
+NAME	=	pbrain-gomoku-ai
 
 CC	=	gcc
 
-CFLAGS	=	-W -Wall -pipe -I./include/
+RM	=	rm -f
 
-OBJ	=	$(SRC:%.c=%.o)
+SRCS	=	./src/main.c 
 
-NAME	=	gomoku
+OBJS	=	$(SRCS:.c=.o)
 
-all:		$(NAME)
+CFLAGS =	-I ./include/
+CFLAGS +=	-W -Wall -Wextra
 
-$(NAME):	$(OBJ)
-		$(MAKE) -C ./lib
-		$(CC) -o $(NAME) $(OBJ) -L./lib -lmy
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
-		rm -f $(OBJ)
-		$(MAKE) -C ./lib clean
+	$(RM) $(OBJS)
 
-fclean: 	clean
-		$(RM) $(NAME)
-		$(MAKE) -C ./lib fclean
+fclean: clean
+	$(RM) $(NAME)
 
-re:		all
+re: fclean all

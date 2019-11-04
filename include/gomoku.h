@@ -14,4 +14,5 @@
 #include <string.h>
 #include <unistd.h>
 
+char *board();
 #endif

@@ -6,8 +6,8 @@
 ##
 
 SRC	=	test_error.c\
-		../store_board.c
-
+		../error.c
+#		../store_board.c
 #test_node.c
 
 CFLAGS	=	-I../include/

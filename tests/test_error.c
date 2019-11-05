@@ -33,10 +33,42 @@ Test(valid_str, test_with_non_digit_char)
     cr_assert_eq(res, 84);
 }
 
-Test(valid_str, test_with_only_one_coma)
+Test(nbr_coma, test_str_w_two_coma)
+{
+    char str[] = {"10,10,1"};
+    int res = nbr_coma(str);
+
+    cr_assert_eq(res, 1);
+}
+
+Test(nbr_coma, test_with_only_one_coma)
 {
     char str[] = {"10,101"};
-    int res = valid_str(str);
+    int res = nbr_coma(str);
+
+    cr_assert_eq(res, 84);
+}
+
+Test(check_players, test_player_one)
+{
+    char str[] = {"10,101"};
+    int res = check_players(str);
+
+    cr_assert_eq(res, 1);
+}
+
+Test(check_players, test_player_two)
+{
+    char str[] = {"10,102"};
+    int res = check_players(str);
+
+    cr_assert_eq(res, 1);
+}
+
+Test(check_players, test__w_wrong_player)
+{
+    char str[] = {"10,104"};
+    int res = check_players(str);
 
     cr_assert_eq(res, 84);
 }

@@ -5,8 +5,13 @@
 ## create exe unit_test
 ##
 
-SRC	=	test_error.c\
+SRC	=	test_error_check_players.c\
+		test_error_nbr_coma.c\
+		test_error_valid_str.c\
+		test_error_coordinate.c\
 		../error.c
+
+#		test_error_check_string.c\
 #		../store_board.c
 #test_node.c
 

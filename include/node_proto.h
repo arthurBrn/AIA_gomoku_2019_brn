@@ -16,3 +16,5 @@ int check_players(char *str);
 void invalid_string(void);
 int check_string(char *str);
 void store_board(char *str);
+char *split_string(char *str, char *delimiter);
+int check_corrdinate(char **array);

@@ -5,6 +5,7 @@
 ** File for error handling
 */
 
+#include <string.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
@@ -13,12 +14,18 @@
 
 int nbr_coma(char *str)
 {
+    int i = 0;
     int j = 0;
+    int flag = 0;
 
-    for (int i = 0; i < strlen(str); i++)
+    while (i < strlen(str)) {
         if (str[i] == ',')
             j++;
-    if (j != 2)
+        if (str[i] == ',' && (str[i + 1] == ',' || str[i - 1] == ','))
+            flag = 1;
+        i++;
+    }
+    if (j != 2 || flag != 0)
         return (84);
     return (1);
 }
@@ -38,13 +45,26 @@ int valid_str(char *str)
     return (1);
 }
 
-
-
 int check_players(char *str)
 {
-    if (str[strlen(str)] != "1" || str[strlen(str)] != "2")
+    int last_char = strlen(str) - 1;
+
+    if (str[last_char] != '1' && str[last_char] != '2')
         return (84);
     return (1);
+}
+
+int check_coordinate(char **array)
+{
+    int x = atoi(array[0]);
+    int y = atoi(array[1]);
+    int flag = 0;
+
+    if ((x >= 0 && x <= 20) && (y >= 0 && y <= 20))
+        flag = 1;
+    else
+        flag = 84;
+    return (flag);
 }
 
 void invalid_string(void)

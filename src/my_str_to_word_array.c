@@ -5,8 +5,12 @@
 ** ..
 */
 
+<<<<<<< HEAD
+#include "gomoku.h"
+=======
 #include <stdlib.h>
 #include <stdio.h>
+>>>>>>> linkedlist_board
 
 void    my_free_tab(char **tab)
 {

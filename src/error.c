@@ -5,10 +5,6 @@
 ** File for error handling
 */
 
-#include <string.h>
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
 #include "node.h"
 
 int nbr_coma(char *str)
@@ -55,10 +51,11 @@ int check_players(char *str)
     return (1);
 }
 
-int check_coordinate(char **array)
+int check_coordinate(char *str)
 {
-    int x = atoi(array[0]);
-    int y = atoi(array[1]);
+    char **tab = my_str_to_word_array(str, ",");
+    int x = atoi(tab[0]);
+    int y = atoi(tab[1]);
     int flag = 1;
 
     if ((x < 0 || x > 20) || (y < 0 || y > 20))
@@ -80,5 +77,8 @@ int check_string(char *str)
         invalid_string();
     if (check_players(str) == 84)
         invalid_string();
+    if (check_coordinate(str) == 84)
+        invalid_string();
+
     return (1);
 }

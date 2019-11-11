@@ -35,7 +35,7 @@ int only_digit_str(char *str);
 int nbr_coma(char *str);
 int check_players(char *str);
 int check_string(char *str);
-int check_coordinate(char **array);
+int check_coordinate(char *str);
 char **my_str_to_word_array(char *str, char *delimiter);
 int list_length(node_t *head);
 int matching_node(char *str, node_t *head);

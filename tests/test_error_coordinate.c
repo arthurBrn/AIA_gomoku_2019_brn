@@ -11,21 +11,15 @@
 Test(test_coordinate, valid_coordinate)
 {
     char *str = "10,10,1";
-    char *delimiter = ",";
-    char **array = my_str_to_word_array(str, delimiter);
-    int res = check_coordinate(array);
+    int res = check_coordinate(str);
 
-    res = check_coordinate(array);
     cr_assert_eq(res, 1);
 }
 
 Test(test_coordinate, invalid_first_coordinate)
 {
     char *str = "25,10,1";
-    char *delimiter = ",";
-    char **array = my_str_to_word_array(str, delimiter);
-    int res = check_coordinate(array);
+    int res = check_coordinate(str);
 
-    res = check_coordinate(array);
     cr_assert_eq(res, 84);
 }

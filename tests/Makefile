@@ -12,15 +12,10 @@ SRC	=	test_error_check_players.c\
 		test_node_creation.c\
 		test_node_length.c\
 		test_node_matching_nodes.c\
+		test_node_global.c\
 		../src/error.c\
 		../src/my_str_to_word_array.c\
-		../src/add_node.c\
-		../src/list_length.c\
-		../src/matching_node.c\
-
-#		test_error_check_string.c\
-#		../store_board.c
-#test_node.c
+		../src/store_board.c\
 
 CFLAGS	=	-I../include/
 

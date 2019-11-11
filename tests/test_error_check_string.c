@@ -7,8 +7,7 @@
 
 #include <stdlib.h>
 #include <criterion/criterion.h>
-#include "node_proto.h"
-
+#include "node.h"
 
 Test(check_string, test_invalid_coma_count)
 {

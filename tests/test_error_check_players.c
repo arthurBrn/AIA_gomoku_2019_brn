@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 #include <criterion/criterion.h>
-#include "node_proto.h"
+#include "node.h"
 
 Test(check_players, test_player_one)
 {

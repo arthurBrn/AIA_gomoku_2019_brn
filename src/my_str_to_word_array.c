@@ -5,7 +5,8 @@
 ** ..
 */
 
-#include "gomoku.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 void    my_free_tab(char **tab)
 {

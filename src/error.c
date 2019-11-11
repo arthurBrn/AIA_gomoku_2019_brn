@@ -63,17 +63,9 @@ int check_coordinate(char *str)
     return (flag);
 }
 
-void invalid_string(void)
-{
-    puts(ERROR_MSG);
-    exit(EXIT_USAGE);
-}
-
 int check_string(char *str)
 {
-    if (nbr_coma(str) == 84)
-        invalid_string();
-    if (only_digit_str(str) == 84)
+    if (nbr_coma(str) == 84 || only_digit_str(str) == 84)
         invalid_string();
     if (check_players(str) == 84)
         invalid_string();

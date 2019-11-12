@@ -56,15 +56,16 @@ int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
 
-    tab = malloc(sizeof(int) * (strlen(str) - 5));
-    if (check_error(gomoku, str) != 84) {
-        tab[0] = get_nb_1(str);
-        tab[1] = get_nb_2(str);
-        free(tab);
-    } else {
-        free(tab);
-        puts(ERROR);
-        run_cmd(gomoku, "");
+    if (strncmp("TURN", str, 4) == 0 && gomoku->start == 1) {
+        tab = malloc(sizeof(int) * (strlen(str) - 5));
+        if (check_error(gomoku, str) != 84) {
+            tab[0] = get_nb_1(str);
+            tab[1] = get_nb_2(str);
+            free(tab);
+        } else {
+            free(tab);
+            puts(ERROR);
+        }
     }
     return (0);
 }

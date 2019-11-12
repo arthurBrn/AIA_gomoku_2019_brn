@@ -19,7 +19,7 @@ int run_board(t_gomoku *gomoku, char *str)
             if ((size = read(0, str, BUFF_SIZE)) < 0)
 		return (84);
             str[size - 1] = '\0';
-            if (strcmp("DONE", str) != 0)
+            if (strcmp("DONE", str) != 0 && check_string(str, gomoku) == 1)
                 store_board(str, gomoku);
 	}
         return (0);

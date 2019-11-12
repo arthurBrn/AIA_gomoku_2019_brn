@@ -66,7 +66,7 @@ int check_coordinate(char *str, t_gomoku *gom)
 
 int check_string(char *str, t_gomoku *gom)
 {
-    if (nbr_coma(str) == 84 || only_digit_str(str) == 84) {
+    if (nbr_coma(str) == 84 ||  only_digit_str(str) == 84) {
         puts(ERROR_MSG);
         return (0);
     }

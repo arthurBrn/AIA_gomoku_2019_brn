@@ -61,18 +61,21 @@ void init_begin(t_gomoku *gomoku)
 int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
-
-    if (strncmp("TURN", str, 4) == 0 && gomoku->start == 1) {
-        tab = malloc(sizeof(int) * (strlen(str) - 5));
+    
+    if (strncmp("TURN", str, 4) == 0) {
+        if (gomoku->start == 0)
+            return (puts("ERROR: The game didn't start."), 0);
         if (check_error(gomoku, str) != 84) {
+            tab = malloc(sizeof(int) * (strlen(str) - 5));
             init_begin(gomoku);
             tab[0] = get_nb_1(str);
             tab[1] = get_nb_2(str);
             free(tab);
+            return (0);
         } else {
-            free(tab);
-            puts(ERROR);
+            puts("ERROR message - unsupported size or other error");
+            return (1);
         }
     }
-    return (0);
+    return (2);
 }

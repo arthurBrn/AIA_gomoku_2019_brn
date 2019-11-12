@@ -13,16 +13,21 @@ int    run_start(t_gomoku *gomoku, char *str)
 {
     char   **tab = my_str_to_word_array(str, " ");
 
-    if (tab[1] == NULL)
-        return (84);
     if (strcmp("START", tab[0]) == 0) {
+        if (tab[1] == NULL) {
+            puts("ERROR message - unsupported size or other error");
+            return (84);
+        }
         if (gomoku->start == 0 && isnum(tab[1]) != 84) {
             gomoku->size = atoi(tab[1]);
-            printf("OK - everything is good\n");
+            puts("OK - everything is good");
             gomoku->start = 1;
+            return (0);
         }
-	else
-            printf("ERROR message - unsupported size or other error\n");
+        else {
+            puts("ERROR message - unsupported size or other error");
+            return (1);
+        }
     }
-    return (0);
+    return (2);
 }

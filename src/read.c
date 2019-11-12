@@ -26,8 +26,7 @@ int readstandard(t_gomoku * gomoku)
         if ((size = read(0, str, BUFF_SIZE)) < 0)
             return (84);
         str[size - 1] = '\0';
-        if (run_cmd(gomoku, str) == 84)
-            return (84);
+        run_cmd(gomoku, str);
         free(str);
     }
     return (0);

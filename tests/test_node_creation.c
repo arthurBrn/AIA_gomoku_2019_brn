@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(add_node, test_add_node_valid_str)
 {

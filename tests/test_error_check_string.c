@@ -5,9 +5,8 @@
 ** Test the error.c file
 */
 
-#include <stdlib.h>
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(check_string, test_invalid_coma_count)
 {

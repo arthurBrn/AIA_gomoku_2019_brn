@@ -5,7 +5,7 @@
 ** Display error message and exit
 */
 
-#include "node.h"
+#include "gomoku.h"
 
 void invalid_string(void)
 {

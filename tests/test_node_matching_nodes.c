@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(matching_nodes, test_matching_nodes)
 {

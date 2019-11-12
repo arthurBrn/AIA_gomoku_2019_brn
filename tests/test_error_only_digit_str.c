@@ -5,9 +5,8 @@
 ** Test the error.c file
 */
 
-#include <stdlib.h>
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(only_digit_str, test_valid_str_one)
 {

@@ -5,7 +5,7 @@
 ** File for error handling
 */
 
-#include "node.h"
+#include "gomoku.h"
 
 int nbr_coma(char *str)
 {

@@ -1,7 +1,7 @@
 #ifndef _GLOBAL_H_
-#define _GLOBAL_H_ extern 
+#define _GLOBAL_H_ extern
 
-#include "node.h"
+#include "gomoku.h"
 
 node_t *head;
 #endif

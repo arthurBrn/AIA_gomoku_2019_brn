@@ -5,9 +5,8 @@
 ** Test the error.c file
 */
 
-#include <stdlib.h>
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(nbr_coma, test_str_w_two_coma)
 {

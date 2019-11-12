@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include "node.h"
+#include "gomoku.h"
 
 Test(test_coordinate, valid_coordinate)
 {

@@ -18,6 +18,7 @@ SRC_TEST	=	tests.c\
 			test_node_global.c\
 
 SRC		=	../src/run_start.c					\
+			../src/run_begin.c					\
 			../src/cmd.c\
 			../src/run_board.c					\
 			../src/run_end.c						\

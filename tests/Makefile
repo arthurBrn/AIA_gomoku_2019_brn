@@ -17,17 +17,19 @@ SRC_TEST	=	tests.c\
 			test_node_matching_nodes.c\
 			test_node_global.c\
 
-SRC		=	../src/board.c						\
-			../src/run_start.c					\
+SRC		=	../src/run_start.c					\
+			../src/cmd.c\
 			../src/run_board.c					\
 			../src/run_end.c						\
+			../src/run_turn.c\
+			../src/my_intlen.c\
 			../src/my_str_to_word_array.c		\
 			../src/utils.c						\
 			../src/board.c						\
 			../src/read.c						\
 			../src/error.c\
 			../src/store_board.c\
-			../src/my_str_to_word_array.c\
+			../src/invalid_string.c\
 
 OBJ 	=	$(SRC:.c=.o)
 
@@ -45,7 +47,7 @@ $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(SRC_TEST) $(LDFLAGS)
 
 clean:
-		$(RM) *.o
+		$(RM) $(OBJ)
 
 fclean:	clean
 		$(RM) $(NAME)

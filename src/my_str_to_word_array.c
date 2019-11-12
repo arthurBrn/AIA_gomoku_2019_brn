@@ -5,12 +5,9 @@
 ** ..
 */
 
-<<<<<<< HEAD
 #include "gomoku.h"
-=======
 #include <stdlib.h>
 #include <stdio.h>
->>>>>>> linkedlist_board
 
 void    my_free_tab(char **tab)
 {
@@ -24,7 +21,7 @@ void    my_free_tab(char **tab)
 int	my_delim(char s, char *lim)
 {
     int	i = 0;
-    
+
     while (lim[i]) {
         if (s == lim[i])
             return (0);
@@ -37,7 +34,7 @@ int	count_word(char *str, char *lim)
 {
     int	i = 0;
     int	y = 0;
-    
+
     while (str[i]) {
         while (my_delim(str[i], lim) == 0)
             i++;
@@ -52,7 +49,7 @@ int	count_word(char *str, char *lim)
 int	wordlen(char *str, char *lim, int i)
 {
     int	len = 0;
-    
+
     while (my_delim(str[i], lim) != 0 && str[i]) {
         len++;
         i++;
@@ -67,7 +64,7 @@ char    **my_str_to_word_array(char *str, char *lim)
     int	x;
     char	**tab;
     int	word_nb = count_word(str, lim);
-    
+
     tab = malloc(sizeof(char *) * (word_nb + 1));
     for (y = 0; y != word_nb; y++) {
         if (my_delim(str[i], lim) == 1) {

@@ -10,14 +10,16 @@
 
 Test(store_board, test_creation_five_nodes)
 {
-    int i = 0;
-    char *str = "1,2,2";
     int res = 0;
+    t_gomoku *gomoku = malloc(sizeof(t_gomoku));
 
-    while (i != 5) {
-        store_board(str);
-        i++;
-    }
+    gomoku->size = 10;
+    store_board("1,1,2", gomoku);
+    store_board("1,2,1", gomoku);
+    store_board("2,2,2", gomoku);
+    store_board("3,4,1", gomoku);
+    store_board("5,6,2", gomoku);
     res = list_length(head);
+
     cr_assert_eq(res, 5);
 }

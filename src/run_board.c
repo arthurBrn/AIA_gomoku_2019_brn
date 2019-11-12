@@ -5,10 +5,9 @@
 ** ..
 */
 
-#include "gomoku.h"
 #include "global.h"
 
-int run_board(char *str)
+int run_board(t_gomoku *gomoku, char *str)
 {
     ssize_t size;
 
@@ -19,7 +18,7 @@ int run_board(char *str)
 		return (84);
             str[size - 1] = '\0';
             if (strcmp("DONE", str) != 0)
-                store_board(str);
+                store_board(str, gomoku);
             printf("str = <%s>\n", str);
 	}
     }

@@ -43,7 +43,7 @@ typedef struct node
 void    init_struct(t_gomoku *gomoku);
 int readstandard(t_gomoku * gomoku);
 int    run_cmd(t_gomoku *gomoku, char *str);
-int    run_board(char *str);
+int    run_board(t_gomoku *gomoku, char *str);
 int    run_start(t_gomoku *gomoku, char *str);
 void    run_end(t_gomoku *gomoku, char *str);
 int run_turn(t_gomoku *gomoku, char *str);
@@ -57,12 +57,12 @@ void invalid_string(void);
 int nbr_coma(char *str);
 int only_digit_str(char *str);
 int check_players(char *str);
-int check_coordinate(char *str);
-int check_string(char *str);
+int check_coordinate(char *str, t_gomoku *gom);
+int check_string(char *str, t_gomoku *gom);
 char **my_str_to_word_array(char *str, char *delimiter);
 int list_length(node_t *node);
 int matching_node(char *str, node_t *node);
 node_t *add_node(char *str, node_t *node);
-void store_board(char *str);
+void store_board(char *str, t_gomoku *gom);
 
 #endif

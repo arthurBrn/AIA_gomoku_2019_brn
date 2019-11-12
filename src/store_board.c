@@ -22,7 +22,7 @@ int list_length(node_t *head)
 {
     int i = 0;
 
-    for (; head != NULL; i++)
+    for (i; head != NULL; i++)
         head = head->next;
     return (i);
 }
@@ -33,13 +33,13 @@ int matching_node(char *str, node_t *node)
     int x = atoi(tab[0]);
     int y = atoi(tab[1]);
     int p = atoi(tab[2]);
-    int flag = 0;
+    int flag = 1;
 
     if (node == NULL)
-        return (0);
+        return (1);
     while (node != NULL) {
         if (x == node->x && y == node->y && p == node->player)
-            flag = 1;
+            flag = 0;
         node = node->next;
     }
     return (flag);
@@ -65,11 +65,13 @@ node_t *add_node(char *str, node_t *node)
     return (temp);
 }
 
-void store_board(char *str)
+void store_board(char *str, t_gomoku *gom)
 {
     node_t *node = NULL;
+    int valid_str = check_string(str, gom);
+    int matching = matching_node(str, head);
 
-    if (check_string(str) == 1) {
+    if (valid_str == 1 && matching == 1) {
         node = add_node(str, head);
         head = node;
     } else

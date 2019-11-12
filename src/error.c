@@ -52,19 +52,19 @@ int check_players(char *str)
     return (1);
 }
 
-int check_coordinate(char *str)
+int check_coordinate(char *str, t_gomoku *gom)
 {
     char **tab = my_str_to_word_array(str, ",");
     int x = atoi(tab[0]);
     int y = atoi(tab[1]);
     int flag = 1;
 
-    if ((x < 0 || x > 20) || (y < 0 || y > 20))
+    if ((x < 0 || x > gom->size) || (y < 0 || y > gom->size))
         flag = 84;
     return (flag);
 }
 
-int check_string(char *str)
+int check_string(char *str, t_gomoku *gom)
 {
     if (nbr_coma(str) == 84 || only_digit_str(str) == 84) {
         puts(ERROR_MSG);
@@ -74,7 +74,7 @@ int check_string(char *str)
         puts(ERROR_MSG);
         return (0);
     }
-    if (check_coordinate(str) == 84) {
+    if (check_coordinate(str, gom) == 84) {
         puts(ERROR_MSG);
         return (0);
     }

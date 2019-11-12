@@ -49,7 +49,7 @@ int check_error(t_gomoku *gomoku, char *str)
         if (!(isdigit(str[i]) != 0 || str[i] == ',')) {
             return (84);
         }
-    if (strlen(str) <= 5 || gomoku->start == 0)
+    if (strlen(str) <= 5)
         return (84);
     return (0);
 }
@@ -63,15 +63,9 @@ void init_begin(t_gomoku *gomoku)
 int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
-<<<<<<< HEAD
-
-    if (strncmp("TURN", str, 4) == 0) {   
-=======
-    
     if (strncmp("TURN", str, 4) == 0) {
         if (gomoku->start == 0)
             return (puts("ERROR: The game didn't start."), 0);
->>>>>>> 45dad33936ef9a1740e721d0a2c6899b0646f597
         if (check_error(gomoku, str) != 84) {
             tab = malloc(sizeof(int) * (strlen(str) - 5));
             init_begin(gomoku);
@@ -80,14 +74,9 @@ int run_turn(t_gomoku *gomoku, char *str)
             free(tab);
             return (0);
         } else {
-<<<<<<< HEAD
-            puts(ERROR);
-        } 
-=======
             puts("ERROR message - unsupported size or other error");
             return (1);
         }
->>>>>>> 45dad33936ef9a1740e721d0a2c6899b0646f597
     }
     return (2);
 }

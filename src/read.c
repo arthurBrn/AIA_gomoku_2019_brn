@@ -10,6 +10,7 @@
 void    init_struct(t_gomoku *gomoku)
 {
     gomoku->start = 0;
+    gomoku->player  = 0;
     gomoku->end = 0;
     gomoku->size = 20;
 }

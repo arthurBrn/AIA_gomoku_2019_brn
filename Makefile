@@ -21,7 +21,8 @@ SRCS	=	./src/cmd.c						\
 		./src/read.c						\
 		./src/main.c						\
 		./src/run_turn.c					\
-		./src/my_intlen.c
+		./src/my_intlen.c					\
+		./src/run_begin.c
 
 OBJS	=	$(SRCS:.c=.o)
 

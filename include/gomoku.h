@@ -19,6 +19,7 @@
 
 typedef struct {
     int size;
+    int player;
     int start;
     int end;
     char **tab;
@@ -64,5 +65,5 @@ int list_length(node_t *node);
 int matching_node(char *str, node_t *node);
 node_t *add_node(char *str, node_t *node);
 void store_board(char *str);
-
+int run_begin(t_gomoku *gomoku, char *str);
 #endif

@@ -52,6 +52,12 @@ int check_error(t_gomoku *gomoku, char *str)
     return (0);
 }
 
+void init_begin(t_gomoku *gomoku)
+{
+    if (gomoku->player == 0)
+        gomoku->player = 2;
+}
+
 int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
@@ -59,6 +65,7 @@ int run_turn(t_gomoku *gomoku, char *str)
     if (strncmp("TURN", str, 4) == 0 && gomoku->start == 1) {
         tab = malloc(sizeof(int) * (strlen(str) - 5));
         if (check_error(gomoku, str) != 84) {
+            init_begin(gomoku);
             tab[0] = get_nb_1(str);
             tab[1] = get_nb_2(str);
             free(tab);

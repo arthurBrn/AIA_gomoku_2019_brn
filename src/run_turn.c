@@ -49,6 +49,8 @@ int check_error(t_gomoku *gomoku, char *str)
         if (!(isdigit(str[i]) != 0 || str[i] == ',')) {
             return (84);
         }
+    if (strlen(str) <= 5 || gomoku->start == 0)
+        return (84);
     return (0);
 }
 
@@ -62,17 +64,16 @@ int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
 
-    if (strncmp("TURN", str, 4) == 0 && gomoku->start == 1) {
-        tab = malloc(sizeof(int) * (strlen(str) - 5));
+    if (strncmp("TURN", str, 4) == 0) {   
         if (check_error(gomoku, str) != 84) {
+            tab = malloc(sizeof(int) * (strlen(str) - 5));
             init_begin(gomoku);
             tab[0] = get_nb_1(str);
             tab[1] = get_nb_2(str);
             free(tab);
         } else {
-            free(tab);
             puts(ERROR);
-        }
+        } 
     }
     return (0);
 }

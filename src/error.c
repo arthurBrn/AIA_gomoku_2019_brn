@@ -11,10 +11,11 @@ int nbr_coma(char *str)
 {
     int i = 0;
     int j = 0;
+    int len = strlen(str);
 
     if (str[0] == ',' || str[strlen(str + 1)] == ',')
         return (84);
-    while (i < strlen(str)) {
+    while (i < len) {
         if (str[i] == ',')
             j++;
         if (str[i] == ',' && (str[i + 1] == ',' || str[i - 1] == ','))
@@ -46,7 +47,7 @@ int check_players(char *str)
 {
     int last_char = strlen(str) - 1;
 
-    if (str[last_char] != '1' && str[last_char] != '2')
+    if (str[last_char] != '1' && str[last_char] != '2' && str[last_char] != '3')
         return (84);
     return (1);
 }
@@ -65,12 +66,17 @@ int check_coordinate(char *str)
 
 int check_string(char *str)
 {
-    if (nbr_coma(str) == 84 || only_digit_str(str) == 84)
-        invalid_string();
-    if (check_players(str) == 84)
-        invalid_string();
-    if (check_coordinate(str) == 84)
-        invalid_string();
-
+    if (nbr_coma(str) == 84 || only_digit_str(str) == 84) {
+        puts(ERROR_MSG);
+        return (0);
+    }
+    if (check_players(str) == 84) {
+        puts(ERROR_MSG);
+        return (0);
+    }
+    if (check_coordinate(str) == 84) {
+        puts(ERROR_MSG);
+        return (0);
+    }
     return (1);
 }

@@ -6,6 +6,7 @@
 */
 
 #include "gomoku.h"
+#include "global.h"
 
 int run_board(char *str)
 {
@@ -17,6 +18,8 @@ int run_board(char *str)
             if ((size = read(0, str, BUFF_SIZE)) < 0)
 		return (84);
             str[size - 1] = '\0';
+            if (strcmp("DONE", str) != 0)
+                store_board(str);
             printf("str = <%s>\n", str);
 	}
     }

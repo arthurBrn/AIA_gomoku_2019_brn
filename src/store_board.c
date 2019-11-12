@@ -22,7 +22,7 @@ int list_length(node_t *head)
 {
     int i = 0;
 
-    for (i; head != NULL; i++)
+    for (; head != NULL; i++)
         head = head->next;
     return (i);
 }
@@ -69,8 +69,9 @@ void store_board(char *str)
 {
     node_t *node = NULL;
 
-    if (check_string(str) != 1)
-        invalid_string();
-    node = add_node(str, head);
-    head = node;
+    if (check_string(str) == 1) {
+        node = add_node(str, head);
+        head = node;
+    } else
+        puts(ERROR_MSG);
 }

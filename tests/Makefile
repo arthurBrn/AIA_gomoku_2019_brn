@@ -29,7 +29,6 @@ SRC		=	../src/run_start.c					\
 			../src/read.c						\
 			../src/error.c\
 			../src/store_board.c\
-			../src/invalid_string.c\
 
 OBJ 	=	$(SRC:.c=.o)
 

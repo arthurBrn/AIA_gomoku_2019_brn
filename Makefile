@@ -17,11 +17,12 @@ SRCS	=	./src/cmd.c						\
 		./src/run_end.c						\
 		./src/my_str_to_word_array.c				\
 		./src/utils.c						\
-		./src/board.c						\
 		./src/read.c						\
 		./src/main.c						\
 		./src/run_turn.c					\
-		./src/my_intlen.c
+		./src/my_intlen.c					\
+		./src/store_board.c					\
+		./src/error.c
 
 OBJS	=	$(SRCS:.c=.o)
 

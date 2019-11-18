@@ -45,22 +45,22 @@ int matching_node(char *str, node_t *node)
     return (flag);
 }
 
-node_t *add_node(char *str, node_t *node)
+node_t *add_node(char *str, node_t *head)
 {
     node_t *temp = malloc(sizeof(node_t));
     char **tab = my_str_to_word_array(str, ",");
 
-    if (node == NULL) {
+    if (head == NULL) {
         temp->x = atoi(tab[0]);
         temp->y = atoi(tab[1]);
         temp->player = atoi(tab[2]);
         temp->next = NULL;
     }
-    if (node != NULL) {
+    if (head != NULL) {
         temp->x = atoi(tab[0]);
         temp->y = atoi(tab[1]);
         temp->player = atoi(tab[2]);
-        temp->next = node;
+        temp->next = head;
     }
     return (temp);
 }

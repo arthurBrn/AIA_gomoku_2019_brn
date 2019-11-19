@@ -10,7 +10,7 @@
 int isnum(char *str)
 {
     for (int i = 0; (str[i]); i++)
-        if (isdigit(str[i]) == 0)
+        if (isdigit(str[i]) == 0 || str[i] == ' ')
             return (84);
     return (0);
 }

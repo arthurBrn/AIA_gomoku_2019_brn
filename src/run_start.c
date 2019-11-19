@@ -20,7 +20,11 @@ int    run_start(t_gomoku *gomoku, char *str)
         }
         if (gomoku->start == 0 && isnum(tab[1]) != 84) {
             gomoku->size = atoi(tab[1]);
-            puts("OK - everything is good");
+	    if (gomoku->size == 0) {
+	      puts("ERROR message - unsupported size or other error");
+	      return (84);
+	    }
+	    puts("OK - everything is good");
             gomoku->start = 1;
             return (0);
         }

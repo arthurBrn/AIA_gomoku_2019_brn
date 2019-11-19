@@ -19,10 +19,9 @@ int readstandard(t_gomoku * gomoku)
 {
     char    *str = NULL;
     ssize_t size;
-    
+
     while (gomoku->end != 1) {
         str = malloc(sizeof(char) * BUFF_SIZE);
-        puts("The manager sends:");
         if ((size = read(0, str, BUFF_SIZE)) < 0)
             return (84);
         str[size - 1] = '\0';

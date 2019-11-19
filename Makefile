@@ -31,7 +31,7 @@ TEST_DIR=	tests/
 
 CFLAGS =	-I ./include/
 
-CFLAGS +=	-W -Wall -Wextra
+CFLAGS +=	-W -Wall -Wextra -Wshadow
 
 all: $(NAME)
 
@@ -48,7 +48,11 @@ fclean: clean
 
 re: fclean all
 
-tests_run: 
+debug: $(CFLAGS) += -g
+
+debug: $(NAME)
+
+tests_run:
 	$(MAKE) -C $(TEST_DIR)
 
 .PHONY: all clean fclean re tests_run

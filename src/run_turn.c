@@ -46,9 +46,8 @@ int check_error(t_gomoku *gomoku, char *str)
     if (get_nb_1(str) > size || get_nb_2(str) > size)
         return (84);
     for (int i = 5; str[i] != '\0'; i++)
-        if (!(isdigit(str[i]) != 0 || str[i] == ',')) {
+        if (!(isdigit(str[i]) != 0 || str[i] == ','))
             return (84);
-        }
     if (strlen(str) <= 5)
         return (84);
     return (0);
@@ -63,7 +62,7 @@ void init_begin(t_gomoku *gomoku)
 int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
-    if (strncmp("TURN", str, 4) == 0) {
+    if (strcmp("TURN", str) == 0) {
         if (gomoku->start == 0)
             return (puts("ERROR: The game didn't start."), 0);
         if (check_error(gomoku, str) != 84) {
@@ -73,10 +72,8 @@ int run_turn(t_gomoku *gomoku, char *str)
             tab[1] = get_nb_2(str);
             free(tab);
             return (0);
-        } else {
-            puts("ERROR message - unsupported size or other error");
-            return (1);
-        }
+        } else
+            return (puts("ERROR message - unsupported size or other error"), 1);
     }
     return (2);
 }

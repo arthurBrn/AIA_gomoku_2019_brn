@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** main.c
+** read.c
 ** File description:
 ** ..
 */

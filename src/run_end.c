@@ -11,7 +11,7 @@ int run_end(t_gomoku *gomoku, char *str)
 {
     if (strcmp("END", str) == 0) {
         if (gomoku->start == 0)
-            puts("ERROR: The game didn't start.");
+            return (puts("ERROR: The game didn't start."), 1);
         else
             return (gomoku->end = 1, 0);
     }

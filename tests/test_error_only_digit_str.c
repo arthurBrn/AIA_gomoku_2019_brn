@@ -8,20 +8,12 @@
 #include <criterion/criterion.h>
 #include "gomoku.h"
 
-Test(only_digit_str, test_valid_str_one)
+Test(only_digit_str, test_good_nbr_of_coma)
 {
-    char str[] = {"10,10,1"};
+    char str[] = {"10,10,,1"};
     int res = only_digit_str(str);
 
-    cr_assert_eq(res, 1);
-}
-
-Test(only_digit_str, test_valid_str_two)
-{
-    char str[] = {"10,10,2"};
-    int res = only_digit_str(str);
-
-    cr_assert_eq(res, 1);
+    cr_assert_eq(res, 84);
 }
 
 Test(only_digit_str, test_without_coma)
@@ -38,4 +30,12 @@ Test(only_digit_str, test_with_non_digit_char)
     int res = only_digit_str(str);
 
     cr_assert_eq(res, 84);
+}
+
+Test(only_digit_str, test_valid_str_one)
+{
+    char str[] = {"10,10,1"};
+    int res = only_digit_str(str);
+
+    cr_assert_eq(res, 1);
 }

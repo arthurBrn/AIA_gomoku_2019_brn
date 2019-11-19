@@ -57,7 +57,7 @@ int my_intlen(int nb);
 void invalid_string(void);
 int nbr_coma(char *str);
 int only_digit_str(char *str);
-int check_players(char *str);
+int check_players(char c);
 int check_coordinate(char *str, t_gomoku *gom);
 int check_string(char *str, t_gomoku *gom);
 char **my_str_to_word_array(char *str, char *delimiter);

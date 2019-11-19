@@ -8,22 +8,35 @@
 #include <criterion/criterion.h>
 #include "gomoku.h"
 
-Test(test_coordinate, valid_coordinate)
+Test(check_coordinate, coordinate_x_invalid)
 {
-    t_gomoku *gomoku = malloc(sizeof(*gomoku));
-    gomoku->size=10;
-    char *str = "10,10,1";
-    int res = check_coordinate(str, gomoku);
+    t_gomoku *gomoku = malloc(sizeof(t_gomoku));
+    char *str = "1a,10,1";
+    int res = 0;
 
+    gomoku->size=10;
+    res = check_coordinate(str, gomoku);
+    cr_assert_eq(res, 84);
+}
+
+Test(check_coordinate, valid_coordinate)
+{
+    t_gomoku *gomoku = malloc(sizeof(t_gomoku));
+    char *str = "10,10,1";
+    int res = 0;
+
+    gomoku->size = 20;
+    res = check_coordinate(str, gomoku);;
     cr_assert_eq(res, 1);
 }
 
-Test(test_coordinate, invalid_first_coordinate)
+Test(check_coordinate, invalid_first_coordinate)
 {
-    t_gomoku *gomoku = malloc(sizeof(*gomoku));
-    gomoku->size=10;
+    t_gomoku *gomoku = malloc(sizeof(t_gomoku));
     char *str = "25,10,1";
-    int res = check_coordinate(str, gomoku);
+    int res = 0;
 
+    gomoku->size=10;
+    res = check_coordinate(str, gomoku);
     cr_assert_eq(res, 84);
 }

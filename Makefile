@@ -9,8 +9,6 @@ NAME	=	pbrain-gomoku-ai
 
 CC	=	gcc -g
 
-RM	=	rm -f
-
 SRCS	=	./src/cmd.c						\
 		./src/run_start.c					\
 		./src/run_board.c					\
@@ -54,5 +52,9 @@ debug: $(NAME)
 
 tests_run:
 	$(MAKE) -C $(TEST_DIR)
+	./$(TEST_DIR)/unit_test
+
+coverage:
+	gcovr --exclude tests --branch
 
 .PHONY: all clean fclean re tests_run

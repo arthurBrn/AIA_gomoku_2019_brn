@@ -8,12 +8,36 @@
 #include <criterion/criterion.h>
 #include "gomoku.h"
 
-Test(nbr_coma, test_str_w_two_coma)
+Test(nbr_coma, str_starting_by_coma)
 {
-    char str[] = {"10,10,1"};
+    char str[] = {",101,01"};
     int res = nbr_coma(str);
 
-    cr_assert_eq(res, 1);
+    cr_assert_eq(res, 84);
+}
+
+Test(nbr_coma, str_ending_by_coma)
+{
+    char str[] = {"1,0101,"};
+    int res = nbr_coma(str);
+
+    cr_assert_eq(res, 84);
+}
+
+Test(nbr_coma, coma_followed_by_coma)
+{
+    char str[] = {"1,01,,01"};
+    int res = nbr_coma(str);
+
+    cr_assert_eq(res, 84);
+}
+
+Test(nbr_coma, coma_preceeded_by_coma)
+{
+    char str[] = {"1,01,,,01"};
+    int res = nbr_coma(str);
+
+    cr_assert_eq(res, 84);
 }
 
 Test(nbr_coma, test_with_only_one_coma)
@@ -40,26 +64,10 @@ Test(nbr_coma, test_with_three_coma)
     cr_assert_eq(res, 84);
 }
 
-Test(nbr_coma, test_with_coma_next_to_coma)
+Test(nbr_coma, test_str_w_two_coma)
 {
-    char str[] = {"1,01,,01"};
+    char str[] = {"10,10,1"};
     int res = nbr_coma(str);
 
-    cr_assert_eq(res, 84);
-}
-
-Test(nbr_coma, test_with_str_starting_by_coma)
-{
-    char str[] = {",101,01"};
-    int res = nbr_coma(str);
-
-    cr_assert_eq(res, 84);
-}
-
-Test(nbr_coma, test_with_str_ending_by_coma)
-{
-    char str[] = {"1,0101,"};
-    int res = nbr_coma(str);
-
-    cr_assert_eq(res, 84);
+    cr_assert_eq(res, 1);
 }

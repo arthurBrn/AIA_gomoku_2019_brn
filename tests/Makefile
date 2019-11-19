@@ -41,7 +41,7 @@ OBJ 	=	$(SRC:.c=.o)
 
 INCLUDE	=	-I../include
 
-CFLAGS	=	$(INCLUDE) --coverage
+CFLAGS	=	$(INCLUDE) --coverage -O0
 
 LDFLAGS	=	-lcriterion -lgcov
 

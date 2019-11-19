@@ -10,7 +10,7 @@
 
 Test(check_players, test_player_one)
 {
-    char str[] = {"10,10,1"};
+    char str = '1';
     int res = check_players(str);
 
     cr_assert_eq(res, 1);
@@ -18,7 +18,15 @@ Test(check_players, test_player_one)
 
 Test(check_players, test_player_two)
 {
-    char str[] = {"10,10,2"};
+    char str = '2';
+    int res = check_players(str);
+
+    cr_assert_eq(res, 1);
+}
+
+Test(check_players, test_player_three)
+{
+    char str = '3';
     int res = check_players(str);
 
     cr_assert_eq(res, 1);
@@ -26,8 +34,17 @@ Test(check_players, test_player_two)
 
 Test(check_players, test_w_wrong_player)
 {
-    char str[] = {"10,10,4"};
+    char str = '4';
     int res = check_players(str);
 
     cr_assert_eq(res, 84);
 }
+
+Test(check_players, test_w_wrong_char)
+{
+    char str = 'a';
+    int res = check_players(str);
+
+    cr_assert_eq(res, 84);
+}
+

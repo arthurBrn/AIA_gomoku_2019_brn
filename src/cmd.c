@@ -7,12 +7,11 @@
 
 #include "gomoku.h"
 
-int    run_cmd(t_gomoku *gomoku, char *str)
+void    run_cmd(int (**tab_cmd)(t_gomoku *, char *))
 {
-    run_start(gomoku, str);
-    run_begin(gomoku, str);
-    run_end(gomoku, str);
-    run_turn(gomoku, str);
-    run_board(gomoku, str);
-    return (0);
+    tab_cmd[0] = run_start;
+    tab_cmd[1] = run_begin;
+    tab_cmd[2] = run_end;
+    tab_cmd[3] = run_turn;
+    tab_cmd[4] = run_board;
 }

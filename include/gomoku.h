@@ -43,7 +43,7 @@ typedef struct node
 
 void    init_struct(t_gomoku *gomoku);
 int readstandard(t_gomoku * gomoku);
-int    run_cmd(t_gomoku *gomoku, char *str);
+void    run_cmd(int (**tab_cmd)(t_gomoku *, char *));
 int    run_board(t_gomoku *gomoku, char *str);
 int    run_start(t_gomoku *gomoku, char *str);
 int    run_end(t_gomoku *gomoku, char *str);

@@ -33,13 +33,13 @@ typedef struct node
     struct node *next;
 } node_t;
 
-#define EXIT_USAGE 84
-#define ERROR_MSG "ERROR: "
-#define SYNTAX_ERROR_MSG "Syntax error."
-#define EXIT_TURN 84
-
+#define ERROR 84
+#define OK_MSG "OK - everything is good"
+#define ERROR_MSG "ERROR message - unsupported size or other error"
+#define GAME_STARTED "ERROR: The game is already start."
+#define ERROR_SIZE "ERROR: The parameters must be smaller than the size"
 #define UNKNOWN "UNKNOWN: The commands doesn't exist."
-#define ERROR "ERROR: "
+#define GAME_NOT_STARTED "ERROR: The game didn't start."
 
 void    init_struct(t_gomoku *gomoku);
 int readstandard(t_gomoku * gomoku);
@@ -68,5 +68,5 @@ void store_board(char *str, t_gomoku *gomoku);
 int run_begin(t_gomoku *gomoku, char *str);
 int check_error(t_gomoku *gomoku, char *str);
 void init_begin(t_gomoku *gom);
-int check_cmd(char *s1, char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
+int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
 #endif

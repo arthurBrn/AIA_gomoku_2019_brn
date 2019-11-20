@@ -14,15 +14,15 @@ int nbr_coma(char *str)
     int len = strlen(str);
 
     if (str[0] == ',' || str[strlen(str + 1)] == ',')
-        return (84);
+        return (ERROR);
     for (; i < len; i++) {
         if (str[i] == ',')
             flag++;
         if (str[i] == ',' && (str[i + 1] == ',' || str[i - 1] == ','))
-            return (84);
+            return (ERROR);
     }
     if (flag != 2)
-        return (84);
+        return (ERROR);
     return (1);
 }
 
@@ -32,12 +32,12 @@ int only_digit_str(char *str)
     int coma = nbr_coma(str);
 
     if (coma != 1)
-        return (84);
+        return (ERROR);
     while (str[i] != '\0') {
         if (isdigit(str[i]) || str[i] == ',')
             i++;
         else
-            return (84);
+            return (ERROR);
     }
     return (1);
 }
@@ -45,9 +45,9 @@ int only_digit_str(char *str)
 int check_players(char c)
 {
     if (!isdigit(c))
-        return (84);
+        return (ERROR);
     if (c != '1' && c != '2' && c != '3')
-        return (84);
+        return (ERROR);
     return (1);
 }
 
@@ -58,22 +58,22 @@ int check_coordinate(char *str, t_gomoku *gom)
     int y = 0;
     int flag = 1;
 
-    if (only_digit_str(str) == 84)
-        return (84);
+    if (only_digit_str(str) == ERROR)
+        return (ERROR);
     x = atoi(tab[0]);
     y = atoi(tab[0]);
     if ((x < 0 || x > gom->size) || (y < 0 || y > gom->size))
-        return (84);
+        return (ERROR);
     return (flag);
 }
 
 int check_string(char *str, t_gomoku *gom)
 {
-    if (nbr_coma(str) == 84 ||  only_digit_str(str) == 84)
+    if (nbr_coma(str) == ERROR ||  only_digit_str(str) == ERROR)
         return (puts(ERROR_MSG), 0);
-    if (check_players(str[strlen(str) - 1]) == 84)
+    if (check_players(str[strlen(str) - 1]) == ERROR)
         return (puts(ERROR_MSG), 0);
-    if (check_coordinate(str, gom) == 84)
+    if (check_coordinate(str, gom) == ERROR)
         return (puts(ERROR_MSG), 0);
     return (1);
 }

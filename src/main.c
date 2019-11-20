@@ -12,7 +12,7 @@ int main(void)
     t_gomoku    *gomoku = malloc(sizeof(*gomoku));
 
     init_struct(gomoku);
-    if (readstandard(gomoku) == 84)
-        return (84);
+    if (readstandard(gomoku) == ERROR)
+        return (ERROR);
     return (0);
 }

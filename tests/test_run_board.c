@@ -38,4 +38,3 @@ Test(run_board, game_not_started)
     res = run_board(gom, str);
     cr_assert_eq(res, 0);
 }
-

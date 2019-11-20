@@ -16,7 +16,7 @@ SRC_TEST	=	tests.c\
 			test_node_length.c\
 			test_node_matching_nodes.c\
 			test_node_global.c\
-			test_isnum.c\
+			test_utils.c\
 			test_read.c\
 			test_run_begin.c\
 			test_run_board.c\

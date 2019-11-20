@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2019
-** test_isnum.c
+** test_utils.c
 ** File description:
 ** Test the function int isnum(char *str);
 */

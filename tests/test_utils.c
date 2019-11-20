@@ -48,3 +48,11 @@ Test(isnum, valid_str)
     cr_assert_eq(res, 0);
 }
 
+Test(isnum, valid_str_zero)
+{
+    char *str = "0";
+    int res = isnum(str);
+
+    cr_assert_eq(res, 0);
+}
+

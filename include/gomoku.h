@@ -67,4 +67,5 @@ node_t *add_node(char *str, node_t *node);
 void store_board(char *str, t_gomoku *gomoku);
 int run_begin(t_gomoku *gomoku, char *str);
 int check_error(t_gomoku *gomoku, char *str);
+void init_begin(t_gomoku *gom);
 #endif

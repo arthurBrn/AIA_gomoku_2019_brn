@@ -62,7 +62,8 @@ void init_begin(t_gomoku *gomoku)
 int run_turn(t_gomoku *gomoku, char *str)
 {
     int *tab;
-    if (strcmp("TURN", str) == 0) {
+
+    if (strncmp("TURN", str, 4) == 0) {
         if (gomoku->start == 0)
             return (puts("ERROR: The game didn't start."), 0);
         if (check_error(gomoku, str) != 84) {

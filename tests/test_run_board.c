@@ -10,7 +10,7 @@
 
 Test(run_board, invalid_cmd)
 {
-    t_gomoku *gom = malloc(sizeof(gom));
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "BOARD ";
     int res = 0;
 
@@ -20,7 +20,7 @@ Test(run_board, invalid_cmd)
 
 Test(run_board, invalid_min_cmd)
 {
-    t_gomoku *gom = malloc(sizeof(gom));
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "board";
     int res = 0;
 
@@ -30,7 +30,7 @@ Test(run_board, invalid_min_cmd)
 
 Test(run_board, game_not_started)
 {
-    t_gomoku *gom = malloc(sizeof(gom));
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "BOARD";
     int res = 0;
 

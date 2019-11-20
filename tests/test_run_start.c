@@ -48,14 +48,16 @@ Test(run_start, valid_cmd_w_no_param)
     cr_assert_eq(res, 84);
 }
 
-Test(run_start, valid_cmd_w_too_big_param)
+Test(run_start, valid_cmd_w_valid_param)
 {
     char *str = "START 25";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
     res = run_start(gom, str);
-    cr_assert_eq(res, 84);
+    cr_assert_eq(res, 0);
+    cr_assert_eq(gom->start, 1);
+    cr_assert_eq(gom->size, 25);
 }
 
 Test(run_start, valid_cmd_valid_size_and_game_not_started)
@@ -83,13 +85,3 @@ Test(run_start, valid_cmd_valid_size_game_already_started)
     cr_assert_eq(gom->start, 1);
 }
 
-Test(run_start, valid_cmd_invalid_size_game_not_started)
-{
-    char *str = "START 26";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    gom->start = 0;
-    res = run_start(gom, str);
-    cr_assert_eq(res, 1);
-}

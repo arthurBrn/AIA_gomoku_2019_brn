@@ -40,13 +40,12 @@ int readstandard(t_gomoku * gomoku)
     run_cmd(tab_cmd);
     while (gomoku->end != 1) {
         str = malloc(sizeof(char) * BUFF_SIZE);
-        puts("The manager sends:");
         if ((size = read(0, str, BUFF_SIZE)) < 0)
             return (84);
         str[size - 1] = '\0';
         tab = my_str_to_word_array(str, " ");
         if (check_cmd(tab[0], str, tab_cmd, gomoku) == 1)
-            puts("Invalid command");
+            return (puts("Invalid command"),0);
         free(str);
     }
     return (0);

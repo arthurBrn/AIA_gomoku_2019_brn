@@ -68,4 +68,5 @@ void store_board(char *str, t_gomoku *gomoku);
 int run_begin(t_gomoku *gomoku, char *str);
 int check_error(t_gomoku *gomoku, char *str);
 void init_begin(t_gomoku *gom);
+int check_cmd(char *s1, char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
 #endif

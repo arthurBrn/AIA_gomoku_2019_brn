@@ -7,7 +7,7 @@
 
 #include "gomoku.h"
 
-void    init_struct(t_gomoku *gomoku)
+void init_struct(t_gomoku *gomoku)
 {
     gomoku->start = 0;
     gomoku->player  = 0;
@@ -15,11 +15,11 @@ void    init_struct(t_gomoku *gomoku)
     gomoku->size = 20;
 }
 
-int check_cmd(char  *s1, char *str, int (*tab_cmd[5])(), t_gomoku *gomoku)
+int check_cmd(char *s1, char *str, int (*tab_cmd[5])(), t_gomoku *gomoku)
 {
     char *tab[6] = {"START", "BEGIN", "END", "TURN", "BOARD", '\0'};
     int i = 0;
-    
+
     while (tab[i]) {
         if (strcmp(s1, tab[i]) == 0) {
             (*tab_cmd[i])(gomoku, str);
@@ -36,7 +36,7 @@ int readstandard(t_gomoku * gomoku)
     ssize_t size;
     int (*tab_cmd[5])(t_gomoku *, char *);
     char    **tab;
-    
+
     run_cmd(tab_cmd);
     while (gomoku->end != 1) {
         str = malloc(sizeof(char) * BUFF_SIZE);

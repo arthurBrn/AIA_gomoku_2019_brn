@@ -42,10 +42,10 @@ int check_error(t_gomoku *gomoku, char *str) {
         return (84);
     if (get_nb_1(str) > size || get_nb_2(str) > size)
         return (84);
-    for (int i = 5; str[i] != '\0'; i++)
+    for (int i = 0; str[i] != '\0'; i++)
         if (!(isdigit(str[i]) != 0 || str[i] == ','))
             return (84);
-    if (strlen(str) <= 5)
+    if (strlen(str) <= 3)
         return (84);
     return (0);
 }

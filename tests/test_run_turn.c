@@ -134,18 +134,6 @@ Test(run_turn, invalid_wrong_cmd)
     cr_assert_eq(res, 2);
 }
 
-Test(run_turn, valid_cmd_invalid_args)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "TURN     ";
-    int res = 0;
-
-    gom->start = 1;
-    gom->size = 10;
-    res = run_turn(gom, str);
-    cr_assert_eq(res, 1);
-}
-
 Test(run_turn, valid_cmd_game_not_start)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));

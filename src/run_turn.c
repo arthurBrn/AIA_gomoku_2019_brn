@@ -68,6 +68,6 @@ int run_turn(t_gomoku *gomoku, char *str) {
         free(tab);
         return (0);
     } else
-        return (puts(ERROR_MSG);
+        return (puts(ERROR_MSG));
     return (2);
 }

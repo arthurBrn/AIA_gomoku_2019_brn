@@ -8,56 +8,26 @@
 #include "gomoku.h"
 #include <criterion/criterion.h>
 
-Test(test_run, invalid_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "END ";
-    int res = 0;
-
-    res = run_end(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(test_run, invalid_min_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "end";
-    int res = 0;
-
-    res = run_end(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(test_run, wrong_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "start";
-    int res = 0;
-
-    res = run_end(gom, str);
-    cr_assert_eq(res, 2);
-}
-
 Test(test_run, game_not_started)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "END";
-    int res = 0;
+    int temp_end = gom->end;
+    int temp_start = gom->start;
 
     gom->start = 0;
-    res = run_end(gom, str);
-    cr_assert_eq(res, 1);
+    run_end(gom, str);
+    cr_assert_eq(gom->end, temp_end);
+    cr_assert_eq(gom->start, temp_start);
 }
-
 
 Test(test_run, game_started_valid_cmd)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "END";
-    int res = 0;
 
     gom->start = 1;
-    res = run_end(gom, str);
-    cr_assert_eq(res, 0);
+    run_end(gom, str);
     cr_assert_eq(gom->end, 1);
+    cr_assert_eq(gom->start, 1);
 }

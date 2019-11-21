@@ -24,7 +24,7 @@ Test(init_struct, test_initialization_structure)
     free(gom);
 }
 
-Test(check_cmd, valid_cmd)
+/*Test(check_cmd, valid_cmd)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *s1 = "START";
@@ -36,7 +36,7 @@ Test(check_cmd, valid_cmd)
     cr_assert_eq(res, 0);
     free(gom);
 }
-/*
+
 Test(check_cmd, invalid_cmd)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));

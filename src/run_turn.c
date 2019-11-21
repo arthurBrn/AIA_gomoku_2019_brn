@@ -7,31 +7,34 @@
 
 #include "gomoku.h"
 
-int get_nb_1(char *str) {
+int get_coord_x(char *str)
+{
     int i;
-    int nb = 0;
+    int x = 0;
 
-    for (i = 5; isdigit(str[i]) != 0; i++) {
-        nb *= 10;
-        nb += str[i] - 48;
+    for (i = 0; isdigit(str[i]) != 0; i++)  {
+        x *= 10;
+        x += str[i] - 48;
     }
-    return (nb);
+    return (x);
 }
 
-int get_nb_2(char *str) {
-    int i = 5;
-    int nb_1 = get_nb_1(str);
-    int nb_2 = 0;
+int get_coord_y(char *str)
+{
+    int i = 0;
+    int x = get_coord_x(str);
+    int y = 0;
 
-    i += my_intlen(nb_1) + 1;
+    i = my_intlen(x) + 1;
     for (i = i; isdigit(str[i]) != 0; i++) {
-        nb_2 *= 10;
-        nb_2 += str[i] - 48;
+        y *= 10;
+        y += str[i] - 48;
     }
-    return (nb_2);
+    return (y);
 }
 
-int check_error(t_gomoku *gomoku, char *str) {
+int check_error(t_gomoku *gomoku, char *str)
+{
     int size = gomoku->size;
     int comma = 0;
 
@@ -40,31 +43,35 @@ int check_error(t_gomoku *gomoku, char *str) {
             comma++;
     if (comma >= 2)
         return (84);
-    if (get_nb_1(str) > size || get_nb_2(str) > size)
+    if (get_coord_x(str) > size || get_coord_y(str) > size)
         return (84);
     for (int i = 0; str[i] != '\0'; i++)
         if (!(isdigit(str[i]) != 0 || str[i] == ','))
             return (84);
-    if (strlen(str) <= 3)
+    if (strlen(str) < 3)
+        return (84);
+    if (get_coord_x(str) == 0 || get_coord_y(str) == 0)
         return (84);
     return (0);
 }
 
-void init_begin(t_gomoku *gomoku) {
+void init_begin(t_gomoku *gomoku)
+{
     if (gomoku->player == 0)
         gomoku->player = 2;
 }
 
-int run_turn(t_gomoku *gomoku, char *str) {
+int run_turn(t_gomoku *gomoku, char *str)
+{
     int *tab;
 
     if (gomoku->start == 0)
         return (puts(GAME_NOT_STARTED));
     if (check_error(gomoku, str) != 84) {
-        tab = malloc(sizeof(int) * (strlen(str) - 5));
+        tab = malloc(sizeof(int) * (strlen(str)));
         init_begin(gomoku);
-        tab[0] = get_nb_1(str);
-        tab[1] = get_nb_2(str);
+        tab[0] = get_coord_x(str);
+        tab[1] = get_coord_y(str);
         free(tab);
         return (0);
     } else

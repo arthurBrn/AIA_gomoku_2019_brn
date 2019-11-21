@@ -42,9 +42,9 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	rm src/*.gcno
-	rm src/*.gcda
-#	$(MAKE) -C $(TEST_DIR) fclean
+	$(RM) ./src/*.gcno
+	$(RM) ./src/*.gcda
+	$(MAKE) -C $(TEST_DIR) fclean
 
 re: fclean all
 
@@ -54,7 +54,7 @@ debug: $(NAME)
 
 tests_run:
 	$(MAKE) -C $(TEST_DIR)
-	./$(TEST_DIR)/unit_test
+	./$(TEST_DIR)unit_test
 
 coverage:
 	gcovr --exclude tests --branch

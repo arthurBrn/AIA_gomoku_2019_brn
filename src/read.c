@@ -34,7 +34,7 @@ int readstandard(t_gomoku *gomoku) {
 
     run_cmd(tab_cmd);
     while (gomoku->end != 1) {
-        if (str = malloc(sizeof(char) * BUFF_SIZE) == 84)
+        if ((str = malloc(sizeof(char) * BUFF_SIZE)) == NULL)
             return (ERROR);
         if ((size = read(0, str, BUFF_SIZE)) < 0)
             return (ERROR);

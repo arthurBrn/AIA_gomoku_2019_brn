@@ -25,8 +25,7 @@ typedef struct {
     char **tab;
 } t_gomoku;
 
-typedef struct node
-{
+typedef struct node {
     int x;
     int y;
     int player;
@@ -41,32 +40,60 @@ typedef struct node
 #define UNKNOWN "UNKNOWN: The commands doesn't exist."
 #define GAME_NOT_STARTED "ERROR: The game didn't start."
 
-void    init_struct(t_gomoku *gomoku);
-int readstandard(t_gomoku * gomoku);
-void    run_cmd(int (**tab_cmd)(t_gomoku *, char *));
-int    run_board(t_gomoku *gomoku, char *str);
-int    run_start(t_gomoku *gomoku, char *str);
-int    run_end(t_gomoku *gomoku, char *str);
-int run_turn(t_gomoku *gomoku, char *str);
-char    **my_str_to_word_array(char *str, char *lim);
-int isnum(char *str);
-char *board();
 void init_struct(t_gomoku *gomoku);
-int readstandard(t_gomoku * gomoku);
+
+int readstandard(t_gomoku *gomoku);
+
+void run_cmd(int (**tab_cmd)(t_gomoku *, char *));
+
+int run_board(t_gomoku *gomoku, char *str);
+
+int run_start(t_gomoku *gomoku, char *str);
+
+int run_end(t_gomoku *gomoku, char *str);
+
+int run_turn(t_gomoku *gomoku, char *str);
+
+char **my_str_to_word_array(char *str, char *lim);
+
+int isnum(char *str);
+
+char *board();
+
+void init_struct(t_gomoku *gomoku);
+
+int readstandard(t_gomoku *gomoku);
+
 int my_intlen(int nb);
+
 void invalid_string(void);
+
 int nbr_coma(char *str);
+
 int only_digit_str(char *str);
+
 int check_players(char c);
+
 int check_coordinate(char *str, t_gomoku *gom);
+
 int check_string(char *str, t_gomoku *gom);
+
 char **my_str_to_word_array(char *str, char *delimiter);
+
 int list_length(node_t *node);
+
 int matching_node(char *str, node_t *node);
+
 node_t *add_node(char *str, node_t *node);
+
 void store_board(char *str, t_gomoku *gomoku);
+
 int run_begin(t_gomoku *gomoku, char *str);
+
 int check_error(t_gomoku *gomoku, char *str);
+
 void init_begin(t_gomoku *gom);
+
 int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
+
 #endif

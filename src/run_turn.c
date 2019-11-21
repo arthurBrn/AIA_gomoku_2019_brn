@@ -7,8 +7,7 @@
 
 #include "gomoku.h"
 
-int get_nb_1(char *str)
-{
+int get_nb_1(char *str) {
     int i;
     int nb = 0;
 
@@ -19,8 +18,7 @@ int get_nb_1(char *str)
     return (nb);
 }
 
-int get_nb_2(char *str)
-{
+int get_nb_2(char *str) {
     int i = 5;
     int nb_1 = get_nb_1(str);
     int nb_2 = 0;
@@ -33,8 +31,7 @@ int get_nb_2(char *str)
     return (nb_2);
 }
 
-int check_error(t_gomoku *gomoku, char *str)
-{
+int check_error(t_gomoku *gomoku, char *str) {
     int size = gomoku->size;
     int comma = 0;
 
@@ -53,28 +50,24 @@ int check_error(t_gomoku *gomoku, char *str)
     return (0);
 }
 
-void init_begin(t_gomoku *gomoku)
-{
+void init_begin(t_gomoku *gomoku) {
     if (gomoku->player == 0)
         gomoku->player = 2;
 }
 
-int run_turn(t_gomoku *gomoku, char *str)
-{
+int run_turn(t_gomoku *gomoku, char *str) {
     int *tab;
 
-    if (strncmp("TURN", str, 4) == 0) {
-        if (gomoku->start == 0)
-            return (puts("ERROR: The game didn't start."), 0);
-        if (check_error(gomoku, str) != 84) {
-            tab = malloc(sizeof(int) * (strlen(str) - 5));
-            init_begin(gomoku);
-            tab[0] = get_nb_1(str);
-            tab[1] = get_nb_2(str);
-            free(tab);
-            return (0);
-        } else
-            return (puts("ERROR message - unsupported size or other error"), 1);
-    }
+    if (gomoku->start == 0)
+        return (puts(GAME_NOT_STARTED));
+    if (check_error(gomoku, str) != 84) {
+        tab = malloc(sizeof(int) * (strlen(str) - 5));
+        init_begin(gomoku);
+        tab[0] = get_nb_1(str);
+        tab[1] = get_nb_2(str);
+        free(tab);
+        return (0);
+    } else
+        return (puts(ERROR_MSG);
     return (2);
 }

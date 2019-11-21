@@ -7,22 +7,24 @@
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
 
-// Test game not started
-/*Test(run_begin, game_not_started)
+void redirect_stdout_run_begin(void)
+{
+    cr_redirect_stdout();
+}
+
+Test(run_begin, game_not_started, .init=redirect_stdout_run_begin)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "BEGIN";
     int res = 0;
 
-    gom->player = 0;
     gom->start = 0;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 1);
+    run_begin(gom, str);
+    cr_assert_stdout_eq_str(GAME_NOT_STARTED);
 }
-*/
 
-// Test game started
 Test(run_begin, game_started)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));

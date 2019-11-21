@@ -2,11 +2,18 @@
 ** EPITECH PROJECT, 2019
 ** test_run_start.c
 ** File description:
-** test all function in src/run_start.c
+** test all function of file run_start.c
 */
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
+
+void redirect_stdout_run_start(void)
+{
+    cr_redirect_stdout();
+    cr_redirect_stderr();
+}
 
 Test(run_start, game_already_started)
 {
@@ -16,20 +23,31 @@ Test(run_start, game_already_started)
 
     gom->start = 1;
     res = run_start(gom, str);
-    cr_assert_neq(res, 0);
+    cr_assert_not_null(res);
 }
 
-Test(run_start, game_not_started_valid_size)
+Test(run_start, game_not_started_str_invalid, .init=redirect_stdout_run_start)
 {
-    char *str = "5";
+    char *str = "0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
     gom->start = 0;
-    res = run_start(gom, str);
-    cr_assert_eq(gom->size, 5);
-    cr_assert_eq(gom->start, 1);
+    run_start(gom, str);
+    cr_assert_stdout_eq_str(ERROR_MSG);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Test size of zero
 /*Test(run_start, str_size_of_zero)

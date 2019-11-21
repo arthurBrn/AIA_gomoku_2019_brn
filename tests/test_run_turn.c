@@ -114,26 +114,6 @@ Test(init_begin, player_two_defined)
     cr_assert_eq(gom->player, 2);
 }
 
-Test(run_turn, invalid_min_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "turn";
-    int res = 0;
-
-    res = run_turn(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_turn, invalid_wrong_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "START";
-    int res = 0;
-
-    res = run_turn(gom, str);
-    cr_assert_eq(res, 2);
-}
-
 Test(run_turn, valid_cmd_game_not_start)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));

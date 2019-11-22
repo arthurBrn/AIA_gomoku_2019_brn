@@ -48,17 +48,17 @@ Test(nbr_coma, test_with_only_one_coma)
     cr_assert_eq(res, 84);
 }
 
-Test(nbr_coma, test_with_no_coma)
+Test(nbr_coma, test_with_three_coma)
 {
-    char str[] = {"10101"};
+    char str[] = {"1,0,1,01"};
     int res = nbr_coma(str);
 
     cr_assert_eq(res, 84);
 }
 
-Test(nbr_coma, test_with_three_coma)
+Test(nbr_coma, test_with_no_coma)
 {
-    char str[] = {"1,0,1,01"};
+    char str[] = {"10101"};
     int res = nbr_coma(str);
 
     cr_assert_eq(res, 84);

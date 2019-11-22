@@ -12,6 +12,7 @@
 void redirect_stdout_run_begin(void)
 {
     cr_redirect_stdout();
+    cr_redirect_stdout();
 }
 
 Test(run_begin, game_not_started, .init=redirect_stdout_run_begin)

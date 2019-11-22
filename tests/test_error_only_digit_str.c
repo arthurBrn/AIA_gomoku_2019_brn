@@ -8,7 +8,7 @@
 #include <criterion/criterion.h>
 #include "gomoku.h"
 
-Test(only_digit_str, test_good_nbr_of_coma)
+Test(only_digit_str, test_too_many_coma)
 {
     char str[] = {"10,10,,1"};
     int res = only_digit_str(str);

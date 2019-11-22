@@ -39,7 +39,8 @@ int only_digit_str(char *str)
         else
             return (ERROR);
     }
-    return (1);
+    if (i > 1)
+        return (1);
 }
 
 int check_players(char c)

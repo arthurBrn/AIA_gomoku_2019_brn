@@ -5,7 +5,7 @@
 ** test all function of file src/run_turn.c
 */
 
-#include "gomoku.h"
+#include "global.h"
 #include <criterion/criterion.h>
 
 Test(init_begin, no_player)
@@ -69,18 +69,32 @@ Test(run_turn, game_started_coordonate_out_of_grid)
     cr_assert_eq(res, 84);
 }
 
-/*
-Test(run_turn, game_started_check_error_neg)
+Test(run_turn, insertion_in_global_linked_list)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "10,10";
+    int i = 3;
+    int j = 0;
     int res = 0;
+    char **str;
+    char **tab[4][4] =
+        {
+            "1,1",
+            "2,2",
+            "3,2",
+            "5,4"
+        };
 
-    gom->size = 11;
     gom->start = 1;
-    res = run_turn(gom, str);
-    cr_assert_eq(res, 0);
-    cr_assert_eq(gom->start, 1);
-    cr_assert_eq(gom->player, 2);
+    while (i >= 0) {
+        res = run_turn(gom, tab[i]);
+        cr_assert_eq(res, 0);
+        i--;
+    }
+    while (head != NULL) {
+        str = my_str_to_word_array(tab[j], ",");
+        cr_assert_eq(head->x, atoi(str[0]));
+        cr_assert_eq(head->y, atoi(str[1]));
+        cr_assert_eq(head->player, atoi(gom->player));
+        head = head->next;
+    }
 }
-*/

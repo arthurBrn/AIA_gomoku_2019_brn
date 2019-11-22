@@ -61,6 +61,5 @@ int run_turn(t_gomoku *gomoku, char *str)
         return (ERROR);
     }
     free(new_str);
-    free(tab);
     return (0);
 }

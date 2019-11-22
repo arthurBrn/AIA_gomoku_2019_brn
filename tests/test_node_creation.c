@@ -45,4 +45,5 @@ Test(add_node, test_add_multiple_node_in_a_row)
         head = head->next;
         j++;
     }
+    cr_assert_eq(list_length(head), 4);
 }

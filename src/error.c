@@ -70,10 +70,10 @@ int check_coordinate(char *str, t_gomoku *gom)
 int check_string(char *str, t_gomoku *gom)
 {
     if (nbr_coma(str) == ERROR ||  only_digit_str(str) == ERROR)
-        return (puts(ERROR_MSG), 0);
+        return (ERROR);
     if (check_players(str[strlen(str) - 1]) == ERROR)
-        return (puts(ERROR_MSG), 0);
+        return (ERROR);
     if (check_coordinate(str, gom) == ERROR)
-        return (puts(ERROR_MSG), 0);
+        return (ERROR);
     return (1);
 }

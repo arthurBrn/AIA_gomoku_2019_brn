@@ -1,5 +1,9 @@
 mr_clean
 push_that.sh
 *.o
+*.gcno
+*.gcda
 libmy.a
+*~
+#*
 readme.txt

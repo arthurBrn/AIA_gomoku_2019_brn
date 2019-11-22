@@ -58,6 +58,8 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str = malloc(sizeof(char) + 10);
     new_str = strcat(str, ",");
     new_str[index] = gomoku->player + 48;
+    puts("NEW_STR");
+    puts(new_str);
     if (store_board(new_str, gomoku) == 84) {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
         return (84);

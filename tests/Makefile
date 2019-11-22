@@ -23,6 +23,7 @@ SRC_TEST	=	tests.c\
 			test_run_end.c\
 			test_run_start.c\
 			test_run_turn.c\
+			test_check_turn_errors.c\
 
 SRC		=	../src/run_start.c					\
 			../src/run_begin.c					\
@@ -36,6 +37,7 @@ SRC		=	../src/run_start.c					\
 			../src/read.c						\
 			../src/error.c\
 			../src/store_board.c\
+			../src/check_turn_errors.c\
 
 OBJ 	=	$(SRC:.c=.o)
 

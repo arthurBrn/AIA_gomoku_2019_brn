@@ -46,8 +46,9 @@ int run_turn(t_gomoku *gomoku, char *str)
     int index = strlen(str) + 1;
 
     if (gomoku->start == 0)
-        return (puts(GAME_NOT_STARTED));
-    check_turn_errors(gomoku, str);
+        return (puts(GAME_NOT_STARTED), 84);
+    if (check_turn_errors(gomoku, str) != 0)
+        return (84);
     tab = malloc(sizeof(int) * (strlen(str)) + 4);
     init_begin(gomoku);
     new_str = malloc(sizeof(char) + 10);

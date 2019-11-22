@@ -70,7 +70,7 @@ int check_error(t_gomoku *gomoku, char *str);
 void init_begin(t_gomoku *gom);
 int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
 int get_coord_x(char *str);
-int get_coord_y(char*str);
+int get_coord_y(char *str);
 int check_turn_errors(t_gomoku *gomoku, char *str);
 int count_comma(char *str);
 int xy_invalid(t_gomoku *gomoku, char *str);

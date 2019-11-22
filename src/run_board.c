@@ -7,7 +7,8 @@
 
 #include "global.h"
 
-int run_board(t_gomoku *gomoku, char *s1) {
+int run_board(t_gomoku *gomoku, char *s1)
+{
     ssize_t size = 0;
     char *str = "";
 
@@ -23,6 +24,8 @@ int run_board(t_gomoku *gomoku, char *s1) {
         str[size - 1] = '\0';
         if (strcmp("DONE", str) != 0 && check_string(str, gomoku) == 1)
             store_board(str, gomoku);
+        else if (strcmp("DONE", str) == 0)
+            write (1, "The brain answers: \n", 21);
         else
             return (ERROR);
         free(str);

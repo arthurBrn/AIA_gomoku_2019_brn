@@ -41,7 +41,7 @@ void init_begin(t_gomoku *gomoku)
 
 int run_turn(t_gomoku *gomoku, char *str)
 {
-    char *new_str;
+    char *new_str = "";
     int index = strlen(str) + 1;
 
     if (gomoku->start == 0) {
@@ -53,9 +53,11 @@ int run_turn(t_gomoku *gomoku, char *str)
         return (ERROR);
     }
     init_begin(gomoku);
-    new_str = malloc(sizeof(char) + 10);
-    new_str = strcat(str, ",");
+    new_str = malloc(sizeof(char) * (strlen(str) + 3));
+    strcpy(new_str, str);
+    strcat(new_str, ",");
     new_str[index] = gomoku->player + 48;
+    new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84) {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
         return (ERROR);

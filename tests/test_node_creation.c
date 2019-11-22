@@ -6,7 +6,7 @@
 */
 
 #include <criterion/criterion.h>
-#include "gomoku.h"
+#include "global.h"
 
 Test(add_node, test_add_node_valid_str)
 {
@@ -23,7 +23,7 @@ Test(add_node, test_add_multiple_node_in_a_row)
 {
     int i = 3;
     int j = 0;
-    node_t *head = NULL;
+    node_t *node = NULL;
     char **str;
     char tab[4][8] =
         {
@@ -34,16 +34,17 @@ Test(add_node, test_add_multiple_node_in_a_row)
         };
 
     while (i >= 0) {
-        head = add_node(tab[i], head);
+        node = add_node(tab[i], node);
         i--;
     }
-    while (head != NULL) {
+    cr_assert_eq(list_length(node), 4);
+    while (node != NULL) {
         str = my_str_to_word_array(tab[j], ",");
-        cr_assert_eq(head->x, atoi(str[0]));
-        cr_assert_eq(head->y, atoi(str[1]));
-        cr_assert_eq(head->player, atoi(str[2]));
-        head = head->next;
+        cr_assert_eq(node->x, atoi(str[0]));
+        cr_assert_eq(node->y, atoi(str[1]));
+        cr_assert_eq(node->player, atoi(str[2]));
+        node = node->next;
         j++;
     }
-    cr_assert_eq(list_length(head), 4);
+    cr_assert_eq(j, 4);
 }

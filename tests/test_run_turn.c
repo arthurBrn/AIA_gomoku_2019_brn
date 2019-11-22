@@ -7,6 +7,16 @@
 
 #include "global.h"
 #include <criterion/criterion.h>
+#include <criterion/parameterized.h>
+
+/*struct t_gomoku
+{
+    int size;
+    int player;
+    int start;
+    int end;
+    char **tab;
+    };*/
 
 Test(init_begin, no_player)
 {
@@ -72,8 +82,8 @@ Test(run_turn, game_started_coordonate_out_of_grid)
 Test(run_turn, insertion_in_global_linked_list)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
+//    t_gomoku *gom = cr_malloc(sizeof(t_gomoku));
     int i = 3;
-    int j = 0;
     int res = 0;
     char **str;
     char tab[4][4] =
@@ -81,21 +91,21 @@ Test(run_turn, insertion_in_global_linked_list)
             "1,1",
             "2,2",
             "3,2",
-            "5,4"
+            "5,1"
         };
 
+    gom->size = 20;
     gom->start = 1;
-    while (i >= 0) {
-        res = run_turn(gom, tab[i]);
-//        cr_assert_eq(res, 0);
-        i--;
-    }
-    while (head != NULL) {
-        str = my_str_to_word_array(tab[j], ",");
+    for (; i >=0; i--)
+        run_turn(gom, tab[i]);
+    cr_assert_eq(list_length(head), 4);
+    i = 0;
+    for (; head != NULL; i++) {
+        str = my_str_to_word_array(tab[i], ",");
         cr_assert_eq(head->x, atoi(str[0]));
         cr_assert_eq(head->y, atoi(str[1]));
         cr_assert_eq(head->player, gom->player);
         head = head->next;
     }
-    cr_assert_eq(list_length(head), 3);
+//    cr_free(gom);
 }

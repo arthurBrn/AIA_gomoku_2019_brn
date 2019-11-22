@@ -7,8 +7,7 @@
 
 NAME	=	unit_test
 
-SRC_TEST	=	tests.c\
-			test_error_check_players.c\
+SRC_TEST	=	test_error_check_players.c\
 			test_error_nbr_coma.c\
 			test_error_only_digit_str.c\
 			test_error_coordinate.c\

@@ -1,8 +1,8 @@
-/*                                                                                                  
-** EPITECH PROJECT, 2019                                                                            
-** turn.c                                                                                           
-** File description:                                                                                
-** AIA_gomoku_2019                                                                                  
+/*
+** EPITECH PROJECT, 2019
+** turn.c
+** File description:
+** AIA_gomoku_2019
 */
 
 #include "gomoku.h"
@@ -56,5 +56,5 @@ void check_turn_errors(t_gomoku *gomoku, char *str)
     count_comma(str);
     xy_invalid(gomoku, str);
     len_str(str);
-    only_numbers(str);    
+    only_numbers(str);
 }

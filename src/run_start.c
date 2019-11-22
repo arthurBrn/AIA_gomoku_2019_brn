@@ -12,7 +12,7 @@ int run_start(t_gomoku *gomoku, char *str) {
     if (gomoku->start == 1)
         return (puts(GAME_STARTED));
     if (str == NULL)
-        puts(ERROR_MSG);
+        write(2, ERROR_MSG, strlen(ERROR_MSG));
     else if (gomoku->start == 0 && isnum(str) != ERROR) {
         gomoku->size = atoi(str);
         if (gomoku->size == 0)

@@ -11,7 +11,6 @@
 
 void redirect_stdout_run_start(void)
 {
-    cr_redirect_stdout();
     cr_redirect_stderr();
 }
 
@@ -26,7 +25,8 @@ Test(run_start, game_already_started)
     cr_assert_not_null(res);
 }
 
-Test(run_start, game_not_started_str_invalid, .init=redirect_stdout_run_start)
+
+Test(run_start, game_not_started_str_invalid, .init=cr_redirect_stderr)
 {
     char *str = "0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
@@ -34,7 +34,7 @@ Test(run_start, game_not_started_str_invalid, .init=redirect_stdout_run_start)
 
     gom->start = 0;
     run_start(gom, str);
-    cr_assert_stdout_eq_str(ERROR_MSG);
+    cr_assert_stderr_eq_str(ERROR_MSG);
 }
 
 

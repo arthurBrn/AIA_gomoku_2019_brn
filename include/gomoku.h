@@ -76,4 +76,6 @@ int count_comma(char *str);
 int xy_invalid(t_gomoku *gomoku, char *str);
 int len_str(char *str);
 int only_numbers(char *str);
+void print_list(node_t *head);
+int empty_list(node_t *head);
 #endif

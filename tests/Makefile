@@ -37,6 +37,8 @@ SRC		=	../src/run_start.c					\
 			../src/error.c\
 			../src/store_board.c\
 			../src/check_turn_errors.c\
+			../src/empty_list.c\
+			../src/print_list.c\
 
 OBJ 	=	$(SRC:.c=.o)
 

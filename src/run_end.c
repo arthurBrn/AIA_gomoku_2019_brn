@@ -8,10 +8,11 @@
 #include "gomoku.h"
 
 int run_end(t_gomoku *gomoku, char *str) {
-    (void) str;
-
-    if (gomoku->start == 0)
-        puts(GAME_NOT_STARTED);
+    (void)str;
+    if (gomoku->start == 0) {
+        write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
+        return (ERROR);
+    }
     else {
         write(1, GAME_FINISH, strlen(GAME_FINISH));
         gomoku->end = 1;

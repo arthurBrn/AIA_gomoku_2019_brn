@@ -8,18 +8,17 @@
 #include "gomoku.h"
 
 int    run_begin(t_gomoku *gomoku, char *str) {
-
     if (gomoku->player == 1) {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
-        exit(84);
+        return (ERROR);
     }
     if (gomoku->start == 0) {
         write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
-        exit(84);
+        return (ERROR);
     }
     if (strcmp(str, "") != 0) {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
-        exit(84);
+        return (ERROR);
     }
     else
         gomoku->player = 1;

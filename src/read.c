@@ -40,7 +40,7 @@ int readstandard(t_gomoku *gomoku) {
             return (ERROR);
         str[size - 1] = '\0';
         if (check_cmd(str, tab_cmd, gomoku) == 1)
-            puts(UNKNOWN);
+            write(2, UNKNOWN, strlen(UNKNOWN));
         free(str);
     }
     return (0);

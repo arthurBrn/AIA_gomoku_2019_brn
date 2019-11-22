@@ -9,17 +9,21 @@
 
 int run_start(t_gomoku *gomoku, char *str) {
 
-    if (gomoku->start == 1)
-        return (puts(GAME_STARTED));
-    if (str == NULL)
-        puts(ERROR_MSG);
-    else if (gomoku->start == 0 && isnum(str) != ERROR) {
+    if (gomoku->start == 1) {
+        write(2, GAME_STARTED, strlen(GAME_STARTED));
+        exit(84);
+    }
+    if (gomoku->start == 0 && isnum(str) != ERROR) {
         gomoku->size = atoi(str);
-        if (gomoku->size == 0)
-            return (puts(ERROR_MSG));
-        puts(OK_MSG);
+        if (gomoku->size == 0) {
+            write(2, ERROR_MSG, strlen(ERROR_MSG));
+            exit(84);
+        }
+        write(1, OK_MSG, strlen(OK_MSG));
         gomoku->start = 1;
-    } else
-        puts(ERROR_MSG);
+    } else {
+        write(2, ERROR_MSG, strlen(ERROR_MSG));
+        exit(84);
+    }
     return (0);
 }

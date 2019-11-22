@@ -9,26 +9,28 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-void redirect_stdout_run_begin(void)
+/*
+void redirect_stderr_run_begin(void)
 {
-    cr_redirect_stdout();
+    cr_redirect_stderr();
 }
 
-Test(run_begin, game_not_started, .init=redirect_stdout_run_begin)
+Test(run_begin, game_not_started, .init=cr_redirect_stderr)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BEGIN";
+    char *str = "";
     int res = 0;
 
     gom->start = 0;
-    run_begin(gom, str);
-    cr_assert_stdout_eq_str(GAME_NOT_STARTED);
+    res = run_begin(gom, str);
+    cr_assert_eq(res, 0);
+    cr_assert_stderr_eq_str(GAME_NOT_STARTED);
 }
-
+*/
 Test(run_begin, game_started)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BEGIN";
+    char *str = "";
 
     gom->start = 1;
     run_begin(gom, str);

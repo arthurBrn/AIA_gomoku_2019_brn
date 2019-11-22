@@ -33,12 +33,13 @@ typedef struct node {
 } node_t;
 
 #define ERROR 84
-#define OK_MSG "OK - everything is good"
+#define OK_MSG "OK - everything is good\n"
 #define ERROR_MSG "ERROR message - unsupported size or other error\n"
-#define GAME_STARTED "ERROR: The game is already start."
-#define ERROR_SIZE "ERROR: The parameters must be smaller than the size"
-#define UNKNOWN "UNKNOWN: The commands doesn't exist."
-#define GAME_NOT_STARTED "ERROR: The game didn't start."
+#define GAME_STARTED "ERROR: The game is already start.\n"
+#define ERROR_SIZE "ERROR: The parameters must be smaller than the size\n"
+#define UNKNOWN "UNKNOWN: The commands doesn't exist.\n"
+#define GAME_FINISH "none\n"
+#define GAME_NOT_STARTED "ERROR: The game didn't start.\n"
 
 void init_struct(t_gomoku *gomoku);
 int readstandard(t_gomoku *gomoku);

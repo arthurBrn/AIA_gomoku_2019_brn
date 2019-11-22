@@ -7,8 +7,8 @@
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
-#include <criterion/redirect.h>
-
+//#include <criterion/redirect.h>
+/*
 void redirect_stdout(void)
 {
     cr_redirect_stdout();
@@ -26,3 +26,4 @@ Test(run_board, game_not_started)
     cr_assert_not_null(res);
 }
 
+*/

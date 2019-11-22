@@ -21,7 +21,8 @@ SRCS	=	./src/cmd.c						\
 		./src/my_intlen.c					\
 		./src/run_begin.c					\
 		./src/store_board.c					\
-		./src/error.c
+		./src/error.c						\
+		./src/check_turn_errors.c
 
 OBJS	=	$(SRCS:.c=.o)
 

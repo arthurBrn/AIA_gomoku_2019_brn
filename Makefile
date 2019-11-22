@@ -42,9 +42,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
-	rm src/*.gcno
-	rm src/*.gcda
-#	$(MAKE) -C $(TEST_DIR) fclean
+	$(MAKE) -C $(TEST_DIR) fclean
 
 re: fclean all
 

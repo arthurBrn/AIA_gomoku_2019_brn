@@ -65,7 +65,7 @@ node_t *add_node(char *str, node_t *node_head)
     return (temp);
 }
 
-void store_board(char *str, t_gomoku *gom)
+int store_board(char *str, t_gomoku *gom)
 {
     node_t *node = NULL;
     int valid_str = check_string(str, gom);
@@ -75,6 +75,7 @@ void store_board(char *str, t_gomoku *gom)
         node = add_node(str, head);
         head = node;
     } else {
-        puts(ERROR_MSG);
+        return (ERROR);
     }
+    return (0);
 }

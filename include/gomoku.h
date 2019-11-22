@@ -64,7 +64,7 @@ char **my_str_to_word_array(char *str, char *delimiter);
 int list_length(node_t *node);
 int matching_node(char *str, node_t *node);
 node_t *add_node(char *str, node_t *node);
-void store_board(char *str, t_gomoku *gomoku);
+int store_board(char *str, t_gomoku *gomoku);
 int run_begin(t_gomoku *gomoku, char *str);
 int check_error(t_gomoku *gomoku, char *str);
 void init_begin(t_gomoku *gom);

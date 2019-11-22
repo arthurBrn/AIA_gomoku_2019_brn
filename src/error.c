@@ -11,10 +11,11 @@ int nbr_coma(char *str)
 {
     int i = 0;
     int flag = 0;
+    int len = strlen(str);
 
     if (str[0] == ',' || str[strlen(str + 1)] == ',')
         return (ERROR);
-    for (; i < strlen(str); i++) {
+    for (; i < len; i++) {
         if (str[i] == ',')
             flag++;
         if (str[i] == ',' && (str[i + 1] == ',' || str[i - 1] == ','))
@@ -38,8 +39,7 @@ int only_digit_str(char *str)
         else
             return (ERROR);
     }
-    if (i > 1)
-        return (1);
+    return (1);
 }
 
 int check_players(char c)

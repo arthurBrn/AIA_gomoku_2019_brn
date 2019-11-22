@@ -52,7 +52,7 @@ debug: $(NAME)
 
 tests_run:
 	$(MAKE) -C $(TEST_DIR)
-	./$(TEST_DIR)/unit_test
+	./$(TEST_DIR)unit_test
 
 coverage:
 	gcovr --exclude tests --branch

@@ -10,7 +10,7 @@
 int run_board(t_gomoku *gomoku, char *s1) {
     (void) s1;
     ssize_t size = 0;
-    char *str;
+    char *str = {0};
 
     if (gomoku->start == 0)
         return (puts(GAME_NOT_STARTED));

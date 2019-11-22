@@ -2,92 +2,57 @@
 ** EPITECH PROJECT, 2019
 ** test_run_start.c
 ** File description:
-** test all function in src/run_start.c
+** test all function of file run_start.c
 */
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
 
-Test(run_start, invalid_min_cmd)
+void redirect_stdout_run_start(void)
 {
-    char *str = "start 20";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    res = run_start(gom, str);
-    cr_assert_eq(res, 2);
+    cr_redirect_stdout();
+    cr_redirect_stderr();
 }
 
-Test(run_start, invalid_cmd)
+Test(run_start, game_already_started)
 {
-    char *str = "STAR 20";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    res = run_start(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_start, valid_cmd_w_invalid_param)
-{
-    char *str = "START 0";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    res = run_start(gom, str);
-    cr_assert_eq(res, 84);
-}
-
-Test(run_start, valid_cmd_w_no_param)
-{
-    char *str = "START";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    res = run_start(gom, str);
-    cr_assert_eq(res, 84);
-}
-
-Test(run_start, valid_cmd_w_valid_param)
-{
-    char *str = "START 25";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    res = run_start(gom, str);
-    cr_assert_eq(res, 0);
-    cr_assert_eq(gom->start, 1);
-    cr_assert_eq(gom->size, 25);
-}
-
-Test(run_start, valid_cmd_valid_size_and_game_not_started)
-{
-    char *str = "START 20";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    gom->start = 0;
-    res = run_start(gom, str);
-    cr_assert_eq(res, 0);
-    cr_assert_eq(gom->size, 20);
-    cr_assert_eq(gom->start, 1);
-}
-
-Test(run_start, valid_cmd_valid_size_game_started_wrong_args)
-{
-    char *str = "START 2a0";
+    char *str = "20";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
     gom->start = 1;
     res = run_start(gom, str);
-    cr_assert_eq(res, 1);
-    cr_assert_eq(gom->start, 1);
+    cr_assert_not_null(res);
 }
 
-Test(run_start, valid_cmd_valid_size_game_not_started_size_of_zero)
+Test(run_start, game_not_started_str_invalid, .init=redirect_stdout_run_start)
 {
-    char *str = "START 0";
+    char *str = "0";
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
+    int res = 0;
+
+    gom->start = 0;
+    run_start(gom, str);
+    cr_assert_stdout_eq_str(ERROR_MSG);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Test size of zero
+/*Test(run_start, str_size_of_zero)
+{
+    char *str = "0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
@@ -97,16 +62,19 @@ Test(run_start, valid_cmd_valid_size_game_not_started_size_of_zero)
     cr_assert_eq(gom->start, 0);
     cr_assert_eq(gom->size, 0);
 }
+*/
 
-Test(run_start, valid_cmd_valid_size_game_not_started)
+// Test invalid size => 2a0
+/*
+Test(run_start, str_invalid_size)
 {
-    char *str = "START 20";
+    char *str = "2a0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
     gom->start = 0;
     res = run_start(gom, str);
-    cr_assert_eq(res, 0);
     cr_assert_eq(gom->start, 1);
-    cr_assert_eq(gom->size, 20);
 }
+*/
+

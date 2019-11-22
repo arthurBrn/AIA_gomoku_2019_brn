@@ -7,84 +7,30 @@
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
 
-Test(run_begin, invalid_cmd)
+void redirect_stdout_run_begin(void)
 {
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BEGIN ";
-    int res = 0;
-
-    gom->player = 0;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 2);
+    cr_redirect_stdout();
 }
 
-Test(run_begin, invalid_cmd_two)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "begin";
-    int res = 0;
-
-    gom->player = 0;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_begin, invalid_cmd_three)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "START";
-    int res = 0;
-
-    gom->player = 0;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_begin, invalid_player_valid_cmd)
+Test(run_begin, game_not_started, .init=redirect_stdout_run_begin)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "BEGIN";
     int res = 0;
 
-    gom->player = 1;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_begin, invalid_cmd_invalid_player)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BEGIN ";
-    int res = 0;
-
-    gom->player = 3;
-    gom->start = 1;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_begin, game_not_started)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BEGIN";
-    int res = 0;
-
-    gom->player = 0;
     gom->start = 0;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 1);
+    run_begin(gom, str);
+    cr_assert_stdout_eq_str(GAME_NOT_STARTED);
 }
 
-Test(run_begin, valid_str_player_game_started)
+Test(run_begin, game_started)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *str = "BEGIN";
-    int res = 0;
 
-    gom->player = 0;
     gom->start = 1;
-    res = run_begin(gom, str);
-    cr_assert_eq(res, 0);
+    run_begin(gom, str);
     cr_assert_eq(gom->player, 1);
 }

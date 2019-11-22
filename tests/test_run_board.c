@@ -7,25 +7,12 @@
 
 #include "gomoku.h"
 #include <criterion/criterion.h>
+#include <criterion/redirect.h>
 
-Test(run_board, invalid_cmd)
+void redirect_stdout(void)
 {
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BOARD ";
-    int res = 0;
-
-    res = run_board(gom, str);
-    cr_assert_eq(res, 2);
-}
-
-Test(run_board, invalid_min_cmd)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "board";
-    int res = 0;
-
-    res = run_board(gom, str);
-    cr_assert_eq(res, 2);
+    cr_redirect_stdout();
+    cr_redirect_stderr();
 }
 
 Test(run_board, game_not_started)
@@ -35,6 +22,7 @@ Test(run_board, game_not_started)
     int res = 0;
 
     gom->start = 0;
-    res = run_board(gom, str);
-    cr_assert_eq(res, 0);
+    res = run_board(gom,str);
+    cr_assert_not_null(res);
 }
+

@@ -41,7 +41,6 @@ void init_begin(t_gomoku *gomoku)
 
 int run_turn(t_gomoku *gomoku, char *str)
 {
-    int *tab;
     char *new_str;
     int index = strlen(str) + 1;
 
@@ -53,7 +52,6 @@ int run_turn(t_gomoku *gomoku, char *str)
         write(2, ERROR_MSG, strlen(ERROR_MSG));
         return (ERROR);
     }
-    tab = malloc(sizeof(int) * (strlen(str)) + 4);
     init_begin(gomoku);
     new_str = malloc(sizeof(char) + 10);
     new_str = strcat(str, ",");

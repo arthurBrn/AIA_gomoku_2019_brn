@@ -58,6 +58,8 @@ clean:
 fclean:	clean
 		$(RM) $(NAME)
 		$(RM) $(wildcard *.gc*)
+		$(RM) ./../src/*.gcno
+		$(RM) ./../src/*.gcda
 
 re: fclean all
 

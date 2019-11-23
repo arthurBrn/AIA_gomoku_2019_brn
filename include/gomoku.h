@@ -42,7 +42,7 @@ typedef struct node {
 #define GAME_NOT_STARTED "ERROR: The game didn't start.\n"
 
 void init_struct(t_gomoku *gomoku);
-int readstandard(t_gomoku *gomoku);
+int readstandard();
 void run_cmd(int (**tab_cmd)(t_gomoku *, char *));
 int run_board(t_gomoku *gomoku, char *str);
 int run_start(t_gomoku *gomoku, char *str);
@@ -52,7 +52,6 @@ char **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);
 char *board();
 void init_struct(t_gomoku *gomoku);
-int readstandard(t_gomoku *gomoku);
 int my_intlen(int nb);
 void invalid_string(void);
 int nbr_coma(char *str);

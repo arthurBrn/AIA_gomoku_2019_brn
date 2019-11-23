@@ -30,6 +30,7 @@ char *itoa(int nb, char *str, int size) {
 
 
 int begin_ia(t_gomoku *gomoku, char *str) {
+    (void) str;
     int middle = gomoku->size / 2;
     char *s1 = malloc(sizeof(char) * 2);
 

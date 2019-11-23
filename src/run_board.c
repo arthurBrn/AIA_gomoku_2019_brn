@@ -23,7 +23,7 @@ int run_board(t_gomoku *gomoku, char *s1)
             return (ERROR);
         str[size - 1] = '\0';
         if (strcmp("DONE", str) == 0)
-            write (1, "The brain answers: \n", 21);
+            return (0);
         else if (store_board(str, gomoku) == 84)
             return (ERROR);
         free(str);

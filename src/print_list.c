@@ -7,16 +7,16 @@
 
 #include "global.h"
 
-void print_list(node_t *head)
+void print_list(node_t *node_head)
 {
-    if (head == NULL)
+    if (node_head == NULL)
         puts("NOTHING TO PRINT");
-    while (head != NULL) {
+    while (node_head != NULL) {
         puts("[current_head][x][y][player] => ");
-        putchar(head->x + '0');
-        putchar(head->y + '0');
-        putchar(head->player + '0');
+        putchar(node_head->x + '0');
+        putchar(node_head->y + '0');
+        putchar(node_head->player + '0');
         putchar('\n');
-        head = head->next;
+        node_head = node_head->next;
     }
 }

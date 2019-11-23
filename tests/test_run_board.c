@@ -53,10 +53,11 @@ Test(run_board, feeding_read_empty_str)
 }
 */
 
+/*
 Test(run_board, feeling_linked_list_w_data_send_through_board)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char *str = "BOARD";
+    char *str = "";
     int res = 0;
     int i = 3;
     char tab[4][8] =
@@ -67,16 +68,14 @@ Test(run_board, feeling_linked_list_w_data_send_through_board)
             "1,1,1"
         };
 
+    gom->size = 20;
     gom->start = 1;
     for (; i >= 0; i--) {
-        run_board(gom, tab[i]);
-        if (i == 0)
-            write(1, "DONE", 4);
-        else
-            write(1, tab[1], 6);
+        run_board(gom, str);
         i--;
     }
     cr_assert_neq(empty_list(head), 0);
     cr_assert_neq(res, ERROR);
     cr_assert_eq(res, 0);
 }
+*/

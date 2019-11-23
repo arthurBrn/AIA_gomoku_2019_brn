@@ -61,8 +61,10 @@ int check_coordinate(char *str, t_gomoku *gom)
     if (only_digit_str(str) == ERROR)
         return (ERROR);
     x = atoi(tab[0]);
-    y = atoi(tab[0]);
-    if ((x < 0 || x > gom->size) || (y < 0 || y > gom->size))
+    y = atoi(tab[1]);
+    if (x <= 0 || x > gom->size)
+        return (ERROR);
+    if (y <= 0 || y > gom->size)
         return (ERROR);
     return (flag);
 }

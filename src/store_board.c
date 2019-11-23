@@ -34,16 +34,13 @@ int matching_node(char *str, node_t *node)
     int x = atoi(tab[0]);
     int y = atoi(tab[1]);
     int p = atoi(tab[2]);
-    int flag = 1;
 
-    if (node == NULL)
-        return (1);
     while (node != NULL) {
         if (x == node->x && y == node->y && p == node->player)
-            flag = 0;
+            return (84);
         node = node->next;
     }
-    return (flag);
+    return (1);
 }
 
 node_t *add_node(char *str, node_t *node_head)

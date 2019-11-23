@@ -21,7 +21,7 @@ Test(matching_nodes, test_matching_nodes)
         i--;
     }
     res = matching_node(src, head);
-    cr_assert_eq(res, 0);
+    cr_assert_eq(res, 84);
 }
 
 Test(matching_nodes, test_none_matching_nodes)

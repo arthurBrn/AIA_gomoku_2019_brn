@@ -24,8 +24,10 @@ int run_board(t_gomoku *gomoku, char *s1)
         str[size - 1] = '\0';
         if (strcmp("DONE", str) == 0)
             return (0);
-        else if (store_board(str, gomoku) == 84)
+        else if (store_board(str, gomoku) == 84) {
+            write(1, ERROR_SIZE, strlen(ERROR_SIZE));
             return (ERROR);
+        }
         free(str);
     }
     return (0);

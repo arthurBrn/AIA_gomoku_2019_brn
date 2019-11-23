@@ -32,19 +32,19 @@ int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku) {
     return (0);
 }
 
-int readstandard(t_gomoku *gomoku) {
+int loop_read(t_gomoku *gomoku, int (*tab_cmd[5])(t_gomoku *, char *)) {
     char *str = NULL;
-    ssize_t size;
-    int (*tab_cmd[5])(t_gomoku *, char *);
     int return_value = 0;
+    ssize_t size;
 
-    run_cmd(tab_cmd);
     while (gomoku->end != 1) {
         if ((str = malloc(sizeof(char) * BUFF_SIZE)) == NULL)
             return (ERROR);
         if ((size = read(0, str, BUFF_SIZE)) < 0)
             return (ERROR);
         str[size - 1] = '\0';
+        if (strcmp(str, "") == 0)
+            return (loop_read(gomoku, tab_cmd));
         return_value = check_cmd(str, tab_cmd, gomoku);
         if (return_value == 1)
             write(2, UNKNOWN, strlen(UNKNOWN));
@@ -52,5 +52,16 @@ int readstandard(t_gomoku *gomoku) {
             return (ERROR);
         free(str);
     }
+    return (0);
+}
+
+int readstandard() {
+    t_gomoku    *gomoku = malloc(sizeof(*gomoku));
+    int (*tab_cmd[5])(t_gomoku *, char *);
+
+    init_struct(gomoku);
+    run_cmd(tab_cmd);
+    if (loop_read(gomoku, tab_cmd) == ERROR)
+        return (ERROR);
     return (0);
 }

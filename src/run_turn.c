@@ -44,24 +44,18 @@ int run_turn(t_gomoku *gomoku, char *str)
     char *new_str = "";
     int index = strlen(str) + 1;
 
-    if (gomoku->start == 0) {
-        write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
-        return (ERROR);
-    }
-    if (check_turn_errors(gomoku, str) != 0) {
-        write(2, ERROR_MSG, strlen(ERROR_MSG));
-        return (ERROR);
-    }
+    if (gomoku->start == 0)
+        return (write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED)), ERROR);
+    if (check_turn_errors(gomoku, str) != 0)
+        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
     init_begin(gomoku);
     new_str = malloc(sizeof(char) * (strlen(str) + 3));
     strcpy(new_str, str);
     strcat(new_str, ",");
     new_str[index] = gomoku->player + 48;
     new_str[index+1] = '\0';
-    if (store_board(new_str, gomoku) == 84) {
-        write(2, ERROR_MSG, strlen(ERROR_MSG));
-        return (ERROR);
-    }
+    if (store_board(new_str, gomoku) == 84)
+        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
     free(new_str);
     return (0);
 }

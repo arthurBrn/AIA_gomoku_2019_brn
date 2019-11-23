@@ -9,14 +9,17 @@
 
 void free_list(node_t *node_head)
 {
-    node_t *current = node_head;
-    node_t *next = node_head;
+    node_t *current = NULL;
+    node_t *next = NULL;
 
     while (node_head != NULL) {
+        current = node_head;
         next = node_head->next;
-        current = next;
+        node_head = next;
         free(current);
     }
+    head = NULL;
+//    free(the_head);
 }
 
 int list_length(node_t *node_head)

@@ -10,9 +10,9 @@
 int main(void)
 {
     if (readstandard() == ERROR) {
-//        free_list(head);
+        free_list(head);
         return (ERROR);
     }
-    print_list(head);
+    free_list(head);
     return (0);
 }

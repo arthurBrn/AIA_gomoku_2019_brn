@@ -68,14 +68,11 @@ node_t *add_node(char *str, node_t *node_head)
 int store_board(char *str, t_gomoku *gom)
 {
     node_t *node = NULL;
-    int valid_str = check_string(str, gom);
-    int matching = matching_node(str, head);
 
-    if (valid_str == 1 && matching == 1) {
+    if (check_string(str, gom) != 84 && matching_node(str, head) != 84) {
         node = add_node(str, head);
         head = node;
-    } else {
+    } else
         return (ERROR);
-    }
     return (0);
 }

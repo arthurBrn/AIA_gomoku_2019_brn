@@ -7,8 +7,10 @@
 
 #include "global.h"
 
-void print_list(node_t *node_head)
+void print_list(node_t *node)
 {
+    node_t *node_head = node;
+
     if (node_head == NULL)
         puts("NOTHING TO PRINT");
     while (node_head != NULL) {

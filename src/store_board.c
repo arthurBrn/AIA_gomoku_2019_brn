@@ -11,22 +11,24 @@ int list_length(node_t *node_head)
 {
     int i = 0;
 
-    for (; node_head != NULL; i++)
-        node_head = node_head->next;
+    node_t *node = node_head;
+    for (; node != NULL; i++)
+        node = node->next;
     return (i);
 }
 
 int matching_node(char *str, node_t *node)
 {
+    node_t *node_head = node;
     char **tab = my_str_to_word_array(str, ",");
     int x = atoi(tab[0]);
     int y = atoi(tab[1]);
     int p = atoi(tab[2]);
 
-    while (node != NULL) {
-        if (x == node->x && y == node->y && p == node->player)
+    while (node_head != NULL) {
+        if (x == node_head->x && y == node_head->y && p == node_head->player)
             return (84);
-        node = node->next;
+        node_head = node_head->next;
     }
     return (1);
 }

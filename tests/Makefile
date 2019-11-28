@@ -23,6 +23,7 @@ SRC_TEST	=	test_error_check_players.c\
 			test_run_start.c\
 			test_run_turn.c\
 			test_check_turn_errors.c\
+			test_tree.c\
 
 SRC		=	../src/run_start.c					\
 			../src/run_begin.c					\
@@ -39,6 +40,7 @@ SRC		=	../src/run_start.c					\
 			../src/check_turn_errors.c\
 			../src/empty_list.c\
 			../src/print_list.c\
+			../src/tree.c\
 
 OBJ 	=	$(SRC:.c=.o)
 

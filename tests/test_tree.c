@@ -17,11 +17,12 @@ Test(init_regular_node, reg_node_init_w_fix_value_x_and_0)
     tree_node_t *node_z = malloc(sizeof(tree_node_t));
     int i = 1;
     int z = 0;
+    int depth_size = 1;
 
     gom->size = 3;
     temp_root = init_root_node(temp_root, gom);
-    node_x = init_regular_node(temp_root->node, node_x, i);
-    node_z = init_regular_node(temp_root->node, node_z, z);
+    node_x = init_regular_node(temp_root->node, node_x, i, depth_size);
+    node_z = init_regular_node(temp_root->node, node_z, z, depth_size);
     cr_assert_eq(node_x->parent, temp_root->node);
     cr_assert_eq(node_x->x, i);
     cr_assert_eq(node_x->y, i);
@@ -40,11 +41,12 @@ Test(init_regular_node, reg_node_init_w_random_value_through_loop)
     root_t *temp_root = malloc(sizeof(root_t));
     tree_node_t *node = malloc(sizeof(tree_node_t));
     int tab[5] = {0,1,2,3,4};
+    int depth_size = 1;
 
     gom->size = 3;
     temp_root = init_root_node(temp_root, gom);
     for (int cpt = 0; cpt < 5; cpt++) {
-        node = init_regular_node(temp_root->node, node, cpt);
+        node = init_regular_node(temp_root->node, node, cpt, depth_size);
         cr_assert_eq(node->parent, temp_root->node);
         cr_assert_eq(node->x, tab[cpt]);
         cr_assert_eq(node->y, tab[cpt]);
@@ -74,11 +76,12 @@ Test(init_root_node, proper_root_initiailzation)
     cr_assert_not_null(temp_root->node->children);
 }
 
-Test(adding_one_depth, multiple_reg_node_init)
+Test(adding_one_depth, multiple_reg_node_init_depth_one)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     root_t *temp_root = malloc(sizeof(root_t));
     int tab[9] = {0,1,2,3,4,5,6,7,8};
+    int depth_size = 1;
 
     gom->size = 3;
     temp_root = init_root_node(temp_root, gom);
@@ -89,10 +92,10 @@ Test(adding_one_depth, multiple_reg_node_init)
     cr_assert_eq(temp_root->node->points, 0);
     cr_assert_eq(temp_root->size, ((gom->size * gom->size) - list_length(head)));
     cr_assert_eq(temp_root->size, 9);
-    temp_root = adding_one_depth(temp_root, temp_root->node ,gom);
+    adding_one_depth(temp_root->node, gom, temp_root->size, depth_size);
     for (int i = 0; i < temp_root->size; i++) {
         cr_assert_not_null(temp_root->node->children[i]);
-        cr_assert_not_null(temp_root->node->children[i]->parent);        
+        cr_assert_not_null(temp_root->node->children[i]->parent);
         cr_assert_null(temp_root->node->children[i]->children);
         cr_assert_eq(temp_root->node->children[i]->parent, temp_root->node);
         cr_assert_eq(temp_root->node->children[i]->x, i);
@@ -101,26 +104,15 @@ Test(adding_one_depth, multiple_reg_node_init)
     }
 }
 
-Test(initialize_tree, size_not_set)
+Test(initialize_tree, valid_tree_initialization_depth_one)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    root_t *temp_root = malloc(sizeof(root_t));
     int res = 0;
-
-    gom->size = 0;
-    res = initialize_tree(gom);
-  //  cr_assert_eq(res, 84);
-}
-
-Test(initialize_tree, valid_tree_size)
-{
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    root_t *temp_root = malloc(sizeof(root_t));
-    int res = 0;
+    int depth_size = 1;
 
     gom->size = 3;
-    res = initialize_tree(gom);
-    //cr_assert_eq(res, 0);
+    res = initialize_tree(gom, depth_size);
+    cr_assert_eq(res, 0);
     cr_assert_eq(root->size, ((gom->size*gom->size) - list_length(head)));
     cr_assert_not_null(root->node);
     cr_assert_eq(root->node->x, 0);
@@ -128,37 +120,19 @@ Test(initialize_tree, valid_tree_size)
     cr_assert_eq(root->node->points, 0);
     cr_assert_null(root->node->parent);
     cr_assert_not_null(root->node->children);
-    // loop over children || also check that children can't have coordinate above the board size
 }
 
-/*
-Test(depth, some_name)
+Test(initialize_tree, valid_tree_initialization_depth_two)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    root_t *temp_root = malloc(sizeof(root_t));
+    int res = 0;
+    int depth_size = 2;
 
     gom->size = 3;
-
-    cr_assert_eq(temp_root->size, ((gom->size * gom->size) - list_length(head)));
-    cr_assert_not_null(temp_root->node->children);
-    cr_assert_not_null(temp_root->node->children[0]->children);
+    res = initialize_tree(gom, depth_size);
+    cr_assert_eq(root->size, ((gom->size*gom->size) - list_length(head)));
+    cr_assert_not_null(root->node->children);
+    cr_assert_not_null(root->node->children[0]->children);
+    cr_assert_not_null(root->node->children[0]->children[0]);
+    cr_assert_eq(root->node->children[0]->children[0]->x, 0);
 }
-*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

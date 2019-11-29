@@ -25,6 +25,7 @@ SRCS	=	./src/cmd.c						\
 		./src/check_turn_errors.c				\
 		./src/print_list.c					\
 		./src/free.c						\
+		./src/check_aligned.c					\
 
 OBJS	=	$(SRCS:.c=.o)
 

@@ -39,6 +39,14 @@ void init_begin(t_gomoku *gomoku)
         gomoku->player = 2;
 }
 
+int concat_player(t_gomoku *gomoku)
+{
+    if (gomoku->player == 1)
+	return (2);
+    else if(gomoku->player == 2)
+	return (1);
+}
+
 int run_turn(t_gomoku *gomoku, char *str)
 {
     char *new_str = "";
@@ -52,10 +60,11 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str = malloc(sizeof(char) * (strlen(str) + 3));
     strcpy(new_str, str);
     strcat(new_str, ",");
-    new_str[index] = gomoku->player + 48;
+    new_str[index] = concat_player(gomoku) + 48;
     new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84)
         return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
     free(new_str);
+    check_aligned(gomoku);
     return (0);
 }

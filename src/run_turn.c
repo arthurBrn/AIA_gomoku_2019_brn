@@ -63,7 +63,7 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str[index] = concat_player(gomoku) + 48;
     new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84)
-        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
+	return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
     free(new_str);
     check_aligned(gomoku);
     return (0);

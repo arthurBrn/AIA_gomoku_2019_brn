@@ -35,6 +35,7 @@ int run_start(t_gomoku *gomoku, char *str) {
 	store_board("4,10,2", gomoku);
 	store_board("6,10,2", gomoku);
 	store_board("7,10,2", gomoku);
+	print_list(head);
 	gomoku->start = 1;
     } else {
         write(2, ERROR_MSG, strlen(ERROR_MSG));

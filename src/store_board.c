@@ -26,6 +26,8 @@ int matching_node(char *str, node_t *node)
     while (node != NULL) {
         if (x == node->x && y == node->y && p == node->player)
             return (84);
+	if (x == node->x && y == node->y)
+	    return (84);
         node = node->next;
     }
     return (1);

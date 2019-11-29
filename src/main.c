@@ -9,9 +9,9 @@
 
 int main(void)
 {
-    if (readstandard() == ERROR) {
+    if (gomoku() == MY_EXIT_FAILURE) {
         free_list(head);
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     }
     free_list(head);
     return (0);

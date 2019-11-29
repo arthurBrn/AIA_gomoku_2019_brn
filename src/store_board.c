@@ -28,6 +28,8 @@ int matching_node(char *str, node_t *node)
     while (node_head != NULL) {
         if (x == node_head->x && y == node_head->y && p == node_head->player)
             return (84);
+        if (x == node_head->x && y == node_head->y)
+            return (84);
         node_head = node_head->next;
     }
     return (1);

@@ -9,31 +9,18 @@
 #include <criterion/criterion.h>
 #include <criterion/redirect.h>
 
-/*Test(run_start, game_already_started)
+Test(run_start, game_already_started)
 {
-    char *str = "20";
+    char *str = "";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     int res = 0;
 
     gom->start = 1;
     res = run_start(gom, str);
-    cr_assert_not_null(res);
+    cr_assert_eq(res, ERROR);
 }
-*/
 
-/*Test(run_start, game_not_started_str_invalid, .init=cr_redirect_stderr)
-{
-    char *str = "0";
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    int res = 0;
-
-    gom->start = 0;
-    run_start(gom, str);
-    cr_assert_stderr_eq_str(ERROR_MSG);
-    }*/
-
-// Test size of zero
-/*Test(run_start, str_size_of_zero)
+Test(run_start, game_not_started_valid_str_but_size_zero)
 {
     char *str = "0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
@@ -42,22 +29,41 @@
     gom->start = 0;
     res = run_start(gom, str);
     cr_assert_eq(res, 84);
-    cr_assert_eq(gom->start, 0);
-    cr_assert_eq(gom->size, 0);
 }
-*/
 
-// Test invalid size => 2a0
-/*
-Test(run_start, str_invalid_size)
+
+Test(run_start, str_invalid_game_not_started)
 {
-    char *str = "2a0";
     t_gomoku *gom = malloc(sizeof(t_gomoku));
+    char *str = "2a0";
     int res = 0;
 
     gom->start = 0;
     res = run_start(gom, str);
+    cr_assert_eq(res, 84);
+}
+
+Test(run_start, str_invalid_game_started)
+{
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
+    char *str = "2a0";
+    int res = 0;
+
+    gom->start = 1;
+    res = run_start(gom, str);
+    cr_assert_eq(res, 84);
+}
+
+
+Test(run_start, str_valid_game_not_started)
+{
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
+    char *str = "20";
+    int res = 0;
+
+    gom->start = 0;
+    res = run_start(gom, str);
+    cr_assert_eq(res, 0);
+    cr_assert_eq(gom->size, 20);
     cr_assert_eq(gom->start, 1);
 }
-*/
-

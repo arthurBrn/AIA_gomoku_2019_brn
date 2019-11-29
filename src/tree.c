@@ -61,7 +61,6 @@ void initialize_several_depth(tree_node_t *parent, t_gomoku *gom, int depth_size
         for (int k = 0; k < (count_children - 1); k++)
             adding_one_depth(parent->children[j], gom, (count_children - 1), depth_size);
     }
-    depth_size--;
 }
 
 int initialize_tree(t_gomoku *gom, int depth_size)

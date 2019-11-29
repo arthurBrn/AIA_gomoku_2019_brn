@@ -136,3 +136,5 @@ Test(initialize_tree, valid_tree_initialization_depth_two)
     cr_assert_not_null(root->node->children[0]->children[0]);
     cr_assert_eq(root->node->children[0]->children[0]->x, 0);
 }
+
+

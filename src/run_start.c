@@ -7,9 +7,8 @@
 
 #include "gomoku.h"
 
-int run_start(t_gomoku *gomoku, char *str) {
-    (void) str;
-
+int run_start(t_gomoku *gomoku, char *str)
+{
     if (gomoku->start == 1) {
         write(2, GAME_STARTED, strlen(GAME_STARTED));
         return (ERROR);
@@ -26,6 +25,5 @@ int run_start(t_gomoku *gomoku, char *str) {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
         return (ERROR);
     }
-    free(str);
     return (0);
 }

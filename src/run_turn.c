@@ -45,9 +45,9 @@ int run_turn(t_gomoku *gomoku, char *str)
     int index = strlen(str) + 1;
 
     if (gomoku->start == 0)
-        return (write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED)), ERROR);
+        return (write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED)), MY_EXIT_FAILURE);
     if (check_turn_errors(gomoku, str) != 0)
-        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
+        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), MY_EXIT_FAILURE);
     init_begin(gomoku);
     new_str = malloc(sizeof(char) * (strlen(str) + 3));
     strcpy(new_str, str);
@@ -55,7 +55,7 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str[index] = gomoku->player + 48;
     new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84)
-        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), ERROR);
+        return (write(2, ERROR_MSG, strlen(ERROR_MSG)), MY_EXIT_FAILURE);
     free(new_str);
     return (0);
 }

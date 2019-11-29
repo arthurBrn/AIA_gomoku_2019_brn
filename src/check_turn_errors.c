@@ -12,7 +12,7 @@ int only_numbers(char *str)
     for (int i = 0; str[i] != '\0'; i++)
         if (!(isdigit(str[i]) != 0 || str[i] == ',')) {
 	    write (2,ERROR_MSG, strlen(ERROR_MSG));
-            return (ERROR);
+            return (MY_EXIT_FAILURE);
 	}
     return (0);
 }
@@ -21,7 +21,7 @@ int len_str(char *str)
 {
     if (get_coord_x(str) == 0 || get_coord_y(str) == 0) {
 	write (2,ERROR_MSG, strlen(ERROR_MSG));
-	return (ERROR);
+	return (MY_EXIT_FAILURE);
     }
     return (0);
 }
@@ -32,11 +32,11 @@ int xy_invalid(t_gomoku *gomoku, char *str)
 
     if (get_coord_x(str) > size || get_coord_y(str) > size) {
 	write (2,ERROR_MSG, strlen(ERROR_MSG));
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     }
     if (get_coord_x(str) == 0 || get_coord_y(str) == 0) {
 	write (2,ERROR_MSG, strlen(ERROR_MSG));
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     }
     return (0);
 }
@@ -50,7 +50,7 @@ int count_comma(char *str)
             comma++;
     if (comma >= 2) {
 	write (2,ERROR_MSG, strlen(ERROR_MSG));
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     }
     return (0);
 }
@@ -58,10 +58,10 @@ int count_comma(char *str)
 int check_turn_errors(t_gomoku *gomoku, char *str)
 {
     if (count_comma(str) == 84)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     if (xy_invalid(gomoku, str) == 84)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     if (len_str(str) == 84 || only_numbers(str) == 84)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     return (0);
 }

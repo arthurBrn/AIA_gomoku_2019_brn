@@ -9,13 +9,13 @@ NAME	=	pbrain-gomoku-ai
 
 CC	=	gcc
 
-SRCS	=	./src/cmd.c						\
+SRCS	=	./src/commands.c					\
 		./src/run_start.c					\
 		./src/run_board.c					\
 		./src/run_end.c						\
-		./src/my_str_to_word_array.c		\
+		./src/my_str_to_word_array.c				\
 		./src/utils.c						\
-		./src/read.c		   				\
+		./src/gomoku.c		   				\
 		./src/main.c						\
 		./src/run_turn.c					\
 		./src/my_intlen.c					\

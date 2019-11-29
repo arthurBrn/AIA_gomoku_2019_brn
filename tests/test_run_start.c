@@ -28,7 +28,7 @@ Test(run_start, game_not_started_valid_str_but_size_zero)
 
     gom->start = 0;
     res = run_start(gom, str);
-    cr_assert_eq(res, MY_EXIT_FAILURE);
+    cr_assert_eq(res, 0);
 }
 
 

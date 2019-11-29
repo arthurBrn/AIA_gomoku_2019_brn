@@ -91,4 +91,5 @@ int empty_list(node_t *head);
 int check_aligned(t_gomoku *gomoku);
 int concat_player(t_gomoku *gomoku);
 int store_aligned(int x, int y, int cpt, int player);
+int check_vertical(t_gomoku *gomoku, int x, int y);
 #endif

@@ -24,7 +24,7 @@ int find_one(t_gomoku *gomoku, int x, int y, node_t *head)
 {
     int count = 0;
     
-    for (int i = x; i < x + 5 && x < gomoku->size; i++) {
+    for (int i = x; i < x + 5 && x <= gomoku->size; i++) {
 	if (count_horizontal(gomoku, i, y, head) == 1)
 	    count++;
 	else {
@@ -50,11 +50,11 @@ int check_horizontal(t_gomoku *gomoku, int x, int y)
     }
     head = node;
     x++;
-    if (x > 10) {
+    if (x > gomoku->size) {
 	x = 1;
 	y++;
     }
-    if (x == 10 & y == 10)
+    if (x == gomoku->size & y == gomoku->size)
 	return (0);
     return (check_horizontal(gomoku, x, y));
 }
@@ -65,5 +65,6 @@ int check_aligned(t_gomoku *gomoku)
     int y = 1;
 
     check_horizontal(gomoku, x, y);
+    check_vertical(gomoku, x, y);
     return (0);
 }

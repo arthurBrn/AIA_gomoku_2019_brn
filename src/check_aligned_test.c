@@ -78,5 +78,6 @@ int check_aligned(t_gomoku *gomoku)
     int y = 1;
 
     check_horizontal(gomoku, x, y);
+    check_vertical(gomoku, x, y);
     return (0);
 }

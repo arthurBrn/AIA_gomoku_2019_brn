@@ -6,5 +6,5 @@
 
 node_t *head;
 root_t *root;
-
+aligned_t *aligned;
 #endif

@@ -17,6 +17,15 @@
 #include <math.h>
 #include <ctype.h>
 
+typedef struct aligned {
+    int start_x;
+    int start_y;
+    int end_x;
+    int end_y;
+    int len;
+    int player;
+} aligned_t;
+
 typedef struct {
     int size;
     int player;
@@ -80,4 +89,5 @@ void free_list(node_t *head);
 int empty_list(node_t *head);
 int check_aligned(t_gomoku *gomoku);
 int concat_player(t_gomoku *gomoku);
+int store_aligned(int x, int y, int cpt, int player);
 #endif

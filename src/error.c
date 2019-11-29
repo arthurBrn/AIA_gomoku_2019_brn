@@ -14,15 +14,15 @@ int nbr_coma(char *str)
     int len = strlen(str);
 
     if (str[0] == ',' || str[strlen(str + 1)] == ',')
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     for (; i < len; i++) {
         if (str[i] == ',')
             flag++;
         if (str[i] == ',' && (str[i + 1] == ',' || str[i - 1] == ','))
-            return (ERROR);
+            return (MY_EXIT_FAILURE);
     }
     if (flag != 2)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     return (1);
 }
 
@@ -32,12 +32,12 @@ int only_digit_str(char *str)
     int coma = nbr_coma(str);
 
     if (coma != 1)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     while (str[i] != '\0') {
         if (isdigit(str[i]) || str[i] == ',')
             i++;
         else
-            return (ERROR);
+            return (MY_EXIT_FAILURE);
     }
     return (1);
 }
@@ -45,9 +45,9 @@ int only_digit_str(char *str)
 int check_players(char c)
 {
     if (!isdigit(c))
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     if (c != '1' && c != '2' && c != '3')
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     return (1);
 }
 
@@ -58,24 +58,24 @@ int check_coordinate(char *str, t_gomoku *gom)
     int y = 0;
     int flag = 1;
 
-    if (only_digit_str(str) == ERROR)
-        return (ERROR);
+    if (only_digit_str(str) == MY_EXIT_FAILURE)
+        return (MY_EXIT_FAILURE);
     x = atoi(tab[0]);
     y = atoi(tab[1]);
     if (x <= 0 || x > gom->size)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     if (y <= 0 || y > gom->size)
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     return (flag);
 }
 
 int check_string(char *str, t_gomoku *gom)
 {
-    if (nbr_coma(str) == ERROR ||  only_digit_str(str) == ERROR)
-        return (ERROR);
-    if (check_players(str[strlen(str) - 1]) == ERROR)
-        return (ERROR);
-    if (check_coordinate(str, gom) == ERROR)
-        return (ERROR);
+    if (nbr_coma(str) == MY_EXIT_FAILURE ||  only_digit_str(str) == MY_EXIT_FAILURE)
+        return (MY_EXIT_FAILURE);
+    if (check_players(str[strlen(str) - 1]) == MY_EXIT_FAILURE)
+        return (MY_EXIT_FAILURE);
+    if (check_coordinate(str, gom) == MY_EXIT_FAILURE)
+        return (MY_EXIT_FAILURE);
     return (1);
 }

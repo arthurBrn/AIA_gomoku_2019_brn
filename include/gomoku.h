@@ -32,7 +32,7 @@ typedef struct node {
     struct node *next;
 } node_t;
 
-#define ERROR 84
+#define MY_EXIT_FAILURE 84
 #define OK_MSG "OK - everything is good\n"
 #define ERROR_MSG "ERROR message - unsupported size or other error\n"
 #define GAME_STARTED "ERROR: The game is already start.\n"
@@ -42,7 +42,7 @@ typedef struct node {
 #define GAME_NOT_STARTED "ERROR: The game didn't start.\n"
 
 void init_struct(t_gomoku *gomoku);
-int readstandard();
+int gomoku();
 void run_cmd(int (**tab_cmd)(t_gomoku *, char *));
 int run_board(t_gomoku *gomoku, char *str);
 int run_start(t_gomoku *gomoku, char *str);

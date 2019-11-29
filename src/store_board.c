@@ -61,6 +61,6 @@ int store_board(char *str, t_gomoku *gom)
         node = add_node(str, head);
         head = node;
     } else
-        return (ERROR);
+        return (MY_EXIT_FAILURE);
     return (0);
 }

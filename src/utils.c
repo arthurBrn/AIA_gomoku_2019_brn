@@ -11,6 +11,6 @@ int isnum(char *str)
 {
     for (int i = 0; (str[i]); i++)
         if (isdigit(str[i]) == 0 || str[i] == ' ')
-            return (ERROR);
+            return (MY_EXIT_FAILURE);
     return (0);
 }

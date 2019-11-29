@@ -66,5 +66,10 @@ int run_turn(t_gomoku *gomoku, char *str)
         return (write(2, ERROR_MSG, strlen(ERROR_MSG)), MY_EXIT_FAILURE);
     free(new_str);
     check_aligned(gomoku);
+    while (aligned != NULL) {
+	printf("test %d\n", aligned->player);
+	aligned = aligned->next;
+    }
+    
     return (0);
 }

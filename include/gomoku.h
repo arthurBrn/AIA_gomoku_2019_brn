@@ -24,6 +24,7 @@ typedef struct aligned {
     int end_y;
     int len;
     int player;
+    struct aligned *next;
 } aligned_t;
 
 typedef struct {

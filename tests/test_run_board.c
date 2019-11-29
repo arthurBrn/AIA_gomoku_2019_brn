@@ -16,7 +16,7 @@ Test(run_board, game_not_started)
 
     gom->start = 0;
     res = run_board(gom,str);
-    cr_assert_eq(res, ERROR);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 Test(run_board, str_param_must_be_null)
@@ -27,5 +27,5 @@ Test(run_board, str_param_must_be_null)
 
     gom->start = 1;
     res = run_board(gom,str);
-    cr_assert_eq(res, ERROR);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }

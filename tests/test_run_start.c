@@ -17,7 +17,7 @@ Test(run_start, game_already_started)
 
     gom->start = 1;
     res = run_start(gom, str);
-    cr_assert_eq(res, ERROR);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 Test(run_start, game_not_started_valid_str_but_size_zero)
@@ -28,7 +28,7 @@ Test(run_start, game_not_started_valid_str_but_size_zero)
 
     gom->start = 0;
     res = run_start(gom, str);
-    cr_assert_eq(res, 84);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 
@@ -40,7 +40,7 @@ Test(run_start, str_invalid_game_not_started)
 
     gom->start = 0;
     res = run_start(gom, str);
-    cr_assert_eq(res, 84);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 Test(run_start, str_invalid_game_started)
@@ -51,7 +51,7 @@ Test(run_start, str_invalid_game_started)
 
     gom->start = 1;
     res = run_start(gom, str);
-    cr_assert_eq(res, 84);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 

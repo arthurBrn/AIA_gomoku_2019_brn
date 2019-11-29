@@ -27,14 +27,14 @@ SRC_TEST	=	test_error_check_players.c\
 
 SRC		=	../src/run_start.c					\
 			../src/run_begin.c					\
-			../src/cmd.c\
+			../src/commands.c\
 			../src/run_board.c					\
 			../src/run_end.c						\
 			../src/run_turn.c\
 			../src/my_intlen.c\
 			../src/my_str_to_word_array.c		\
 			../src/utils.c						\
-			../src/read.c						\
+			../src/gomoku.c						\
 			../src/error.c\
 			../src/store_board.c\
 			../src/check_turn_errors.c\

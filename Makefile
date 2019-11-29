@@ -7,7 +7,7 @@
 
 NAME	=	pbrain-gomoku-ai
 
-CC	=	gcc -g
+CC	=	gcc
 
 SRCS	=	./src/cmd.c						\
 		./src/run_start.c					\

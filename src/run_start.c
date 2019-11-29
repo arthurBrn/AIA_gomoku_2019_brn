@@ -18,7 +18,7 @@ int run_start(t_gomoku *gomoku, char *str) {
         gomoku->size = atoi(str);
         if (gomoku->size == 0) {
             write(2, ERROR_MSG, strlen(ERROR_MSG));
-            return (ERROR);
+            return (0);
         }
         write(1, OK_MSG, strlen(OK_MSG));
         gomoku->start = 1;

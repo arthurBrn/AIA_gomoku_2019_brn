@@ -32,7 +32,7 @@ Test(isnum, str_w_char_and_space)
     cr_assert_eq(res, 84);
 }
 
-Test(isnum, invalid_str)
+Test(isnum, invalid_str_only_chars)
 {
     char *str = "azerty";
     int res = isnum(str);
@@ -40,9 +40,25 @@ Test(isnum, invalid_str)
     cr_assert_eq(res, 84);
 }
 
-Test(isnum, valid_str)
+Test(isnum, valid_str_onely_digit)
 {
     char *str = "123456789";
+    int res = isnum(str);
+
+    cr_assert_eq(res, 0);
+}
+
+Test(isnum, valid_str_only_digit_and_space)
+{
+    char *str = "123 456789";
+    int res = isnum(str);
+
+    cr_assert_eq(res, 84);
+}
+
+Test(isnum, empty_str)
+{
+    char *str = "";
     int res = isnum(str);
 
     cr_assert_eq(res, 0);

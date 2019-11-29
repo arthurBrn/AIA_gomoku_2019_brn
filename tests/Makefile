@@ -11,9 +11,6 @@ SRC_TEST	=	test_error_check_players.c\
 			test_error_nbr_coma.c\
 			test_error_only_digit_str.c\
 			test_error_coordinate.c\
-			test_node_creation.c\
-			test_node_length.c\
-			test_node_matching_nodes.c\
 			test_node_global.c\
 			test_utils.c\
 			test_read.c\
@@ -24,6 +21,7 @@ SRC_TEST	=	test_error_check_players.c\
 			test_run_turn.c\
 			test_check_turn_errors.c\
 			test_tree.c\
+			test_store_board.c\
 
 SRC		=	../src/run_start.c					\
 			../src/run_begin.c					\

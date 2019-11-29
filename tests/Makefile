@@ -40,6 +40,7 @@ SRC		=	../src/run_start.c					\
 			../src/check_turn_errors.c\
 			../src/empty_list.c\
 			../src/print_list.c\
+			../src/check_aligned.c					\
 			../src/tree.c\
 
 OBJ 	=	$(SRC:.c=.o)

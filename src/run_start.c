@@ -5,7 +5,7 @@
 ** ..
 */
 
-#include "gomoku.h"
+#include "global.h"
 
 int run_start(t_gomoku *gomoku, char *str)
 {
@@ -20,7 +20,22 @@ int run_start(t_gomoku *gomoku, char *str)
             return (0);
         }
         write(1, OK_MSG, strlen(OK_MSG));
-        gomoku->start = 1;
+	store_board("2,1,2", gomoku);
+	store_board("3,1,2", gomoku);
+	store_board("4,1,2", gomoku);
+	store_board("2,3,2", gomoku);
+	store_board("3,3,2", gomoku);
+	store_board("7,3,2", gomoku);
+	store_board("8,3,2", gomoku);
+	store_board("5,5,2", gomoku);
+	store_board("6,5,2", gomoku);
+	store_board("2,8,2", gomoku);
+	store_board("3,10,2", gomoku);
+	store_board("4,10,2", gomoku);
+	store_board("6,10,2", gomoku);
+	store_board("7,10,2", gomoku);
+	print_list(head);
+	gomoku->start = 1;
     } else {
         write(2, ERROR_MSG, strlen(ERROR_MSG));
         return (MY_EXIT_FAILURE);

@@ -78,4 +78,6 @@ int only_numbers(char *str);
 void print_list(node_t *head);
 void free_list(node_t *head);
 int empty_list(node_t *head);
+int check_aligned(t_gomoku *gomoku);
+int concat_player(t_gomoku *gomoku);
 #endif

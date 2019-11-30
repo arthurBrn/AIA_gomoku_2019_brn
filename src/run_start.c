@@ -39,6 +39,7 @@ int run_start(t_gomoku *gomoku, char *str)
 	store_board("8,5,2", gomoku);
         store_board("8,6,2", gomoku);
 	store_board("8,7,2", gomoku);
+        print_the_board(head);
 	gomoku->start = 1;
     } else {
         write(2, ERROR_MSG, strlen(ERROR_MSG));

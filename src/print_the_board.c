@@ -49,6 +49,7 @@ void print_the_board(t_gomoku *gom)
     }
 }
 
+/*
 int main(void)
 {
     node_t *node = malloc(sizeof(node_t));
@@ -68,4 +69,4 @@ int main(void)
         i--;
     }
     print_the_board(gom);
-}
+}*/

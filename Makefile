@@ -28,6 +28,7 @@ SRCS	=	./src/commands.c					\
 		./src/check_aligned.c					\
 		./src/check_vertical.c					\
 		./src/store_aligned.c					\
+		./src/print_the_board.c 			\
 
 OBJS	=	$(SRCS:.c=.o)
 

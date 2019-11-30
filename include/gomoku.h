@@ -92,4 +92,5 @@ int check_aligned(t_gomoku *gomoku);
 int concat_player(t_gomoku *gomoku);
 int store_aligned(int x, int y, int cpt, int player);
 int check_vertical(t_gomoku *gomoku, int x, int y);
+void print_the_board(t_gomoku *gomoku);
 #endif

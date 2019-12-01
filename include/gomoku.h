@@ -117,4 +117,5 @@ int check_next_diag_ltor(t_gomoku *gomoku, int x, int y);
 int check_diag_right_to_left(t_gomoku *gomoku, int x, int y);
 int count_cons_diag_rtol(t_gomoku *gomoku, int x, int y);
 void make_move();
+void set_final_x_y_vertical();
 #endif

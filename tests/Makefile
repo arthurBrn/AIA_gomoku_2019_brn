@@ -52,6 +52,9 @@ SRC		=	../src/run_start.c					\
 			../src/check_diag_right_to_left.c		\
 			../src/check_consecutives_diag_rtol.c	\
 			../src/check_consecutives_diag_ltor.c	\
+			../src/store_horizontal.c 						\
+			../src/store_diagonal.c 							\
+			../src/store_vertical.c 							\
 
 OBJ 	=	$(SRC:.c=.o)
 

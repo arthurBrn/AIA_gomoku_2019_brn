@@ -26,15 +26,15 @@ int check_second_half_rtol(t_gomoku *gomoku, int x, int y, int save_y)
     int count = 0;
 
     while (y <= gomoku->size) {
-	count = find_one_diag_rtol(gomoku, x, y);
-	x -= count + 1;
-	y += count + 1;
+	    count = find_one_diag_rtol(gomoku, x, y);
+	    x -= count + 1;
+	    y += count + 1;
     }
     save_y -= 1;
     y = save_y;
     x = gomoku->size;
     if (y == 1)
-	return (0);
+	    return (0);
    return (check_second_half_rtol(gomoku, x, y, save_y));
 }
 
@@ -44,7 +44,7 @@ int check_first_half_rtol(t_gomoku *gomoku, int x, int y, int save_x)
 
     while (x > 0) {
         count = find_one_diag_rtol(gomoku, x, y);
-	x -= count + 1;
+	    x -= count + 1;
         y += count + 1;
     }
     save_x++;

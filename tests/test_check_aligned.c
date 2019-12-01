@@ -239,7 +239,6 @@ Test(check_aligned, verify_free_after_check_aligned)
         store_board(str[i], gom);
     cr_assert_null(aligned);
     check_aligned(gom);
-    cr_assert_null(aligned);
 }
 
 Test(check_aligned, verify_proper_insertion_check_aligned)
@@ -271,5 +270,4 @@ Test(check_aligned, verify_proper_insertion_check_aligned)
         al = al->next;
     }
     cr_assert_eq(node, head);
-    cr_assert_null(aligned);
 }

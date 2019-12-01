@@ -39,7 +39,6 @@ int check_horizontal(t_gomoku *gomoku, int x, int y)
 {
     node_t *node = head;
     node_t *temp_head = head;
-    //int hold_x = 0;
 
     while (node != NULL) {
 	    if (node->x == x && node->y == y) {
@@ -68,12 +67,12 @@ int check_aligned(t_gomoku *gomoku)
         aligned_list_free();
     int diag_x = gomoku->size;
     int diag_y = 1;
-    check_horizontal(gomoku, x, y);
+    //check_horizontal(gomoku, x, y);
     //print_aligned();
     // Launch a move here, after that we free the list
 
-    /*check_vertical(gomoku, x, y);
-    print_aligned();
+    check_vertical(gomoku, x, y);
+    /*print_aligned();
     aligned_list_free();
     check_diag_left_to_right(gomoku, diag_x, diag_y);
     check_diag_right_to_left(gomoku, x, y);*/

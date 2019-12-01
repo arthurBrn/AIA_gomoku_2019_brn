@@ -24,6 +24,7 @@ typedef struct aligned {
     int end_y;
     int len;
     int player;
+    int open;
     struct aligned *next;
 } aligned_t;
 
@@ -102,13 +103,15 @@ void aligned_list_free();
 void print_aligned();
 int aligned_lenth();
 void initialize_block(int player, int initial_x, int initial_y);
-void set_len(int length);
-void set_final_x_y();
+void set_len_horizontal(int length, t_gomoku *gomoku);
+void set_len_vertical(int length, t_gomoku *gommoku);
+void set_final_x_y_horizontal();
+void set_final_x_y_vertical();
 aligned_t *find_best_move();
 int count_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
 int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
 int check_vertical(t_gomoku *gomoku, int x, int y);
-
+int set_open_horizontal();
 
 
 #endif

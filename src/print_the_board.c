@@ -23,6 +23,8 @@ int call_the_node(int x, int y)
         }
         node = node->next;
     }
+    free(node);
+    node = NULL;
     return (flag);
 }
 

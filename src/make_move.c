@@ -15,6 +15,7 @@ aligned_t *find_best_move()
 
     al = aligned;
     while (al != NULL) {
+        // modify it to add open here
         if (al->len > cpt) {
             cpt = al->len;
             temp = al;

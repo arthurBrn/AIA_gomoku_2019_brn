@@ -195,19 +195,16 @@ Test(check_horizontal, playing_two_combinaison)
 {
     aligned_t *al = malloc(sizeof(aligned_t));
     t_gomoku *gom = malloc(sizeof(t_gomoku));
-    node_t *node = malloc(sizeof(node_t));
     int i = 4;
     int res = 0;
     char str[5][6] = {"1,1,1","2,1,1","3,1,1","4,1,1", "4,3,2"};
-    int x = 1;
-    int y = 1;
 
     gom->size = 10;
     gom->start = 1;
     for (i; i >= 0; i--)
         store_board(str[i], gom);
     cr_assert_eq(list_length(head), 5);
-    res = check_horizontal(gom, x, y);
+    res = check_horizontal(gom, 1, 1);
     cr_assert_eq(res, 0);
     cr_assert_eq(aligned_length(), 2);
     cr_assert_eq(aligned->start_x, 4);

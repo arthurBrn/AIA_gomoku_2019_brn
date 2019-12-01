@@ -42,10 +42,12 @@ int check_vertical(t_gomoku *gomoku, int x, int y)
 
     while (head != NULL) {
         if (head->x == x && head->y == y) {
-            aligned = malloc(sizeof(aligned_t));
-            aligned->player = head->player;
-            y += find_one_vertical(gomoku, x, y, node);
-	}
+            //aligned = malloc(sizeof(aligned_t));
+            //aligned->player = head->player;
+            initialize_block(head->player, head->x, head->y);
+            set_len_vertical(find_one_vertical(gomoku, x, y, node), gomoku);
+            y = y + find_one_vertical(gomoku, x, y, node);
+	    }
         head = head->next;
     }
     head = node;

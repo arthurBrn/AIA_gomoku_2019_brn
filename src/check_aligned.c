@@ -38,18 +38,17 @@ int find_one(t_gomoku *gomoku, int x, int y, node_t *head)
 int check_horizontal(t_gomoku *gomoku, int x, int y)
 {
     node_t *node = head;
-    int hold_x = 0;
+    node_t *temp_head = head;
+    //int hold_x = 0;
 
-    while (head != NULL) {
-	    if (head->x == x && head->y == y) {
-	        initialize_block(head->player, head->x, head->y);
-            set_len(find_one(gomoku, x, y, node));
-	        x = x + find_one(gomoku, x, y, node);
+    while (node != NULL) {
+	    if (node->x == x && node->y == y) {
+	        initialize_block(node->player, node->x, node->y);
+            set_len_horizontal(find_one(gomoku, x, y, temp_head), gomoku);
+	        x = x + find_one(gomoku, x, y, temp_head);
 	    }
-	    head = head->next;
+	    node = node->next;
     }
-    set_final_x_y();
-    head = node;
     x++;
     if (x > gomoku->size) {
 	    x = 1;
@@ -69,8 +68,10 @@ int check_aligned(t_gomoku *gomoku)
         aligned_list_free();
     check_horizontal(gomoku, x, y);
     print_aligned();
-    //check_vertical(gomoku, x, y);
-    //print_aligned();
+    // Launch a move here, after that we free the list
+
+    check_vertical(gomoku, x, y);
+    print_aligned();
     aligned_list_free();
     return (0);
 }

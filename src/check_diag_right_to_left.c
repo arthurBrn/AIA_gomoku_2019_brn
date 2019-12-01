@@ -13,8 +13,11 @@ int find_one_diag_rtol(t_gomoku *gomoku, int x, int y)
     int count = 0;
 
     while (temp != NULL) {
-        if (temp->x == x && temp->y == y)
+        if (temp->x == x && temp->y == y) {
+            initialize_block(temp->player, temp->x, temp->y);
             count = count_cons_diag_rtol(gomoku, x, y);
+            set_len_diagonal(count, gomoku);
+        }
         temp = temp->next;
     }
     temp = head;
@@ -30,6 +33,8 @@ int check_second_half_rtol(t_gomoku *gomoku, int x, int y, int save_y)
 	    x -= count + 1;
 	    y += count + 1;
     }
+
+    //set_len_diagonal(count, gomoku);
     save_y -= 1;
     y = save_y;
     x = gomoku->size;

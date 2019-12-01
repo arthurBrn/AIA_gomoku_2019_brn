@@ -26,6 +26,7 @@ SRC_TEST	=	test_error_check_players.c	\
 			test_store_aligned.c		\
 			test_make_move.c		\
 			test_check_vertical.c		\
+			test_store_diagonal.c 		\
 
 SRC		=	../src/run_start.c					\
 			../src/run_begin.c					\

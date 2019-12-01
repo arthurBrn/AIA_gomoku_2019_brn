@@ -72,8 +72,5 @@ int run_turn(t_gomoku *gomoku, char *str)
     free(new_str);
     check_aligned(gomoku);
     make_move(gomoku);
-    print_the_board(gomoku);
-    print_list(head);
-    //aligned_list_free();
     return (0);
 }

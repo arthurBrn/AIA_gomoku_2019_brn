@@ -9,6 +9,8 @@
 
 int check_next_diag_ltor(t_gomoku *gomoku, int x, int y, node_t *node)
 {
+    (void) *gomoku;
+    (void) *node;
     node_t *temp = head;
     int find = 0;
 

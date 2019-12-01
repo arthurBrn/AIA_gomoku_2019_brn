@@ -9,6 +9,7 @@
 
 int check_next_diag_rtol(t_gomoku *gomoku, int x, int y, node_t *node)
 {
+    (void) *gomoku;
     node_t *temp = node;
     int find = 0;
 

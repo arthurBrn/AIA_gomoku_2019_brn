@@ -72,9 +72,6 @@ int run_turn(t_gomoku *gomoku, char *str)
     print_the_board(gomoku);
     free(new_str);    
     check_aligned(gomoku);
-    /*while (aligned != NULL) {
-	printf("test %d\n", aligned->player);
-	aligned = aligned->next;
-    }*/    
+    make_move();
     return (0);
 }

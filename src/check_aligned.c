@@ -69,13 +69,13 @@ int check_aligned(t_gomoku *gomoku)
     int diag_x = gomoku->size;
     int diag_y = 1;
     check_horizontal(gomoku, x, y);
-    print_aligned();
+    //print_aligned();
     // Launch a move here, after that we free the list
 
-    check_vertical(gomoku, x, y);
+    /*check_vertical(gomoku, x, y);
     print_aligned();
     aligned_list_free();
     check_diag_left_to_right(gomoku, diag_x, diag_y);
-    check_diag_right_to_left(gomoku, x, y);
+    check_diag_right_to_left(gomoku, x, y);*/
     return (0);
 }

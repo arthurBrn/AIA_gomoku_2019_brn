@@ -27,7 +27,11 @@ SRCS	=	./src/commands.c					\
 		./src/free.c						\
 		./src/check_aligned.c					\
 		./src/check_vertical.c					\
+		./src/check_diag_left_to_right.c			\
 		./src/store_aligned.c					\
+		./src/check_consecutives_diag_ltor.c			\
+		./src/check_diag_right_to_left.c			\
+		./src/check_consecutives_diag_rtol.c			\
 
 OBJS	=	$(SRCS:.c=.o)
 

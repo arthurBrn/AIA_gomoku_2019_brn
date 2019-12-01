@@ -92,4 +92,10 @@ int check_aligned(t_gomoku *gomoku);
 int concat_player(t_gomoku *gomoku);
 int store_aligned(int x, int y, int cpt, int player);
 int check_vertical(t_gomoku *gomoku, int x, int y);
+int check_diag_left_to_right(t_gomoku *gomoku, int x, int y);
+int count_horizontal(t_gomoku *gomoku, int x, int y, node_t *temp);
+int count_cons_diag_ltor(t_gomoku *gomoku, int x, int y);
+int check_next_diag_ltor(t_gomoku *gomoku, int x, int y);
+int check_diag_right_to_left(t_gomoku *gomoku, int x, int y);
+int count_cons_diag_rtol(t_gomoku *gomoku, int x, int y);
 #endif

@@ -50,16 +50,16 @@ aligned_t *find_best_combinaison()
     int cpt = 0;
 
     while (list != NULL) {
-	    if (list->len > cpt) {
+	    if ((list->len > cpt) && (list->open != 0)) {
 	        cpt = list->len;
 	        best = list;
 	    }
-	    else if (list->len == cpt) {
+	    /*else if (list->len == cpt) {
 	        best = choose_open(best, list);
-	    }
+	    }*/
 	list = list->next;
     }
-    return best;
+    return (best);
 }
 
 /*aligned_t *try_it()

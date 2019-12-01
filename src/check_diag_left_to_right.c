@@ -14,7 +14,9 @@ int find_one_diag_ltor(t_gomoku *gomoku, int x, int y)
 
     while (temp != NULL) {
 	    if (temp->x == x && temp->y == y)
-	        count = count_cons_diag_ltor(gomoku, x, y);
+            initialize_block(temp->player, temp->x, temp->y);
+	        count = count_cons_diag_ltor(gomoku, x, y, temp);
+            set_len_diagonal(count, gomoku);
 	    temp = temp->next;
     }
     temp = head;

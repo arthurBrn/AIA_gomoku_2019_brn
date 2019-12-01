@@ -59,15 +59,6 @@ void print_aligned()
         write(1, "nothing to print", 16);
     else {
         while (al != NULL) {
-            write(1, "==========", 10);
-            putchar('\n');
-            printf("al->start_x : %d\n", al->start_x);
-            printf("al->start_y : %d\n", al->start_y);
-            printf("al->end_x : %d\n", al->end_x);
-            printf("al->end_y : %d\n", al->end_y);
-            printf("al->len : %d\n", al->len);
-            printf("al->player : %d\n", al->player);
-            printf("al->open : %d\n", al->open);
             al = al->next;
         }
     }

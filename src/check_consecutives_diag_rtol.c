@@ -31,12 +31,10 @@ int count_cons_diag_rtol(t_gomoku *gomoku, int x, int y, node_t *node)
         if (check_next_diag_rtol(gomoku, i, j, node) == 1)
             count++;
         else {
-            printf("diag rtol : %d\n", count);
             return (count);
         }
 	i--;
 	j++;
     }
-    printf("diag rtol : %d\n", count);
     return (count);
 }

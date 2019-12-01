@@ -17,13 +17,11 @@ char *get_coord_to_play(aligned_t *move)
     char *s2 = malloc(sizeof(char) * 2);
     node_t *all = head;
     
-    printf("move-open = %d\n", move->open);
     if (move->open == 1) {
 	x = move->start_x - 1;
 	y = move->start_y;
     }
     else if (move->open == 2 || move->open == 3) {
-        printf("%d\n", move->end_x);
 	x = move->end_x + 1;
 	y = move->end_y;
     }
@@ -78,11 +76,6 @@ aligned_t *find_best_combinaison()
     }
     return (best);
 }
-
-/*aligned_t *try_it()
-{
-
-}*/
 
 void make_move(t_gomoku *gomoku)
 {

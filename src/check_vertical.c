@@ -28,7 +28,6 @@ int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *head)
         if (count_vertical(gomoku, x, i, head) == 1)
             count++;
         else {
-            printf("vertical : %d\n", count);
             return (count);
         }
     }

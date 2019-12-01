@@ -46,6 +46,4 @@ void set_len_diagonal(int length, t_gomoku *gom)
     aligned->len = length;
     set_final_x_y_diagonal();
     aligned->open = set_open_diagonal(gom);
-    printf("%s", "DIAG");
-    printf("%d", aligned->open);
 }

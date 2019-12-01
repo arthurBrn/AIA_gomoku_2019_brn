@@ -34,6 +34,9 @@ SRCS	=	./src/commands.c					\
 		./src/check_consecutives_diag_rtol.c			\
 		./src/make_move.c 								\
 		./src/my_itoa.c						\
+		./src/store_horizontal.c 						\
+		./src/store_diagonal.c 							\
+		./src/store_vertical.c 							\
 
 OBJS	=	$(SRCS:.c=.o)
 

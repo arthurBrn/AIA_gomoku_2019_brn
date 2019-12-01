@@ -8,6 +8,7 @@
 #include "global.h"
 #include <criterion/criterion.h>
 
+/*
 Test(find_best_move, test_return_biggest_value)
 {
     int i = 3;
@@ -44,3 +45,5 @@ Test(find_best_move, test_return_if_its_same_value)
     res = find_best_move();
     cr_assert_eq(res, aligned);
 }
+
+*/

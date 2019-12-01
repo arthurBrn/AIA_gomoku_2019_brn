@@ -38,19 +38,16 @@ int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *head)
 int check_vertical(t_gomoku *gomoku, int x, int y)
 {
     node_t *node = head;
-    int cpt = 0;
+    node_t *temp_head = head;
 
-    while (head != NULL) {
-        if (head->x == x && head->y == y) {
-            //aligned = malloc(sizeof(aligned_t));
-            //aligned->player = head->player;
-            initialize_block(head->player, head->x, head->y);
-            set_len_vertical(find_one_vertical(gomoku, x, y, node), gomoku);
-            y = y + find_one_vertical(gomoku, x, y, node);
+    while (node != NULL) {
+        if (node->x == x && node->y == y) {
+            initialize_block(node->player, node->x, node->y);
+            set_len_vertical(find_one_vertical(gomoku, x, y, temp_head), gomoku);
+            y = y + find_one_vertical(gomoku, x, y, temp_head);
 	    }
-        head = head->next;
+        node = node->next;
     }
-    head = node;
     y++;
     if (y > gomoku->size) {
         y = 1;

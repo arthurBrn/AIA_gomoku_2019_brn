@@ -282,87 +282,80 @@ Test(set_open_vertical, vertical_test_one)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     aligned_t *al = malloc(sizeof(aligned_t));
-    char str[3][6] = {"2,2,1","3,2,1","4,2,1"};
-    int i = 2;
+    char str[4][6] = {"2,2,1","2,3,1","2,4,1", "2,5,1"};
+    int i = 3;
 
     gom->size = 5;
     gom->start = 1;
     for (i; i >= 0; i--)
         store_board(str[i], gom);
-    cr_assert_eq(list_length(head), 3);
+    cr_assert_eq(list_length(head), 4);
     check_vertical(gom, 1, 1);
     al = aligned;
     cr_assert_eq(aligned_length(), 1);
-    cr_assert_eq(al->open, 3);
+    cr_assert_eq(al->open, 1);
     cr_assert_eq(al->start_x, 2);
-    cr_assert_eq(al->end_x, 4);
+    cr_assert_eq(al->end_x, 2);
+    cr_assert_eq(al->start_y, 2);
+    cr_assert_eq(al->end_y, 5);
 }
 
-Test(set_open_horizontal, vertical_test_two)
+Test(set_open_vertical, vertical_test_two)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     aligned_t *al = malloc(sizeof(aligned_t));
-    char str[4][6] = {"2,2,1","3,2,1","4,2,1", "4,4,1"};
+    char str[2][6] = {"4,2,1","4,3,1"};
     int i = 3;
     int res = 0;
 
-    gom->size = 10;
+    gom->size = 5;
+    gom->start = 1;
+    for (i; i >= 0; i--)
+        store_board(str[i], gom);
+    cr_assert_eq(list_length(head), 2);
+    res = check_vertical(gom, 1, 1);
+    cr_assert_eq(res, 0);
+    al = aligned;
+    cr_assert_not_null(head);
+    cr_assert_eq(aligned_length(), 1);
+    cr_assert_eq(al->start_x, 4);
+    cr_assert_eq(al->end_x, 4);
+    cr_assert_eq(al->start_y, 2);
+    cr_assert_eq(al->end_y, 3);
+    cr_assert_eq(al->len, 2);
+    cr_assert_eq(al->open, 3);
+}
+
+Test(set_open_vertical, vertical_test_three)
+{
+    int res = 0;
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
+    aligned_t *al = malloc(sizeof(aligned_t));
+    char str[4][6] = {"3,1,1","3,2,2","3,3,2","3,4,1"};
+    int i = 3;
+
+    gom->size = 5;
     gom->start = 1;
     for (i; i >= 0; i--)
         store_board(str[i], gom);
     cr_assert_eq(list_length(head), 4);
-    res = check_horizontal(gom, 1, 1);
-    cr_assert_eq(res, 0);
-    al = aligned;
-    cr_assert_not_null(head);
-    cr_assert_eq(gom->size, 10);
-    cr_assert_eq(aligned_length(), 2);
-    cr_assert_eq(al->start_x, 4);
-    cr_assert_eq(al->end_x, 4);
-    cr_assert_eq(al->end_x, 4);
-    cr_assert_eq(al->end_y, 4);
-    cr_assert_eq(al->len, 1);
-    cr_assert_eq(al->open, 3);
-    al = al->next;
-    cr_assert_eq(al->start_x, 2);
-    cr_assert_eq(al->end_x, 4);
-    cr_assert_eq(al->open, 3);
-}
-
-Test(set_open_horizontal, vertical_test_three)
-{
-    int res = 0;
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    aligned_t *al = malloc(sizeof(aligned_t));
-    char str[5][6] = {"1,2,2","2,2,1","3,2,1","4,2,1", "5,2,2"};
-    int i = 4;
-
-    gom->size = 10;
-    gom->start = 1;
-    for (i; i >= 0; i--)
-        store_board(str[i], gom);
-    cr_assert_eq(list_length(head), 5);
-    res = check_horizontal(gom, 1, 1);
-    cr_assert_eq(list_length(head), 5);
+    print_the_board(gom);
+    res = check_vertical(gom, 1, 1);
     cr_assert_eq(res, 0);
     cr_assert_not_null(aligned);
-    cr_assert_eq(aligned_length(), 3);
+    //cr_assert_eq(aligned_length(), 3);
     al = aligned;
-    cr_assert_eq(al->start_x, 5);
-    cr_assert_eq(al->end_x, 5);
-    cr_assert_eq(al->start_y, 2);
-    cr_assert_eq(al->end_y, 2);
+    cr_assert_eq(al->start_x, 3);
+    cr_assert_eq(al->end_x, 3);
+    cr_assert_eq(al->start_y, 4);
+    cr_assert_eq(al->end_y, 4);
+    cr_assert_eq(al->len, 1);
     cr_assert_eq(al->open, 2);
-    al = al->next;
-    cr_assert_eq(al->start_x, 2);
-    cr_assert_eq(al->end_x, 4);
+    al = aligned->next;
+    cr_assert_eq(al->start_x, 3);
+    cr_assert_eq(al->end_x, 3);
     cr_assert_eq(al->start_y, 2);
-    cr_assert_eq(al->end_y, 2);
-    cr_assert_eq(al->open, 0);
-    al = al->next;
-    cr_assert_eq(al->start_x, 1);
-    cr_assert_eq(al->end_x, 1);
-    cr_assert_eq(al->start_y, 2);
-    cr_assert_eq(al->end_y, 2);
+    cr_assert_eq(al->end_y, 3);
+    cr_assert_eq(al->len, 2);
     cr_assert_eq(al->open, 0);
 }

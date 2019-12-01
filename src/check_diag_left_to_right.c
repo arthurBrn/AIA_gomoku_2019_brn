@@ -10,12 +10,13 @@
 int find_one_diag_ltor(t_gomoku *gomoku, int x, int y)
 {
     node_t *temp = head;
+    node_t *temp_node = head;
     int count = 0;
 
     while (temp != NULL) {
 	    if (temp->x == x && temp->y == y)
             initialize_block(temp->player, temp->x, temp->y);
-	        count = count_cons_diag_ltor(gomoku, x, y, temp);
+	        count = count_cons_diag_ltor(gomoku, x, y, temp_node);
             set_len_diagonal(count, gomoku);
 	    temp = temp->next;
     }

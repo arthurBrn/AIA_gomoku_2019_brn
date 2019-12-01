@@ -33,13 +33,20 @@ int begin_ia(t_gomoku *gomoku, char *str) {
     (void) str;
     int middle = gomoku->size / 2;
     char *s1 = malloc(sizeof(char) * 2);
+    char *new_str;
 
     s1 = itoa(middle, s1, 2);
     s1 = check_zero(s1);
+    new_str = malloc(sizeof(char) * (strlen(s1) * strlen(s1)) + 2);
+    new_str = strcat(new_str, s1);
+    new_str = strcat(new_str, ",");
+    new_str = strcat(new_str, s1);
+    new_str = strcat(new_str, ",1");
     write(1, s1, strlen(s1));
     write(1, ",", 1);
     write(1, s1, strlen(s1));
     write(1, "\n", 1);
+    store_board(new_str, gomoku);
     return (0);
 }
 

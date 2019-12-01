@@ -7,9 +7,9 @@
 
 int my_intlen(int nb)
 {
-    int count;
+    int count = 0;
 
-    for (count= 0; nb > 9; count ++) {
+    for (count; nb > 9; count ++) {
         nb /= 10;
     }
     count++;

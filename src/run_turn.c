@@ -69,9 +69,9 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84)
         return (write(2, ERROR_MSG, strlen(ERROR_MSG)), MY_EXIT_FAILURE);
-    print_the_board(gomoku);
     free(new_str);    
     check_aligned(gomoku);
-    make_move();
+    make_move(gomoku);
+    print_the_board(gomoku);
     return (0);
 }

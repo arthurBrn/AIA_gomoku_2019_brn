@@ -20,7 +20,6 @@ int run_start(t_gomoku *gomoku, char *str)
             return (0);
         }
         write(1, OK_MSG, strlen(OK_MSG));
-        print_the_board(gomoku);
 	gomoku->start = 1;
     } else {
         write(2, ERROR_MSG, strlen(ERROR_MSG));

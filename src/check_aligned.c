@@ -28,7 +28,6 @@ int find_one(t_gomoku *gomoku, int x, int y, node_t *head)
 	    if (count_horizontal(gomoku, i, y, head) == 1)
 	        count++;
 	    else {
-	        printf("horizontal : %d\n", count);
 	        return (count);
 	    }
     }

@@ -33,6 +33,7 @@ SRCS	=	./src/commands.c					\
 		./src/check_diag_right_to_left.c				\
 		./src/check_consecutives_diag_rtol.c			\
 		./src/make_move.c 								\
+		./src/my_itoa.c						\
 
 OBJS	=	$(SRCS:.c=.o)
 

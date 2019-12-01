@@ -153,3 +153,20 @@ Test(store_board, insertion_failed_matching_nodes)
     cr_assert_eq(res, 84);
     cr_assert_eq(matching_node(str2, head), 84);
 }
+
+Test(free_board_list, proper_free_of_the_list)
+{
+    int i = 3;
+    char str[4][6] = {"1,1,1","2,1,1","3,1,1","4,1,1"};
+    t_gomoku *gom = malloc(sizeof(t_gomoku));
+
+    gom->start = 1;
+    gom->size = 5;
+    for (i; i >= 0; i--)
+        store_board(str[i], gom);
+    cr_assert_not_null(head);
+    cr_assert_eq(list_length(head), 4);
+    free_board_list();
+    cr_assert_null(head);
+    cr_assert_eq(list_length(head), 0);
+}

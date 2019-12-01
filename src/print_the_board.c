@@ -5,7 +5,6 @@
 ** Display the board w/ every move made on it
 */
 
-#include "tree.h"
 #include "global.h"
 
 int call_the_node(int x, int y)
@@ -39,34 +38,15 @@ void print_the_board(t_gomoku *gom)
             write(1, "-", 1);
         size--;
         i++;
-        y++;
+        //y++;
+        x++;
         if (i == gom->size) {
             putchar('\n');
             i = 0;
-            x++;
-            y = 1;
+            //x++;
+            x = 1;
+            //y = 1;
+            y++;
         }
     }
 }
-
-/*
-int main(void)
-{
-    node_t *node = malloc(sizeof(node_t));
-    int i = 3;
-    t_gomoku *gom = malloc(sizeof(t_gomoku));
-    char tab[4][8] =
-        {
-            "1,1,1",
-            "2,2,2",
-            "3,2,1",
-            "6,5,2"
-        };
-
-    gom->size = 20;
-    while (i >= 0) {
-        store_board(tab[i], gom);
-        i--;
-    }
-    print_the_board(gom);
-}*/

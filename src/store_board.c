@@ -7,6 +7,20 @@
 
 #include "global.h"
 
+void free_board_list()
+{
+    node_t *current = NULL;
+    node_t *next = NULL;
+
+    while (head != NULL) {
+        current = head;
+        next = head->next;
+        head = next;
+        free(current);
+    }
+    head = NULL;
+}
+
 int list_length(node_t *node_head)
 {
     int i = 0;

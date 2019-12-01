@@ -10,9 +10,9 @@
 int main(void)
 {
     if (gomoku() == MY_EXIT_FAILURE) {
-        free_list(head);
+        free_board_list();
         return (MY_EXIT_FAILURE);
     }
-    free_list(head);
+    free_board_list();
     return (0);
 }

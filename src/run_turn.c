@@ -41,10 +41,15 @@ void init_begin(t_gomoku *gomoku)
 
 int concat_player(t_gomoku *gomoku)
 {
-    if (gomoku->player == 1)
-	return (2);
-    else if(gomoku->player == 2)
-	return (1);
+    int p = 0;
+
+    if (gomoku->player == 1) {
+	    p = 2;
+    }
+    if (gomoku->player == 2){
+        p = 1;
+    }
+	return (p);
 }
 
 int run_turn(t_gomoku *gomoku, char *str)
@@ -64,12 +69,12 @@ int run_turn(t_gomoku *gomoku, char *str)
     new_str[index+1] = '\0';
     if (store_board(new_str, gomoku) == 84)
         return (write(2, ERROR_MSG, strlen(ERROR_MSG)), MY_EXIT_FAILURE);
-    free(new_str);
+    print_the_board(gomoku);
+    free(new_str);    
     check_aligned(gomoku);
-    while (aligned != NULL) {
+    /*while (aligned != NULL) {
 	printf("test %d\n", aligned->player);
 	aligned = aligned->next;
-    }
-    
+    }*/    
     return (0);
 }

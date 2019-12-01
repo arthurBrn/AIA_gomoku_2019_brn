@@ -86,11 +86,29 @@ int xy_invalid(t_gomoku *gomoku, char *str);
 int len_str(char *str);
 int only_numbers(char *str);
 void print_list(node_t *head);
-void free_list(node_t *head);
+void free_board_list();
 int empty_list(node_t *head);
 int check_aligned(t_gomoku *gomoku);
 int concat_player(t_gomoku *gomoku);
 int store_aligned(int x, int y, int cpt, int player);
 int check_vertical(t_gomoku *gomoku, int x, int y);
 void print_the_board(t_gomoku *gomoku);
+int count_horizontal(t_gomoku *gomoku, int x, int y, node_t *node);
+int find_one(t_gomoku *gomoku, int x, int y, node_t *node);
+int check_horizontal(t_gomoku *gomoku, int x, int y);
+int aligned_length();
+
+void aligned_list_free();
+void print_aligned();
+int aligned_lenth();
+void initialize_block(int player, int initial_x, int initial_y);
+void set_len(int length);
+void set_final_x_y();
+aligned_t *find_best_move();
+int count_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
+int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
+int check_vertical(t_gomoku *gomoku, int x, int y);
+
+
+
 #endif

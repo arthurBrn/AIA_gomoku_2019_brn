@@ -24,7 +24,6 @@ SRCS	=	./src/commands.c					\
 		./src/error.c						\
 		./src/check_turn_errors.c				\
 		./src/print_list.c					\
-		./src/free.c						\
 		./src/check_aligned.c					\
 		./src/check_vertical.c					\
 		./src/store_aligned.c					\

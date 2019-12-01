@@ -53,9 +53,11 @@ typedef struct node {
 #define GAME_NOT_STARTED "ERROR: The game didn't start.\n"
 
 void init_struct(t_gomoku *gomoku);
+char *itoa(int nb, char *str, int size);
 int gomoku();
 void run_cmd(int (**tab_cmd)(t_gomoku *, char *));
 int run_board(t_gomoku *gomoku, char *str);
+char *check_zero(char *);
 int run_start(t_gomoku *gomoku, char *str);
 int run_end(t_gomoku *gomoku, char *str);
 int run_turn(t_gomoku *gomoku, char *str);

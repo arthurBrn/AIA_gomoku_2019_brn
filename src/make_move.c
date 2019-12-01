@@ -1,3 +1,4 @@
+
 /*
 ** EPITECH PROJECT, 2019
 ** make_move.c
@@ -12,20 +13,36 @@ char *get_coord_to_play(aligned_t *move)
     int x = 0;
     int y = 0;
     char *str;
-
+    char *s1 = malloc(sizeof(char) * 2);
+    char *s2 = malloc(sizeof(char) * 2);
+    node_t *all = head;
+    
+    printf("move-open = %d\n", move->open);
     if (move->open == 1) {
 	x = move->start_x - 1;
 	y = move->start_y;
     }
     else if (move->open == 2 || move->open == 3) {
+        printf("%d\n", move->end_x);
 	x = move->end_x + 1;
 	y = move->end_y;
     }
-    str = malloc(sizeof(char) * (my_intlen(x) + my_intlen(y)) + 2);
-    str = strcat(str, my_itoa(x));
+    while (all != NULL) {
+        if (all->x == x && all->y == y) {
+            y++;
+            x++;
+        }
+        all = all->next;
+    }
+    s1 = itoa(x, s1, 2);
+    s1 = check_zero(s1);
+    s2 = itoa(y, s2, 2);
+    s2 = check_zero(s2);
+    str = malloc(sizeof(char) * (strlen(s1) * strlen(s2)) + 2);
+    str = strcat(str, s1);
     str = strcat(str, ",");
-    str = strcat(str, my_itoa(y));
-    str = strcat(str, "\n");
+    str = strcat(str, s2);
+    str[strlen(str)] = '\0';
     return (str);
 }
 
@@ -72,23 +89,17 @@ void make_move(t_gomoku *gomoku)
     aligned_t *move = NULL;
     char *str;
     char *new_str;
-    int player = 0;
     char *cpy;
 
-    printf("player : %d\n", gomoku->player);
-    if (gomoku->player == 1)
-	player = 2;
-    else
-	player = 1;
     move = find_best_combinaison();
     str = get_coord_to_play(move);
     cpy = malloc(sizeof(char) * strlen(str));
     cpy = strcpy(cpy, str);
-    str[strlen(str) - 1] = '\0';
     new_str = malloc(sizeof(char) * strlen(str) + 3);
     new_str = strcat(str, ",");
     new_str[strlen(new_str)] = gomoku->player + 48;
     store_board(new_str, gomoku);
-    write(1, cpy, strlen(cpy));    
+    cpy = strcat(cpy, "\n");
+    write(1, cpy, strlen(cpy));
 }
 

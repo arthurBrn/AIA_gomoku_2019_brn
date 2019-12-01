@@ -98,7 +98,6 @@ int count_horizontal(t_gomoku *gomoku, int x, int y, node_t *node);
 int find_one(t_gomoku *gomoku, int x, int y, node_t *node);
 int check_horizontal(t_gomoku *gomoku, int x, int y);
 int aligned_length();
-
 void aligned_list_free();
 void print_aligned();
 int aligned_lenth();
@@ -112,6 +111,9 @@ int count_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
 int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
 int check_vertical(t_gomoku *gomoku, int x, int y);
 int set_open_horizontal();
-
-
+int check_diag_left_to_right(t_gomoku *gomoku, int x, int y);
+int count_cons_diag_ltor(t_gomoku *gomoku, int x, int y);
+int check_next_diag_ltor(t_gomoku *gomoku, int x, int y);
+int check_diag_right_to_left(t_gomoku *gomoku, int x, int y);
+int count_cons_diag_rtol(t_gomoku *gomoku, int x, int y);
 #endif

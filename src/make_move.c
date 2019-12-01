@@ -46,21 +46,26 @@ aligned_t *choose_open(aligned_t *best, aligned_t *list)
 aligned_t *find_best_combinaison()
 {
     aligned_t *list = aligned;
-    aligned_t *best = NULL;
+    aligned_t *best = malloc(sizeof(aligned_t));
     int cpt = 0;
 
     while (list != NULL) {
-	if (list->len > cpt) {
-	    cpt = list->len;
-	    best = list;
-	}
-	else if (list->len == cpt) {
-	    best = choose_open(best, list);
-	}
+	    if (list->len > cpt) {
+	        cpt = list->len;
+	        best = list;
+	    }
+	    else if (list->len == cpt) {
+	        best = choose_open(best, list);
+	    }
 	list = list->next;
     }
     return best;
 }
+
+/*aligned_t *try_it()
+{
+
+}*/
 
 void make_move(t_gomoku *gomoku)
 {

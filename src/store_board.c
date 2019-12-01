@@ -12,6 +12,8 @@ void free_board_list()
     node_t *current = NULL;
     node_t *next = NULL;
 
+
+    puts("FREE BOARD");
     while (head != NULL) {
         current = head;
         next = head->next;
@@ -25,6 +27,7 @@ int list_length(node_t *node_head)
 {
     int i = 0;
 
+    puts("LIST LENGGTH");
     node_t *node = node_head;
     for (; node != NULL; i++)
         node = node->next;
@@ -39,6 +42,7 @@ int matching_node(char *str, node_t *node)
     int y = atoi(tab[1]);
     int p = atoi(tab[2]);
 
+puts("MATCHING NODE");
     while (node_head != NULL) {
         if (x == node_head->x && y == node_head->y && p == node_head->player)
             return (84);
@@ -54,18 +58,22 @@ node_t *add_node(char *str, node_t *node_head)
     node_t *temp = malloc(sizeof(node_t));
     char **tab = my_str_to_word_array(str, ",");
 
+    puts("ADD NODE");
     if (node_head == NULL) {
         temp->x = atoi(tab[0]);
         temp->y = atoi(tab[1]);
         temp->player = atoi(tab[2]);
         temp->next = NULL;
     }
+
+    puts("ADD NODE");
     if (node_head != NULL) {
         temp->x = atoi(tab[0]);
         temp->y = atoi(tab[1]);
         temp->player = atoi(tab[2]);
         temp->next = node_head;
     }
+    puts("ADD NODE");
     return (temp);
 }
 
@@ -74,8 +82,11 @@ int store_board(char *str, t_gomoku *gom)
     node_t *node = NULL;
 
     if (check_string(str, gom) != 84 && matching_node(str, head) != 84) {
+        printf("%s", "STR");
+        puts(str);
         node = add_node(str, head);
         head = node;
+        puts("HEAD");
     } else
         return (MY_EXIT_FAILURE);
     return (0);

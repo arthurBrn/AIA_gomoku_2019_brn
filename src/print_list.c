@@ -13,14 +13,14 @@ void print_list(node_t *node)
 
     if (node_head == NULL)
         puts("NOTHING TO PRINT");
-    while (head != NULL) {
+    while (node_head != NULL) {
         printf("[current_head][x][y][player] => ");
-        printf("%d",head->x);
+        printf("%d",node_head->x);
         putchar(',');
-        printf("%d",head->y);
+        printf("%d",node_head->y);
         putchar(',');
-        printf("%d", head->player);
+        printf("%d", node_head->player);
         putchar('\n');
-        head = head->next;
+        node_head = node_head->next;
     }
 }

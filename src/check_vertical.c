@@ -53,7 +53,7 @@ int check_vertical(t_gomoku *gomoku, int x, int y)
         y = 1;
         x++;
     }
-    if (x == gomoku->size & y == gomoku->size)
+    if ((x == gomoku->size) & (y == gomoku->size))
         return (0);
     return (check_vertical(gomoku, x, y));
 }

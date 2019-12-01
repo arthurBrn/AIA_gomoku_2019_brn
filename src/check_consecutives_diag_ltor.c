@@ -13,7 +13,7 @@ int check_next_diag_ltor(t_gomoku *gomoku, int x, int y, node_t *node)
     int find = 0;
 
     while (temp != NULL) {
-	if (temp->x == x && temp->y == y && node->player == aligned->player)
+	if (temp->x == x && temp->y == y && temp->player == aligned->player)
 	    find = 1;
 	temp = temp->next;
     }

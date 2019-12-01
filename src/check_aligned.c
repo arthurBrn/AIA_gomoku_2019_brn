@@ -20,12 +20,12 @@ int count_horizontal(t_gomoku *gomoku, int x, int y, node_t *node)
     return (find);
 }
 
-int find_one(t_gomoku *gomoku, int x, int y, node_t *head)
+int find_one(t_gomoku *gomoku, int x, int y, node_t *node)
 {
     int count = 0;
     
     for (int i = x; i < x + 5 && x <= gomoku->size; i++) {
-	    if (count_horizontal(gomoku, i, y, head) == 1)
+	    if (count_horizontal(gomoku, i, y, node) == 1)
 	        count++;
 	    else {
 	        return (count);
@@ -62,14 +62,9 @@ int check_aligned(t_gomoku *gomoku)
     int x = 1;
     int y = 1;
 
-    if (aligned != NULL)
-        aligned_list_free();
     int diag_x = gomoku->size;
     int diag_y = 1;
-    //check_horizontal(gomoku, x, y);
-    //print_aligned();
-    // Launch a move here, after that we free the list
-
+    check_horizontal(gomoku, x, y);
     check_vertical(gomoku, x, y);
     /*print_aligned();
     aligned_list_free();

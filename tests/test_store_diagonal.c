@@ -64,14 +64,15 @@ Test(set_len_diagonal, test_len_diag_w_other_player_stones)
         store_board(str[i], gom);
     cr_assert_eq(list_length(head), 4);
     res = check_diag_right_to_left(gom, 1, 1);
-    cr_assert_eq(aligned_length(), 1);
-    //cr_assert_not_null(aligned->next);
-    //cr_assert_eq(aligned_length(), 2);
-    //aligned = aligned->next;
-    //cr_assert_eq(aligned->start_x, 4);
-    //cr_assert_eq(aligned->start_y, 2);
-    //cr_assert_eq(aligned->end_x, 2);
-    //cr_assert_eq(aligned->end_y, 4);
-    //cr_assert_eq(aligned->len, 3);
-    //cr_assert_eq(aligned->open, 2);
+    //res = check_diag_left_to_right(gom, 1, 1);
+    cr_assert_eq(aligned_length(), 2);
+    cr_assert_not_null(aligned->next);
+    cr_assert_eq(aligned_length(), 2);
+    aligned = aligned->next;
+    cr_assert_eq(aligned->start_x, 5);
+    cr_assert_eq(aligned->start_y, 2);
+    cr_assert_eq(aligned->end_x, 2);
+    cr_assert_eq(aligned->end_y, 4);
+    cr_assert_eq(aligned->len, 3);
+    cr_assert_eq(aligned->open, 2);
 }

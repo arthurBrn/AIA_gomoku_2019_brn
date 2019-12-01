@@ -8,7 +8,8 @@
 #include "global.h"
 
 
-int set_open_diagonal(t_gomoku *gom)
+//int set_open_diagonal(t_gomoku *gom)
+int set_open_diagonal()
 {
     int top = 1;
     int bottom = 2;

@@ -12,17 +12,24 @@ void init_struct(t_gomoku *gomoku) {
     gomoku->player = 0;
     gomoku->end = 0;
     gomoku->size = 20;
+    gomoku->begin = 0;
 }
 
-int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku) {
-    char *tab[6] = {"START", "BEGIN", "END", "TURN", "BOARD", '\0'};
+int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {
+    char *tab[4] = {"START", "END", "BEGIN", '\0'};
     char **newtab = my_str_to_word_array(str, " ");
     int compteur = 0;
 
+    if(newtab[0] == NULL)
+        return (100);    
+    if (newtab[1] == NULL) {
+        newtab[1] = "\0";
+        newtab[0][strlen(newtab[0]) - 1] = '\0';
+    } else
+        newtab[1][strlen(newtab[1]) - 1] = '\0';
     for (int i = 0; tab[i]; i++) {
         if (strcmp(newtab[0], tab[i]) == 0) {
-            (newtab[1] == NULL) ? newtab[1] = "" : 0;
-            if ((*tab_cmd[i])(gomoku, newtab[1]) == MY_EXIT_FAILURE)
+            if ((*tab_cmd[i])(newtab[1], gomoku) == MY_EXIT_FAILURE)
                 return (MY_EXIT_FAILURE);
             compteur = 1;
         }
@@ -32,32 +39,28 @@ int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku) {
     return (0);
 }
 
-int loop_read(t_gomoku *gomoku, int (*tab_cmd[5])(t_gomoku *, char *)) {
-    char *str = NULL;
-    int return_value = 0;
-    ssize_t size;
-
+int loop_read(t_gomoku *gomoku, int (*tab_cmd[3])(char *, t_gomoku *gomoku)) {
+    char *line = NULL;
+    size_t len = 0;
+    int return_value;
+    
     while (gomoku->end != 1) {
-        if ((str = malloc(sizeof(char) * BUFF_SIZE)) == NULL)
-            return (MY_EXIT_FAILURE);
-        if ((size = read(0, str, BUFF_SIZE)) < 0)
-            return (MY_EXIT_FAILURE);
-        str[size - 1] = '\0';
-        if (strcmp(str, "") == 0)
-            return (loop_read(gomoku, tab_cmd));
-        return_value = check_cmd(str, tab_cmd, gomoku);
-        if (return_value == 1)
-            write(2, UNKNOWN, strlen(UNKNOWN));
+        getline(&line, &len, stdin);
+        return_value = check_cmd(line, tab_cmd, gomoku);
         if (return_value == MY_EXIT_FAILURE)
             return (MY_EXIT_FAILURE);
-        free(str);
+        if (return_value == 1)
+            write(1, UNKNOWN, strlen(UNKNOWN));
+        if (return_value == 100)
+            return (0);
+        free(line);
     }
     return (0);
 }
 
 int gomoku() {
     t_gomoku    *gomoku = malloc(sizeof(*gomoku));
-    int (*tab_cmd[5])(t_gomoku *, char *);
+    int (*tab_cmd[3])(char *, t_gomoku *);
 
     init_struct(gomoku);
     run_cmd(tab_cmd);

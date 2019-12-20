@@ -5,14 +5,11 @@
 ** ..
 */
 
-#include "global.h"
+#include "gomoku.h"
 
 int main(void)
 {
-    if (gomoku() == MY_EXIT_FAILURE) {
-        free_board_list();
+    if (gomoku() == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
-    }
-    free_board_list();
     return (0);
 }

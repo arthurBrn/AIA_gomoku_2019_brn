@@ -17,31 +17,13 @@
 #include <math.h>
 #include <ctype.h>
 
-typedef struct aligned {
-    int start_x;
-    int start_y;
-    int end_x;
-    int end_y;
-    int len;
-    int player;
-    int open;
-    struct aligned *next;
-} aligned_t;
-
 typedef struct {
     int size;
     int player;
     int start;
     int end;
-    char **tab;
+    int begin;
 } t_gomoku;
-
-typedef struct node {
-    int x;
-    int y;
-    int player;
-    struct node *next;
-} node_t;
 
 #define MY_EXIT_FAILURE 84
 #define OK_MSG "OK - everything is good\n"
@@ -52,75 +34,13 @@ typedef struct node {
 #define GAME_FINISH "none\n"
 #define GAME_NOT_STARTED "ERROR: The game didn't start.\n"
 
-void init_struct(t_gomoku *gomoku);
-char *itoa(int nb, char *str, int size);
 int gomoku();
-void run_cmd(int (**tab_cmd)(t_gomoku *, char *));
-int run_board(t_gomoku *gomoku, char *str);
-char *check_zero(char *);
-int run_start(t_gomoku *gomoku, char *str);
-int run_end(t_gomoku *gomoku, char *str);
-int run_turn(t_gomoku *gomoku, char *str);
-char **my_str_to_word_array(char *str, char *lim);
+int run_start(char *str, t_gomoku *gomoku);
+int run_end(char *str, t_gomoku *gomoku);
+int run_begin(char *str, t_gomoku *gomoku);
+void run_cmd(int (**tab_cmd)(char *, t_gomoku *));
+
+char    **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);
-char *board();
-void init_struct(t_gomoku *gomoku);
-int my_intlen(int nb);
-void invalid_string(void);
-int nbr_coma(char *str);
-int only_digit_str(char *str);
-int check_players(char c);
-int check_coordinate(char *str, t_gomoku *gom);
-int check_string(char *str, t_gomoku *gom);
-char **my_str_to_word_array(char *str, char *delimiter);
-int list_length(node_t *node);
-int matching_node(char *str, node_t *node);
-node_t *add_node(char *str, node_t *node);
-int store_board(char *str, t_gomoku *gomoku);
-int run_begin(t_gomoku *gomoku, char *str);
-int check_error(t_gomoku *gomoku, char *str);
-void init_begin(t_gomoku *gom);
-int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
-int get_coord_x(char *str);
-int get_coord_y(char *str);
-int check_turn_errors(t_gomoku *gomoku, char *str);
-int count_comma(char *str);
-int xy_invalid(t_gomoku *gomoku, char *str);
-int len_str(char *str);
-int only_numbers(char *str);
-void print_list(node_t *head);
-void free_board_list();
-int empty_list(node_t *head);
-int check_aligned(t_gomoku *gomoku);
-int concat_player(t_gomoku *gomoku);
-int store_aligned(int x, int y, int cpt, int player);
-int check_vertical(t_gomoku *gomoku, int x, int y);
-void print_the_board(t_gomoku *gomoku);
-int count_horizontal(t_gomoku *gomoku, int x, int y, node_t *node);
-int find_one(t_gomoku *gomoku, int x, int y, node_t *node);
-int check_horizontal(t_gomoku *gomoku, int x, int y);
-int aligned_length();
-void aligned_list_free();
-void print_aligned();
-int aligned_lenth();
-void initialize_block(int player, int initial_x, int initial_y);
-void set_len_horizontal(int length, t_gomoku *gomoku);
-void set_len_vertical(int length, t_gomoku *gommoku);
-void set_final_x_y_horizontal();
-void set_final_x_y_vertical();
-aligned_t *find_best_move();
-int count_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
-int find_one_vertical(t_gomoku *gomoku, int x, int y, node_t *node);
-int check_vertical(t_gomoku *gomoku, int x, int y);
-int set_open_horizontal();
-int check_diag_left_to_right(t_gomoku *gomoku, int x, int y);
-int count_cons_diag_ltor(t_gomoku *gomoku, int x, int y, node_t *node);
-int check_next_diag_ltor(t_gomoku *gomoku, int x, int y, node_t *node);
-int check_diag_right_to_left(t_gomoku *gomoku, int x, int y);
-void make_move(t_gomoku *gomoku);
-char *my_itoa(int nb);
-int count_cons_diag_rtol(t_gomoku *gomoku, int x, int y, node_t *node);
-void make_move();
-void set_final_x_y_diagonal();
-void set_len_diagonal(int length, t_gomoku *gom);
+
 #endif

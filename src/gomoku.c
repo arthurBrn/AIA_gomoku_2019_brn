@@ -7,12 +7,14 @@
 
 #include "gomoku.h"
 
-void init_struct(t_gomoku *gomoku) {
+void init_struct(t_gomoku *gomoku, t_board *board) {
     gomoku->start = 0;
     gomoku->player = 0;
     gomoku->end = 0;
     gomoku->size = 20;
     gomoku->begin = 0;
+    init_board();
+    board = init_board();
 }
 
 int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {
@@ -20,7 +22,7 @@ int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {
     char **newtab = my_str_to_word_array(str, " ");
     int compteur = 0;
 
-    if(newtab[0] == NULL)
+    if (newtab[0] == NULL)
         return (100);    
     if (newtab[1] == NULL) {
         newtab[1] = "\0";

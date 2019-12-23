@@ -8,31 +8,27 @@
 #include "gomoku.h"
 #include "board.h"
 
-// add "t_board *board" here
-int error_begin(t_gomoku *gomoku)
+int error_begin(t_gomoku *gomoku, t_board *board)
 {
+    t_board *board;
+    
     if (gomoku->start == 0) {
         write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
         return (MY_EXIT_FAILURE);
     }
     if (gomoku->begin == 1)
         return (MY_EXIT_FAILURE);
-    //vérifier si notre tableau est deja remplie
-    /* 
-    // Si le board n'a pas été initialisé == erreur
     if (board == NULL)
         return (MY_EXIT_FAILURE);
-    // Si le board à été initialiser mais que les valeurs d'init ont été modifiés
     if (board->x != -1)
         return (MY_EXIT_FAILURE);
-    */
     return (0);
 }
 
-int run_begin(char *str, t_gomoku *gomoku)
+int run_begin(char *str, t_gomoku *gomoku, t_board *board)
 {
     (void) str;
-    if (error_begin(gomoku) == MY_EXIT_FAILURE)
+    if (error_begin(gomoku, board) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     else {
         gomoku->begin = 1;

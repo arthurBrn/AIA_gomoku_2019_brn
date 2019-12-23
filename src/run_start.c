@@ -33,6 +33,7 @@ t_board *init_board()
     board->y = -1;
     board->player = -1;
     board->next = NULL;
+    return (board);
 }
 
 int run_start(char *str, t_gomoku *gomoku)

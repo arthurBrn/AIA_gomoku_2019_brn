@@ -23,6 +23,7 @@ typedef struct {
     int start;
     int end;
     int begin;
+    t_board *board;
 } t_gomoku;
 
 #define MY_EXIT_FAILURE 84

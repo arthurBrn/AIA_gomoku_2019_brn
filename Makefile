@@ -17,7 +17,6 @@ SRCS	=	./src/commands.c					\
 		./src/run_begin.c	   				\
 		./src/run_end.c		   				\
 		./src/main.c						\
-		./src/my_itoa.c						\
 
 OBJS	=	$(SRCS:.c=.o)
 

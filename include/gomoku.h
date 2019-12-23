@@ -46,5 +46,6 @@ void run_cmd(int (**tab_cmd)(char *, t_gomoku *));
 
 char    **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);
+char *itoa(int nb, char *str, int size);
 
 #endif

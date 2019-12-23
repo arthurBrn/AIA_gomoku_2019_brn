@@ -55,17 +55,22 @@ int loop_read(t_gomoku *gomoku, int (*tab_cmd[3])(char *, t_gomoku *gomoku)) {
     char *line = NULL;
     size_t len = 0;
     int return_value;
+    ssize_t read;
     
     while (gomoku->end != 1) {
-        getline(&line, &len, stdin);
-        return_value = check_cmd(line, tab_cmd, gomoku);
-        if (return_value == MY_EXIT_FAILURE)
-            return (MY_EXIT_FAILURE);
-        if (return_value == 1)
-            write(1, UNKNOWN, strlen(UNKNOWN));
-        if (return_value == 100)
-            return (0);
-        free(line);
+        while ((read = getline(&line, &len, stdin)) != -1) {
+            return_value = check_cmd(line, tab_cmd, gomoku);
+            if (return_value == MY_EXIT_FAILURE)
+                return (MY_EXIT_FAILURE);
+            if (return_value == 1)
+                write(1, UNKNOWN, strlen(UNKNOWN));
+            if (return_value == 100)
+                return (0);
+            if (gomoku->end == 1)
+                break;
+        }
+        if (line)
+            free(line);
     }
     return (0);
 }

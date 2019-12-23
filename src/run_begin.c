@@ -29,7 +29,7 @@ int run_begin(char *str, t_gomoku *gomoku)
         return (MY_EXIT_FAILURE);
     else {
         gomoku->begin = 1;
-        play = malloc(sizeof(char) * 2);
+        play = malloc(sizeof(char) * 3);
         play = itoa(gomoku->size / 2, play, 2);
         write(1, play, strlen(play));
         write(1, ",", 1);

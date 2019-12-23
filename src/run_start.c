@@ -26,16 +26,6 @@ int error_start(char *str, t_gomoku *gomoku)
     return (0);
 }
 
-t_board *init_board()
-{
-    t_board *board = malloc(sizeof(t_board));
-    board->x = -1;
-    board->y = -1;
-    board->player = -1;
-    board->next = NULL;
-    return (board);
-}
-
 int run_start(char *str, t_gomoku *gomoku)
 {
     if (error_start(str, gomoku) == MY_EXIT_FAILURE)

@@ -6,6 +6,17 @@
 */
 
 #include "gomoku.h"
+#include "board.h"
+
+t_board *init_board()
+{
+    t_board *board = malloc(sizeof(t_board));
+    board->x = -1;
+    board->y = -1;
+    board->player = -1;
+    board->next = NULL;
+    return (board);
+}
 
 void init_struct(t_gomoku *gomoku, t_board *board) {
     gomoku->start = 0;
@@ -13,8 +24,7 @@ void init_struct(t_gomoku *gomoku, t_board *board) {
     gomoku->end = 0;
     gomoku->size = 20;
     gomoku->begin = 0;
-    init_board();
-    board = init_board();
+    gomoku->board = init_board();
 }
 
 int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {

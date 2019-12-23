@@ -26,6 +26,8 @@ typedef struct {
     t_board *board;
 } t_gomoku;
 
+
+
 #define MY_EXIT_FAILURE 84
 #define OK_MSG "OK - everything is good\n"
 #define ERROR_MSG "ERROR message - unsupported size or other error\n"

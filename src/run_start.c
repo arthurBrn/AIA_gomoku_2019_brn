@@ -6,6 +6,7 @@
 */
 
 #include "gomoku.h"
+#include "board.h"
 
 int error_start(char *str, t_gomoku *gomoku)
 {
@@ -23,6 +24,15 @@ int error_start(char *str, t_gomoku *gomoku)
         return (MY_EXIT_FAILURE);
     }   
     return (0);
+}
+
+t_board *init_board()
+{
+    t_board *board = malloc(sizeof(t_board));
+    board->x = -1;
+    board->y = -1;
+    board->player = -1;
+    board->next = NULL;
 }
 
 int run_start(char *str, t_gomoku *gomoku)

@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include <math.h>
 #include <ctype.h>
+#include "board.h"
 
 typedef struct {
     int size;

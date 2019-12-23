@@ -18,7 +18,7 @@ t_board *init_board()
     return (board);
 }
 
-void init_struct(t_gomoku *gomoku, t_board *board) {
+void init_struct(t_gomoku *gomoku) {
     gomoku->start = 0;
     gomoku->player = 0;
     gomoku->end = 0;

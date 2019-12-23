@@ -23,3 +23,29 @@ char *itoa(int nb, char *str, int size) {
     }
     return (str);
 }
+
+int play_len(char *play)
+{
+    int i = 0;  
+    int len = 0;
+
+    for (i = i; play[i] != '\0' && play[i] == '0'; i++);
+    for (i = i; play[i] != '\0'; i++)
+        len++;
+    return (len);
+}
+
+char *delete_zero(char *play)
+{
+    int len = play_len(play);
+    int i = 0;
+    int j = 0;
+    char *new_play = malloc(sizeof(char) * len + 1);
+
+    for (i = i; play[i] != '\0' && play[i] == '0'; i++);
+    for (i = i; play[i] != '\0'; i++) {
+	new_play[j] = play[i];
+	j++;
+    }
+    return (new_play);
+}

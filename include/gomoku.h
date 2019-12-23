@@ -27,8 +27,6 @@ typedef struct {
     t_board *board;
 } t_gomoku;
 
-
-
 #define MY_EXIT_FAILURE 84
 #define OK_MSG "OK - everything is good\n"
 #define ERROR_MSG "ERROR message - unsupported size or other error\n"
@@ -47,5 +45,5 @@ void run_cmd(int (**tab_cmd)(char *, t_gomoku *));
 char    **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);
 char *itoa(int nb, char *str, int size);
-
+char *delete_zero(char *play);
 #endif

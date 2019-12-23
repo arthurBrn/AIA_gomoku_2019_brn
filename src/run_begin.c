@@ -23,17 +23,18 @@ int run_begin(char *str, t_gomoku *gomoku)
 {
     (void) str;
     char *play;
-                          
-    
+    char *new_play;
+
     if (error_begin(gomoku) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     else {
         gomoku->begin = 1;
-        play = malloc(sizeof(char) * 3);
+        play = malloc(sizeof(char) * 4);
         play = itoa(gomoku->size / 2, play, 2);
-        write(1, play, strlen(play));
+	new_play = delete_zero(play);
+        write(1, new_play, strlen(new_play));
         write(1, ",", 1);
-        write(1, play, strlen(play));
+        write(1, new_play, strlen(new_play));
         write(1, "\n", 1);
         // remplir le tableau avec notre coup joué
         return (0);

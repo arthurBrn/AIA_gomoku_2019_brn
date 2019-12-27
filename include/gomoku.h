@@ -41,24 +41,19 @@ int run_start(char *str, t_gomoku *gomoku);
 int run_end(char *str, t_gomoku *gomoku);
 int run_begin(char *str, t_gomoku *gomoku);
 void run_cmd(int (**tab_cmd)(char *, t_gomoku *));
-
-char    **my_str_to_word_array(char *str, char *lim);
+char **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);
 char *itoa(int nb, char *str, int size);
 char *delete_zero(char *play);
 t_board *init_board();
-
-// run_board
 int storing_error(char *coordonate, t_gomoku *gomoku, char *delim);
 int error_board(t_gomoku *gomoku, char *s1);
 void set_node(t_board *board, char *coordonate, char *delim);
 t_board *store_move(t_board *board, char *coordonate, char *delim);
-int run_board(t_gomoku *gomoku, char *s1);
+int run_board(char *s1, t_gomoku *gomoku);
 void print_list(t_board *board);
 void print_node(t_board *board);
 int list_length(t_board *board);
-
-// error.c
 int nbr_coma(char *str); // will be to change 
 int only_digit_str(char *str);
 int check_players(char c);

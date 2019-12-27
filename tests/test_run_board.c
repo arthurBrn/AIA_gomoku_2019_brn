@@ -228,5 +228,5 @@ Test(run_board, game_not_started)
     char *str = "BOARD";
 
     gom->start = 0;
-    cr_assert_eq(run_board(gom, str), MY_EXIT_FAILURE);
+    cr_assert_eq(run_board(str, gom), MY_EXIT_FAILURE);
 }

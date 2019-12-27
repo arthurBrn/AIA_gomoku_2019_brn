@@ -59,31 +59,31 @@ t_board *store_move(t_board *board, char *coordonate, char *delim)
     else {
         new_node = malloc(sizeof(t_board));
         set_node(new_node, coordonate, delim);
-        print_node(new_node);
         new_node->next = board;
     }
     return (new_node);
 }
 
-//int run_board(char *s1, t_gomoku *gomoku)
-int run_board(t_gomoku *gomoku, char *s1)
+int run_board(char *s1, t_gomoku *gomoku)
 {
     ssize_t size = 0;
     char *coordonate = "";
 
-    if (error_board(gomoku, s1) == 84)
+    if (error_board(gomoku, s1) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
-    while (strcmp(coordonate, "DONE") != 0)
-    {
+    while (strcmp(coordonate, "DONE") != 0) {
         if ((coordonate = malloc(sizeof(char) * BUFF_SIZE)) == NULL)
             return (MY_EXIT_FAILURE);
         if ((size = read(0, coordonate, BUFF_SIZE)) < 0)
             return (MY_EXIT_FAILURE);
         coordonate[size - 1] = '\0';
-        if (strcmp("DONE", coordonate) == 0)
-            return (0);
-        if (storing_error(coordonate, gomoku, ",") != 84)
-            store_move(gomoku->board, coordonate, ",");
+        /*if (strcmp("DONE", coordonate) == 0)
+            return (0);*/
+        if (storing_error(coordonate, gomoku, ",") != 84) {
+            gomoku->board = store_move(gomoku->board, coordonate, ",");
+            print_list(gomoku->board);       
+            printf("%d", list_length(gomoku->board));
+        }
         else
             return (write(1, ERROR_SIZE, strlen(ERROR_SIZE)), MY_EXIT_FAILURE);
         free(coordonate);

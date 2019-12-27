@@ -17,9 +17,11 @@ SRCS	=	./src/commands.c					\
 		./src/run_begin.c	   				\
 		./src/run_end.c		   				\
 		./src/main.c						\
+		./src/board_utils.c					\
 
 OBJS	=	$(SRCS:.c=.o)
 
+TEST_DIR	=	tests/
 
 CFLAGS =	-I ./include/
 
@@ -32,9 +34,11 @@ $(NAME): $(OBJS)
 
 clean:
 	$(RM) $(OBJS)
+	$(MAKE) -C $(TEST_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	$(MAKE) -C $(TEST_DIR) fclean
 
 re: fclean all
 
@@ -42,5 +46,11 @@ debug: $(CFLAGS) += -g
 
 debug: $(NAME)
 
+tests_run:
+	$(MAKE) -C $(TEST_DIR)
+	./$(TEST_DIR)unit_test
+
+coverage:
+	gcovr --exclude tests --branch
 
 .PHONY: all clean fclean re tests_run

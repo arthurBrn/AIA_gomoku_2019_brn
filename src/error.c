@@ -10,10 +10,11 @@
 int nbr_coma(char *str)
 {
     int flag = 0;
+    int len = strlen(str);
 
     if (str[0] == ',' || str[strlen(str + 1)] == ',')
         return (MY_EXIT_FAILURE);
-    for (int i = 0; i < strlen(str); i++)
+    for (int i = 0; i < len; i++)
         if (str[i] == ',')
             flag++;
     if (flag != 2)

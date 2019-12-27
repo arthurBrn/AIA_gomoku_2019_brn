@@ -18,7 +18,8 @@ t_board *init_board()
     return (board);
 }
 
-void init_struct(t_gomoku *gomoku) {
+void init_struct(t_gomoku *gomoku) 
+{
     gomoku->start = 0;
     gomoku->player = 0;
     gomoku->end = 0;
@@ -27,8 +28,9 @@ void init_struct(t_gomoku *gomoku) {
     gomoku->board = init_board();
 }
 
-int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {
-    char *tab[4] = {"START", "END", "BEGIN", '\0'};
+int check_cmd(char *str, int (*tab_cmd[4])(), t_gomoku *gomoku) 
+{
+    char *tab[5] = {"START", "END", "BEGIN", "BOARD", '\0'};
     char **newtab = my_str_to_word_array(str, " ");
     int compteur = 0;
 
@@ -51,7 +53,8 @@ int check_cmd(char *str, int (*tab_cmd[3])(), t_gomoku *gomoku) {
     return (0);
 }
 
-int loop_read(t_gomoku *gomoku, int (*tab_cmd[3])(char *, t_gomoku *gomoku)) {
+int loop_read(t_gomoku *gomoku, int (*tab_cmd[4])(char *, t_gomoku *gomoku)) 
+{
     char *line = NULL;
     size_t len = 0;
     int return_value;
@@ -75,9 +78,10 @@ int loop_read(t_gomoku *gomoku, int (*tab_cmd[3])(char *, t_gomoku *gomoku)) {
     return (0);
 }
 
-int gomoku() {
+int gomoku() 
+{
     t_gomoku    *gomoku = malloc(sizeof(*gomoku));
-    int (*tab_cmd[3])(char *, t_gomoku *);
+    int (*tab_cmd[4])(char *, t_gomoku *);
 
     init_struct(gomoku);
     run_cmd(tab_cmd);

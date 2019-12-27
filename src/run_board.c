@@ -14,14 +14,12 @@ int storing_error(char *coordonate, t_gomoku *gom, char *delim)
     char **split_coordonate;
     int x = 0;
     int y = 0;
-    int p = 0;
 
     if (check_string(coordonate, gom) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     split_coordonate = my_str_to_word_array(coordonate, delim);
     x = atoi(split_coordonate[0]);
     y = atoi(split_coordonate[1]);
-    p = atoi(split_coordonate[2]);
     while (gom->board != NULL)
     {
         if (gom->board->x == x && gom->board->y == y)
@@ -67,6 +65,7 @@ t_board *store_move(t_board *board, char *coordonate, char *delim)
     return (new_node);
 }
 
+//int run_board(char *s1, t_gomoku *gomoku)
 int run_board(t_gomoku *gomoku, char *s1)
 {
     ssize_t size = 0;

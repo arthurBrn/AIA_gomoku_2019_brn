@@ -16,6 +16,8 @@ SRCS	=	./src/commands.c					\
 		./src/run_start.c	   				\
 		./src/run_begin.c	   				\
 		./src/run_end.c		   				\
+		./src/run_board.c					\
+		./src/error.c						\
 		./src/main.c						\
 		./src/board_utils.c					\
 

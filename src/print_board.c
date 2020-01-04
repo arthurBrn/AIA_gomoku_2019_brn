@@ -7,24 +7,24 @@
 
 #include "gomoku.h"
 
-int call_the_node(int x, int y)
+int call_the_node(int x, int y, t_board *board)
 {
-    node_t *node = head;
+    t_board *head = head;
     int flag = 0;
 
-    while (node != NULL) {
-        if (node->x == x && node->y == y && node->player == 1) {
+    while (board != NULL) {
+        if (board->x == x && board->y == y && board->player == 1) {
             write(1, "o", 1);
             flag++;
         }
-        if (node->x == x && node->y == y && (node->player == 2)) {
+        if (board->x == x && board->y == y && (board->player == 2)) {
             write(1, "x", 1);
             flag++;
         }
-        node = node->next;
+        board = board->next;
     }
-    free(node);
-    node = NULL;
+    free(board);
+    board = NULL;
     return (flag);
 }
 
@@ -32,11 +32,11 @@ void print_the_board(t_gomoku *gom, t_board *board)
 {
     int size = gom->size * gom->size;
     int i = 0;
-    int x = 1;
-    int y = 1;
+    int x = 0;
+    int y = 0;
 
     while (size != 0) {
-        if (call_the_node(x, y) != 1)
+        if (call_the_node(x, y, board) != 1)
             write(1, "-", 1);
         size--;
         i++;
@@ -44,7 +44,7 @@ void print_the_board(t_gomoku *gom, t_board *board)
         if (i == gom->size) {
             putchar('\n');
             i = 0;
-            x = 1;
+            x = 0;
             y++;
         }
     }

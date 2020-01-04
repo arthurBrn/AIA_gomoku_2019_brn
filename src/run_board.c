@@ -77,8 +77,6 @@ int run_board(char *s1, t_gomoku *gomoku)
         if ((size = read(0, coordonate, BUFF_SIZE)) < 0)
             return (MY_EXIT_FAILURE);
         coordonate[size - 1] = '\0';
-        /*if (strcmp("DONE", coordonate) == 0)
-            return (0);*/
         if (storing_error(coordonate, gomoku, ",") != 84) {
             gomoku->board = store_move(gomoku->board, coordonate, ",");
             print_list(gomoku->board);       

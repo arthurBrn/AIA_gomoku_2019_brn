@@ -57,9 +57,9 @@ int check_coordinate(char *str, t_gomoku *gom)
         return (MY_EXIT_FAILURE);
     x = atoi(tab[0]);
     y = atoi(tab[1]);
-    if (x < 0 || x > gom->size)
+    if (x < 0 || x >= gom->size)
         return (MY_EXIT_FAILURE);
-    if (y < 0 || y > gom->size)
+    if (y < 0 || y >= gom->size)
         return (MY_EXIT_FAILURE);
     return (1);
 }

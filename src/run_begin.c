@@ -12,7 +12,7 @@ int error_begin(t_gomoku *gomoku)
 {
     if (gomoku->start == 0)
     {
-        write(2, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
+        write(1, GAME_NOT_STARTED, strlen(GAME_NOT_STARTED));
         return (MY_EXIT_FAILURE);
     }
     if (gomoku->begin == 1)
@@ -25,6 +25,7 @@ int error_begin(t_gomoku *gomoku)
 int store_begin_move(t_gomoku *gomoku, char *xy)
 {
     char *move_coordonate = malloc(sizeof(char) * 5);
+
     gomoku->player = 1;
     move_coordonate[0] = *xy;
     move_coordonate[1] = ',';
@@ -32,8 +33,6 @@ int store_begin_move(t_gomoku *gomoku, char *xy)
     move_coordonate[3] = ',';
     move_coordonate[4] = (gomoku->player + '0');
     move_coordonate[5] = '\0';
-    //printf("%s", move_coordonate);
-    // printf("%d", gomoku->start);
     if (storing_error(move_coordonate, gomoku, ",") == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     if (error_board(gomoku, "") == MY_EXIT_FAILURE)
@@ -50,8 +49,7 @@ int run_begin(char *str, t_gomoku *gomoku)
 
     if (error_begin(gomoku) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
-    else
-    {
+    else {
         gomoku->begin = 1;
         play = malloc(sizeof(char) * 4);
         play = itoa(gomoku->size / 2, play, 2);

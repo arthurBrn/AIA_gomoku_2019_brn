@@ -56,7 +56,6 @@ int run_begin(char *str, t_gomoku *gomoku)
         write(1, ",", 1);
         write(1, new_play, strlen(new_play));
         write(1, "\n", 1);
-        // remplir le tableau avec notre coup joué
         if (store_begin_move(gomoku, new_play) == MY_EXIT_FAILURE)
             return (MY_EXIT_FAILURE);
         return (0);

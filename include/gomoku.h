@@ -60,4 +60,5 @@ int only_digit_str(char *str);
 int check_players(char c);
 int check_coordinate(char *str, t_gomoku *gomoku);
 int check_string(char *str, t_gomoku *gomoku);
+char *concat_player(char *str);
 #endif

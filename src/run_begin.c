@@ -25,9 +25,9 @@ int error_begin(t_gomoku *gomoku)
 
 
 int store_begin_move(t_gomoku *gomoku, char *xy)
-{   
+{
+  gomoku->player = 1;
     char *move_coordonate = concat_coordonate(gomoku, xy);
-    gomoku->player = 1;
     if (storing_error(move_coordonate, gomoku, ",") == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     if (error_board(gomoku, "") == MY_EXIT_FAILURE)

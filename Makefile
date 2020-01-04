@@ -21,6 +21,7 @@ SRCS	=	./src/commands.c					\
 		./src/main.c						\
 		./src/board_utils.c					\
 		./src/run_turn.c					\
+		./src/turn_utils.c					\
 
 OBJS	=	$(SRCS:.c=.o)
 

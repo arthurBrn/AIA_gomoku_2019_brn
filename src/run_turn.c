@@ -8,7 +8,8 @@
 #include "gomoku.h"
 
 int run_turn(char *str, t_gomoku *gomoku)
-{
-  printf("str : %s\n", str);
+{ 
+  str = concat_player(str);
+  storing_error(str, gomoku, ',');
   return 0;
 }

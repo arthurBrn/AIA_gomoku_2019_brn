@@ -22,12 +22,10 @@ int error_begin(t_gomoku *gomoku)
     return (0);
 }
 
-
-
 int store_begin_move(t_gomoku *gomoku, char *xy)
-{   
-    char *move_coordonate = concat_coordonate(gomoku, xy);
+{
     gomoku->player = 1;
+    char *move_coordonate = concat_coordonate(gomoku, xy);
     if (storing_error(move_coordonate, gomoku, ",") == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     if (error_board(gomoku, "") == MY_EXIT_FAILURE)
@@ -55,6 +53,7 @@ int run_begin(char *str, t_gomoku *gomoku)
         write(1, "\n", 1);
         if (store_begin_move(gomoku, new_play) == MY_EXIT_FAILURE)
             return (MY_EXIT_FAILURE);
+        print_the_board(gomoku, gomoku->board);
         return (0);
     }
 }

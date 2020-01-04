@@ -61,4 +61,5 @@ int check_players(char c);
 int check_coordinate(char *str, t_gomoku *gomoku);
 int check_string(char *str, t_gomoku *gomoku);
 void print_the_board(t_gomoku *gom, t_board *board);
+char *concat_coordonate(t_gomoku *gomoku, char *xy);
 #endif

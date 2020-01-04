@@ -32,8 +32,8 @@ void print_the_board(t_gomoku *gom, t_board *board)
 {
     int size = gom->size * gom->size;
     int i = 0;
-    int x = 1;
-    int y = 1;
+    int x = 0;
+    int y = 0;
 
     while (size != 0) {
         if (call_the_node(x, y, board) != 1)
@@ -44,7 +44,7 @@ void print_the_board(t_gomoku *gom, t_board *board)
         if (i == gom->size) {
             putchar('\n');
             i = 0;
-            x = 1;
+            x = 0;
             y++;
         }
     }

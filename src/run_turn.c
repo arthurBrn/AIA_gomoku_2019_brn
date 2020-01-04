@@ -9,13 +9,11 @@
 
 int run_turn(char *str, t_gomoku *gomoku)
 {
-  str = concat_player(str);
-  if (storing_error(str, gomoku, ",") == 84)
-    return (84);
-  if (store_move(gomoku->board, str, ",") == 84)
-    return (84);
-  else
+  str = strcat(str, ",2");
+  if (storing_error(str, gomoku, ",") != 84)
     gomoku->board = store_move(gomoku->board, str, ",");
+  else
+    return (84);
   print_the_board(gomoku, gomoku->board);
   print_list(gomoku->board);
   return 0;

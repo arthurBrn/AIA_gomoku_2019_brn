@@ -88,3 +88,14 @@ int run_board(char *s1, t_gomoku *gomoku)
     }
     return (0);
 }
+
+void sort_it(t_board *board) 
+{    
+    t_board *holder = board;
+    t_board *next = NULL;
+
+    while (holder != NULL) {
+        next = holder->next;
+        if (holder->x > next->x)
+    }
+}

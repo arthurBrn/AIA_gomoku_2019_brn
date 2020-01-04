@@ -22,17 +22,12 @@ int error_begin(t_gomoku *gomoku)
     return (0);
 }
 
-int store_begin_move(t_gomoku *gomoku, char *xy)
-{
-    char *move_coordonate = malloc(sizeof(char) * 5);
 
+
+int store_begin_move(t_gomoku *gomoku, char *xy)
+{   
+    char *move_coordonate = concat_coordonate(gomoku, xy);
     gomoku->player = 1;
-    move_coordonate[0] = *xy;
-    move_coordonate[1] = ',';
-    move_coordonate[2] = *xy;
-    move_coordonate[3] = ',';
-    move_coordonate[4] = (gomoku->player + '0');
-    move_coordonate[5] = '\0';
     if (storing_error(move_coordonate, gomoku, ",") == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
     if (error_board(gomoku, "") == MY_EXIT_FAILURE)

@@ -11,16 +11,16 @@
 int error_start(char *str, t_gomoku *gomoku)
 {
     if (gomoku->start == 1) {
-        write (2, GAME_STARTED, strlen(GAME_STARTED));
+        write (1, GAME_STARTED, strlen(GAME_STARTED));
         return (MY_EXIT_FAILURE);
     }
     if (isnum(str) != 0) {
-        write (2, ERROR_MSG, strlen(ERROR_MSG));
+        write (1, ERROR_MSG, strlen(ERROR_MSG));
         return (MY_EXIT_FAILURE);
     }
     gomoku->size = atoi(str);
     if (gomoku->size == 0 || gomoku->size > 20 || gomoku->size < 5) {
-        write (2, ERROR_MSG, strlen(ERROR_MSG));
+        write (1, ERROR_MSG, strlen(ERROR_MSG));
         return (MY_EXIT_FAILURE);
     }   
     return (0);

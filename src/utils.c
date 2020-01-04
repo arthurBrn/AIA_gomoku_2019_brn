@@ -49,16 +49,3 @@ char *delete_zero(char *play)
     }
     return (new_play);
 }
-
-char *concat_coordonate(t_gomoku *gomoku, char *xy)
-{
-    char *move_coordonate = malloc(sizeof(char) * 5);
-
-    move_coordonate[0] = *xy;
-    move_coordonate[1] = ',';
-    move_coordonate[2] = *xy;
-    move_coordonate[3] = ',';
-    move_coordonate[4] = (gomoku->player + '0');
-    move_coordonate[5] = '\0';
-    return (move_coordonate);
-}

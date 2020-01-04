@@ -22,5 +22,14 @@ t_move *best_line(t_gomoku *gomoku, t_board *board)
 {
     t_move *move = init_move_struct();
 
-    // move = horizontal_search(t_gomoku *gom, t_board *board, )
+    // move = horizontal_search(t_gomoku *gom, t_board *board, move);
+    // move = vertical_search(t_gomoku *gom, t_board *board, move);
+    // move = right_diagonal_search(t_gomoku *gom, t_board *board, move);
+    // move = left_diagonal_search(t_gomoku *gom, t_board *board, move);
+
+    // if (move->value_pattern_found == 10000000)
+        // print_winner(gomoku);
+    // else {
+        //play(board, move);
+    //}
 }

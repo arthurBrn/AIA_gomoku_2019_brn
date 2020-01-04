@@ -40,6 +40,7 @@ int gomoku();
 int run_start(char *str, t_gomoku *gomoku);
 int run_end(char *str, t_gomoku *gomoku);
 int run_begin(char *str, t_gomoku *gomoku);
+int run_turn(char *str, t_gomoku *gomoku);
 void run_cmd(int (**tab_cmd)(char *, t_gomoku *));
 char **my_str_to_word_array(char *str, char *lim);
 int isnum(char *str);

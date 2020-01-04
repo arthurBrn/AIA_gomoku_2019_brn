@@ -45,15 +45,9 @@ void print_list(t_board *board)
     board = board_holder;
 }
 
-void print_node(t_board *board)
-{
+void print_node(t_board *board) {
     printf("[current_head][x][y][player] => ");
-    printf("%d", board->x);
-    putchar(',');
-    printf("%d", board->y);
-    putchar(',');
-    printf("%d", board->player);
-    putchar('\n');
+    printf("%d, %d, %d\n", board->x, board->y, board->player);
 }
 
 int list_length(t_board *board)

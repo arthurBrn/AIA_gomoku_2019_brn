@@ -82,7 +82,6 @@ int run_board(char *s1, t_gomoku *gomoku)
         if (storing_error(coordonate, gomoku, ",") != 84) {
             gomoku->board = store_move(gomoku->board, coordonate, ",");
             print_list(gomoku->board);       
-            printf("%d", list_length(gomoku->board));
         }
         else
             return (write(1, ERROR_SIZE, strlen(ERROR_SIZE)), MY_EXIT_FAILURE);

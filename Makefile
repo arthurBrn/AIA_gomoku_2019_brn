@@ -20,9 +20,8 @@ SRCS	=	./src/commands.c					\
 		./src/error.c						\
 		./src/main.c						\
 		./src/board_utils.c					\
-		./src/print_board.c                 \
+		./src/print_board.c                 			\
 		./src/run_turn.c					\
-		./src/turn_utils.c					\
 
 OBJS	=	$(SRCS:.c=.o)
 

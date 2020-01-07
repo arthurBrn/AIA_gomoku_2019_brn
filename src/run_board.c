@@ -8,6 +8,27 @@
 #include "gomoku.h"
 #include "board.h"
 
+// void sort(t_board *board)
+// {
+//     t_board *holder = board;
+//     t_board *swap = board;
+//     t_board *next = NULL;
+//     printf("%d", list_length(holder));
+
+//     while (holder != NULL) {
+//         next = holder->next;
+//         print_node(board);
+//         if (holder->x > next->x) {
+//             swap = holder;
+//             holder->next = next->next;
+//             next->next = holder;
+//             holder = next;
+//             next = swap;
+//         }
+//         holder = holder->next;
+//     }
+// }
+
 int storing_error(char *coordonate, t_gomoku *gom, char *delim)
 {
     t_board *board_holder = gom->board;
@@ -52,15 +73,20 @@ t_board *store_move(t_board *board, char *coordonate, char *delim)
 {
     t_board *new_node = NULL;
 
-    if (board->next == NULL && board->x == -1) {
+    printf("%s", "store move");
+    if (board->next == NULL && board->x == -1)
+    {
         set_node(board, coordonate, delim);
+        print_node(board);
         return (board);
     }
-    else {
+    else
+    {
         new_node = malloc(sizeof(t_board));
         set_node(new_node, coordonate, delim);
         new_node->next = board;
     }
+    print_node(new_node);
     return (new_node);
 }
 
@@ -71,13 +97,15 @@ int run_board(char *s1, t_gomoku *gomoku)
 
     if (error_board(gomoku, s1) == MY_EXIT_FAILURE)
         return (MY_EXIT_FAILURE);
-    while (strcmp(coordonate, "DONE") != 0) {
+    while (strcmp(coordonate, "DONE") != 0)
+    {
         if ((coordonate = malloc(sizeof(char) * BUFF_SIZE)) == NULL)
             return (MY_EXIT_FAILURE);
         if ((size = read(0, coordonate, BUFF_SIZE)) < 0)
             return (MY_EXIT_FAILURE);
         coordonate[size - 1] = '\0';
-        if (storing_error(coordonate, gomoku, ",") != 84) {
+        if (storing_error(coordonate, gomoku, ",") != 84)
+        {
             gomoku->board = store_move(gomoku->board, coordonate, ",");
             print_list(gomoku->board);
             print_the_board(gomoku, gomoku->board);
@@ -88,18 +116,3 @@ int run_board(char *s1, t_gomoku *gomoku)
     }
     return (0);
 }
-
-// void sort_it(t_board *board) 
-// {    
-    // t_board *holder = board;
-    // t_board *next = NULL;
-// 
-    // while (holder != NULL) {
-        // next = holder->next;
-        // if (holder->x > next->x) {
-            // 
-        // }
-            
-        // 
-    // }
-// }

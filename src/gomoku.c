@@ -18,13 +18,6 @@ t_board *init_board()
     return (board);
 }
 
-// char **init_patterns()
-// {
-    // char **patterns;
-// 
-    // return (patterns);
-// }
-
 void init_struct(t_gomoku *gomoku) 
 {
     gomoku->start = 0;

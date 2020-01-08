@@ -20,6 +20,7 @@ int check_horizontal(t_gomoku *gomoku) {
         }
 
 	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+	
 	save = save->next;
     }
     return (compteur);
@@ -38,14 +39,6 @@ int check_vertical(t_gomoku *gomoku) {
             save = save->next;
         }
 	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
-	if (compteur > 1 ) {
-	  check_open_1(save->x - compteur, save->y, save->x, save->y);
-	  check_open_2(save->x - compteur, save->y, save->x, save->y);
-	}else {
-	  check_open_1(save->x, save->y, save->x, save->y);
-	  check_open_2(save->x, save->y, save->x, save->y);
-	}
-	
 	save = save->next;
 	
     }

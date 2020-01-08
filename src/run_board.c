@@ -6,28 +6,6 @@
 */
 
 #include "gomoku.h"
-#include "board.h"
-
-// void sort(t_board *board)
-// {
-//     t_board *holder = board;
-//     t_board *swap = board;
-//     t_board *next = NULL;
-//     printf("%d", list_length(holder));
-
-//     while (holder != NULL) {
-//         next = holder->next;
-//         print_node(board);
-//         if (holder->x > next->x) {
-//             swap = holder;
-//             holder->next = next->next;
-//             next->next = holder;
-//             holder = next;
-//             next = swap;
-//         }
-//         holder = holder->next;
-//     }
-// }
 
 int storing_error(char *coordonate, t_gomoku *gom, char *delim)
 {
@@ -72,12 +50,9 @@ void set_node(t_board *board, char *coordonate, char *delim)
 t_board *store_move(t_board *board, char *coordonate, char *delim)
 {
     t_board *new_node = NULL;
-
-    printf("%s", "store move");
     if (board->next == NULL && board->x == -1)
     {
         set_node(board, coordonate, delim);
-        print_node(board);
         return (board);
     }
     else
@@ -86,7 +61,6 @@ t_board *store_move(t_board *board, char *coordonate, char *delim)
         set_node(new_node, coordonate, delim);
         new_node->next = board;
     }
-    print_node(new_node);
     return (new_node);
 }
 
@@ -116,3 +90,27 @@ int run_board(char *s1, t_gomoku *gomoku)
     }
     return (0);
 }
+
+// int main()
+// {
+//     t_board *board = init_board();
+
+//     board = store_move(board, "1,2,2", ",");
+//     board = store_move(board, "2,1,1", ",");
+//     board = store_move(board, "4,4,2", ",");
+//     board = store_move(board, "3,2,2", ",");
+//     board = store_move(board, "1,3,2", ",");
+//     board = store_move(board, "5,3,2", ",");
+
+//     printf("%s", "List size");
+//     putchar('\n');
+//     printf("%d", list_length(board));
+//     printf("%s", "First display");
+//     putchar('\n');
+//     print_list(board);
+//     printf("%s", "===== SORT =====");
+//     sort_board(board);
+//     printf("%s", "");
+//     print_list(board);
+//     return (0);
+// }

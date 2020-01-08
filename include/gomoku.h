@@ -24,6 +24,8 @@ typedef struct {
     int start;
     int end;
     int begin;
+    char **patterns;
+    int *patterns_value;
     t_board *board;
 } t_gomoku;
 
@@ -62,5 +64,7 @@ int check_coordinate(char *str, t_gomoku *gomoku);
 int check_string(char *str, t_gomoku *gomoku);
 void print_the_board(t_gomoku *gom, t_board *board);
 char *concat_coordonate(t_gomoku *gomoku, char *xy);
+void swap(t_board *holder, t_board *next);
+void sort_board(t_board *board);
 
 #endif

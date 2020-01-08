@@ -18,8 +18,10 @@ int check_horizontal(t_gomoku *gomoku) {
             compteur++;
             save = save->next;
         }
-        printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
-        save = save->next;
+
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+	
+	save = save->next;
     }
     return (compteur);
 }
@@ -27,6 +29,7 @@ int check_horizontal(t_gomoku *gomoku) {
 int check_vertical(t_gomoku *gomoku) {
     int compteur = 1;
     t_board *save = gomoku->board;
+    int *position[4];
 
     while (save != NULL) {
         compteur = 1;
@@ -35,8 +38,9 @@ int check_vertical(t_gomoku *gomoku) {
             compteur++;
             save = save->next;
         }
-        printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
-        save = save->next;
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+	save = save->next;
+	
     }
     return (compteur);
 }

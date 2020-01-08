@@ -17,6 +17,7 @@
 #include <math.h>
 #include <ctype.h>
 #include "board.h"
+#include <stdbool.h>
 
 typedef struct {
     int size;
@@ -66,7 +67,8 @@ void print_the_board(t_gomoku *gom, t_board *board);
 char *concat_coordonate(t_gomoku *gomoku, char *xy);
 void swap(t_board *holder);
 void sort_board(t_board *board);
-
 void sort_board_per_x(t_board *board, char search_direction);
 void sort_board_per_y(t_board *board, char search_direction);
+bool check_open_1(int start_x, int start_y, int end_x, int end_y);
+bool check_open_2(int start_x, int start_y, int end_x, int end_y);
 #endif

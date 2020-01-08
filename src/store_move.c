@@ -6,8 +6,11 @@
 */
 
 #include "move.h"
+#include <stdbool.h>
 
-void store_move_etst(int *position, bool open1, bool open2)
+
+void store_move(int *position, bool open1, bool open2)
 {
   printf("start x %d\n", position[0]);
 }
+

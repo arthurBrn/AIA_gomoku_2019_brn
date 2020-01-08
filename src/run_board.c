@@ -95,30 +95,36 @@ int run_board(char *s1, t_gomoku *gomoku)
 // {
 //     t_board *board = init_board();
 
-// 	board = store_board(board,"2,2,2", ",");
-// 	board = store_board(board,"5,0,2", ",");
-// 	board = store_board(board,"3,2,2", ",");
-// 	board = store_board(board,"8,8,2", ",");
-// 	board = store_board(board,"6,2,2", ",");
-// 	board = store_board(board,"5,2,2", ",");
-// 	board = store_board(board,"4,2,2", ",");
-// 	board = store_board(board,"7,5,2", ",");
-// 	board = store_board(board,"3,1,2", ",");
-// 	board = store_board(board,"4,1,2", ",");
+//     board = store_board(board, "2,2,2", ",");
+//     board = store_board(board, "5,0,2", ",");
+//     board = store_board(board, "3,2,2", ",");
+//     board = store_board(board, "8,8,2", ",");
+//     board = store_board(board, "6,2,2", ",");
+//     board = store_board(board, "5,2,2", ",");
+//     board = store_board(board, "4,2,2", ",");
+//     board = store_board(board, "7,5,2", ",");
+//     board = store_board(board, "3,1,2", ",");
+//     board = store_board(board, "4,1,2", ",");
 
-//     printf("%s", "List size");
-//     putchar('\n');
-//     printf("%d", list_length(board));
-//     printf("%s", "First display");
-//     putchar('\n');
+//     printf("%s", "===== ORIGINEL =====");
 //     print_list(board);
-//     printf("%s", "===== SORT X =====");
-//     sort_board_per_x(board);
-//     printf("%s", "");
+//     printf("%s", "===== HORIZONTAL =====");
+//     sort_board_per_x(board, "h");
+//     sort_board_per_y(board, "h");
+//     printf("%s", "===== SORT HORIZONTAL =====");
 //     print_list(board);
-//     printf("%s", "===== SORT X =====");
-//     sort_board_per_y(board);   
-//     printf("%s", "");
+//     printf("%s", "===== VERTICAL =====");
+//     // print_list(board);
+//     printf("%s", "===== ORIGINEL =====");
 //     print_list(board);
+//     write(1, "a", 1);
+//     sort_board_per_x(board, "v");
+//     write(1, "b", 1);
+//     sort_board_per_y(board, "v");
+//     write(1, "c", 1);
+//     printf("%s", "===== SORT VERTICAL =====");
+//     write(1, "d", 1);
+//     print_list(board);
+//     write(1, "e", 1);
 //     return (0);
 // }

@@ -50,11 +50,6 @@ void print_list(t_board *board)
     board = board_holder;
 }
 
-// void print_node(t_board *board) {
-//     printf("[current_head][x][y][player] => ");
-//     printf("%d, %d, %d\n", board->x, board->y, board->player);
-// }
-
 int list_length(t_board *board)
 {
     t_board *board_holder = board;
@@ -84,42 +79,3 @@ void swap(t_board *holder)
     holder->next->player = p_holder;
 }
 
-void sort_board_per_x(t_board *board, char search_direction)
-{
-    t_board *holder = board;
-
-    while (holder->next != NULL) {
-        if ((holder->x > holder->next->x) || ((holder->x == holder->next->x) && (holder->y < holder->next->y))) {
-            swap(holder);
-            holder = board;
-        }
-        else {
-            holder = holder->next;
-        }
-    }
-}
-
-void sort_board_per_y(t_board *board, char search_direction)
-{
-    t_board *hold = board;
-    // (void)search_direction;
-
-    while (hold->next != NULL) {
-        if (search_direction == 'h' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
-            swap(hold);
-            hold = board;
-        } else if (search_direction == 'v' && ((hold->y > hold->next->y) || ((hold->y == hold->next->y) && (hold->x < hold->next->x)))) {
-            swap(hold);
-            hold = board;
-        }
-        else {
-            hold = hold->next;
-        }
-
-
-        // else if ( search_direction == 'v' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
-            // swap(hold);
-            // hold = board;
-        // } 
-    }
-}

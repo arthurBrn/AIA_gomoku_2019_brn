@@ -22,6 +22,7 @@ SRCS	=	./src/commands.c					\
 		./src/board_utils.c					\
 		./src/print_board.c                 			\
 		./src/run_turn.c					\
+		./src/sorting_board.c 				\
 
 OBJS	=	$(SRCS:.c=.o)
 
@@ -34,7 +35,7 @@ CFLAGS +=	-W -Wall -Wextra -Wshadow
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	 $(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
+	$(CC) $(OBJS) -o $(NAME) $(LDFLAGS)
 
 clean:
 	$(RM) $(OBJS)

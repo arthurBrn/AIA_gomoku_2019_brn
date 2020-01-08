@@ -89,9 +89,6 @@ void sort_board(t_board *board)
     t_board *holder = board;
     while (holder->next != NULL)
     {
-        // (holder->y >= holder->next->y)
-        //if ((holder->x > holder->next->x) || ((holder->x > holder->next->x) && (holder->y >= holder->next->y)))
-        //if ((holder->x > holder->next->x) && (holder->y >= holder->next->y))
         if ((holder->x > holder->next->x) || ((holder->x == holder->next->x) && (holder->y > holder->next->y)))
         {
             swap(holder);

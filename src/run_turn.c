@@ -17,6 +17,7 @@ t_move *check_horizontal(t_gomoku *gomoku, t_move *move) {
 
     while (save != NULL) {
         compteur = 1;
+<<<<<<< HEAD
         start = 0;
         while ((save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) &&
                save->player == save->next->player)) {
@@ -30,10 +31,15 @@ t_move *check_horizontal(t_gomoku *gomoku, t_move *move) {
                 new_node->start_y = save->y;
                 new_node->start_x = save->x;
             }
+=======
+        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) &&
+                save->player == save->next->player) {
+>>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
             compteur++;
             previous = save;
             save = save->next;
 
+<<<<<<< HEAD
         }
         if (start == 1) {
             if (save->x + 1== save->next->x)
@@ -47,6 +53,11 @@ t_move *check_horizontal(t_gomoku *gomoku, t_move *move) {
         }
         previous = save;
         save = save->next;
+=======
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+	
+	save = save->next;
+>>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
     }
     return (move);
 }
@@ -58,13 +69,19 @@ int check_vertical(t_gomoku *gomoku) {
     while (save != NULL) {
         compteur = 1;
         while (save->next != NULL && (save->x == save->next->x) && (save->y + 1 == save->next->y) &&
-               save->player == save->next->player) {
+                save->player == save->next->player) {
             compteur++;
             save = save->next;
         }
+<<<<<<< HEAD
         printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
         save = save->next;
 
+=======
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+	save = save->next;
+	
+>>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
     }
     return (compteur);
 }
@@ -78,6 +95,7 @@ int run_turn(char *str, t_gomoku *gomoku) {
     } else
         return (84);
     print_the_board(gomoku, gomoku->board);
+<<<<<<< HEAD
     sort_board_per_x(gomoku->board, 'h');
     sort_board_per_y(gomoku->board, 'h');
     // printf("===vertical===\n");
@@ -89,5 +107,19 @@ int run_turn(char *str, t_gomoku *gomoku) {
     make_moves(move);
     //    printf("===vertical===\n");
     //check_vertical(gomoku);
+=======
+    printf("===horizontal===\n");
+    sort_board_per_x(gomoku->board, "h");
+    sort_board_per_y(gomoku->board, "h");
+    printf("===horizontal===\n");
+    check_horizontal(gomoku);
+    printf("===vertical===\n");
+    sort_board_per_x(gomoku->board, "v");    
+    sort_board_per_y(gomoku->board, "v");
+    print_list(gomoku->board);
+    // printf("===horizontal===\n");
+    printf("===vertical===\n");
+    check_vertical(gomoku);
+>>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
     return 0;
 }

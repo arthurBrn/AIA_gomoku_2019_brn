@@ -95,12 +95,16 @@ int run_board(char *s1, t_gomoku *gomoku)
 // {
 //     t_board *board = init_board();
 
-//     board = store_move(board, "1,2,2", ",");
-//     board = store_move(board, "2,1,1", ",");
-//     board = store_move(board, "4,4,2", ",");
-//     board = store_move(board, "3,2,2", ",");
-//     board = store_move(board, "1,3,2", ",");
-//     board = store_move(board, "5,3,2", ",");
+// 	board = store_move(board,"2,2,2", ",");
+// 	board = store_move(board,"5,0,2", ",");
+// 	board = store_move(board,"3,2,2", ",");
+// 	board = store_move(board,"8,8,2", ",");
+// 	board = store_move(board,"6,2,2", ",");
+// 	board = store_move(board,"5,2,2", ",");
+// 	board = store_move(board,"4,2,2", ",");
+// 	board = store_move(board,"7,5,2", ",");
+// 	board = store_move(board,"3,1,2", ",");
+// 	board = store_move(board,"4,1,2", ",");
 
 //     printf("%s", "List size");
 //     putchar('\n');
@@ -108,8 +112,12 @@ int run_board(char *s1, t_gomoku *gomoku)
 //     printf("%s", "First display");
 //     putchar('\n');
 //     print_list(board);
-//     printf("%s", "===== SORT =====");
-//     sort_board(board);
+//     printf("%s", "===== SORT X =====");
+//     sort_board_per_x(board);
+//     printf("%s", "");
+//     print_list(board);
+//     printf("%s", "===== SORT X =====");
+//     sort_board_per_y(board);   
 //     printf("%s", "");
 //     print_list(board);
 //     return (0);

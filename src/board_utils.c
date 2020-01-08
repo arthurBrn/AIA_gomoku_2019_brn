@@ -84,19 +84,31 @@ void swap(t_board *holder)
     holder->next->player = p_holder;
 }
 
-void sort_board(t_board *board)
+void sort_board_per_x(t_board *board)
 {
     t_board *holder = board;
-    while (holder->next != NULL)
-    {
-        if ((holder->x > holder->next->x) || ((holder->x == holder->next->x) && (holder->y > holder->next->y)))
-        {
+
+    while (holder->next != NULL) {
+        if ((holder->x < holder->next->x) || ((holder->x == holder->next->x) && (holder->y < holder->next->y))) {
             swap(holder);
             holder = board;
         }
-        else
-        {
+        else {
             holder = holder->next;
+        }
+    }
+}
+
+void sort_board_per_y(t_board *board)
+{
+    t_board *hold = board;
+
+    while (hold->next != NULL) {
+        if ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x < hold->next->x))) {
+            swap(hold);
+            hold = board;
+        } else {
+            hold = hold->next;
         }
     }
 }

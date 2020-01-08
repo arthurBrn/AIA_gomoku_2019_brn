@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1f37ce38-f7df-4190-b14e-98577e14a07b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/include/board.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/board.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/run_turn.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/run_turn.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/check_aligned.c" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +40,20 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/run_turn.c">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="236">
-                  <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+                <state relative-caret-position="405">
+                  <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/moves.c">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="431">
+                  <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -58,7 +66,7 @@
             <entry file="file://$PROJECT_DIR$/src/utils.c">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="146">
-                  <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+                  <caret line="34" selection-start-line="34" selection-end-line="34" />
                 </state>
               </provider>
             </entry>
@@ -66,8 +74,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/include/board.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="345">
-                  <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+                <state>
+                  <caret selection-end-line="5" selection-end-column="2" />
                 </state>
               </provider>
             </entry>
@@ -107,6 +115,7 @@
         <option value="$PROJECT_DIR$/src/run_move.c" />
         <option value="$PROJECT_DIR$/include/board.h" />
         <option value="$PROJECT_DIR$/src/run_turn.c" />
+        <option value="$PROJECT_DIR$/src/moves.c" />
       </list>
     </option>
   </component>
@@ -182,15 +191,16 @@
       <workItem from="1577972068333" duration="14000" />
       <workItem from="1578130450459" duration="10614000" />
       <workItem from="1578402359812" duration="10756000" />
-      <workItem from="1578488212608" duration="2600000" />
+      <workItem from="1578488212608" duration="4613000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48926000" />
+    <option name="totallyTimeSpent" value="50939000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26840067" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -328,21 +338,33 @@
     <entry file="file://$PROJECT_DIR$/src/utils.c">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="146">
-          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/check_aligned.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/run_turn.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/include/board.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="21" selection-start-line="23" selection-start-column="21" selection-end-line="23" selection-end-column="21" />
+        <state>
+          <caret selection-end-line="5" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/run_turn.c">
+    <entry file="file://$PROJECT_DIR$/src/moves.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="16" column="37" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="37" />
+        <state relative-caret-position="431">
+          <caret line="56" column="40" selection-start-line="56" selection-start-column="40" selection-end-line="56" selection-end-column="40" />
         </state>
       </provider>
     </entry>

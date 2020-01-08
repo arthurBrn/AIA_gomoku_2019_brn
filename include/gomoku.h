@@ -16,8 +16,9 @@
 #include <unistd.h>
 #include <math.h>
 #include <ctype.h>
-#include "board.h"
 #include <stdbool.h>
+#include "board.h"
+#include "move.h"
 
 typedef struct {
     int size;
@@ -69,8 +70,12 @@ void swap(t_board *holder);
 void sort_board(t_board *board);
 bool check_open_1(int start_x, int start_y, int end_x, int end_y);
 bool check_open_2(int start_x, int start_y, int end_x, int end_y);
+<<<<<<< HEAD
+void make_moves(t_move *move);
+=======
 void sort_board_per_x(t_board *board, char *search_direction);
 void sort_board_per_y(t_board *board, char *search_direction);
+<<<<<<< HEAD
 void free_board_list(t_board *board);
 void init_struct(t_gomoku *gomoku);
 int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
@@ -95,4 +100,9 @@ int check_vertical(t_gomoku *gomoku);
 void store_move(int *position, bool open1, bool open2);
 int play_len(char *play);
 
+=======
+// void sort_board_per_x(t_board *board, char search_direction);
+// void sort_board_per_y(t_board *board, char search_direction);
+>>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
+>>>>>>> 96a51c0721c625aa57e1791285110e4dcf4d219b
 #endif

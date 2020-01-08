@@ -18,6 +18,7 @@ typedef struct move {
     int len;
     bool open1;
     bool open2;
+    struct move *next;
 } t_move;
 
 #endif

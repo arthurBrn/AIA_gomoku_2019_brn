@@ -7,6 +7,38 @@
 
 #include "gomoku.h"
 
+void free_move_list(t_move *move)
+{
+    t_move *current = NULL;
+    t_move *next = NULL;
+    t_move *head_holder = move;
+
+    while (move != NULL)
+    {
+        current = move;
+        next = move->next;
+        move = next;
+        free(current);
+    }
+    free(next);
+    free(head_holder);
+    move = NULL;
+}
+
+t_move *init_move_struct() {
+    t_move *head = malloc(sizeof(t_move));
+    head->start_x = -1;
+    head->start_y = -1;
+    head->end_x = -1;
+    head->end_y = -1;
+    head->len = -1;
+    head->open1 = 0;
+    head->open2 = 0;
+    head->next = NULL;
+    
+    return (head);
+}
+
 char *if_all_open_are_true(char *res, t_move *move) {
     char *x = malloc(sizeof(char) * 2);
     char *y = malloc(sizeof(char) * 2);
@@ -65,7 +97,6 @@ void make_moves(t_move *move) {
     t_move *save = move;
 
     while (save != NULL) {
-        printf("ok\n");
         if (save->len == 4) {
             write(1, where_play(move), strlen(where_play(move)));
             break;

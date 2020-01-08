@@ -78,5 +78,4 @@ void swap(t_board *holder)
     holder->next->x = x_holder;
     holder->next->y = y_holder;
     holder->next->player = p_holder;
-    // holder = board;  
 }

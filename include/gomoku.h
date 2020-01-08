@@ -70,20 +70,17 @@ void swap(t_board *holder);
 void sort_board(t_board *board);
 bool check_open_1(int start_x, int start_y, int end_x, int end_y);
 bool check_open_2(int start_x, int start_y, int end_x, int end_y);
-<<<<<<< HEAD
 void make_moves(t_move *move);
-=======
 void sort_board_per_x(t_board *board, char *search_direction);
 void sort_board_per_y(t_board *board, char *search_direction);
-<<<<<<< HEAD
 void free_board_list(t_board *board);
 void init_struct(t_gomoku *gomoku);
 int check_cmd(char *str, int (*tab_cmd[5])(), t_gomoku *gomoku);
 int loop_read(t_gomoku *gomoku, int (*tab_cmd[5])(char *, t_gomoku *gomoku));
-char *if_all_open_are_true(char *res);
-char *if_only_second_open_are_true(char *res);
-char *where_play(t_gomoku *gomoku);
-void makes_moves(t_gomoku *gomoku);
+char *if_all_open_are_true(char *res, t_move *move);
+char *if_only_second_open_are_true(char *res, t_move *move);
+char *where_play(t_move *move);
+void makes_moves(t_move *move);
 void my_free_tab(char **tab);
 int	my_delim(char s, char *lim);
 int	count_word(char *str, char *lim);
@@ -95,14 +92,9 @@ int store_begin_move(t_gomoku *gomoku, char *xy);
 int run_begin(char *str, t_gomoku *gomoku);
 int error_end(t_gomoku *gomoku);
 int error_start(char *str, t_gomoku *gomoku);
-int check_horizontal(t_gomoku *gomoku);
 int check_vertical(t_gomoku *gomoku);
 void store_move(int *position, bool open1, bool open2);
 int play_len(char *play);
+t_move *init_move_struct();
 
-=======
-// void sort_board_per_x(t_board *board, char search_direction);
-// void sort_board_per_y(t_board *board, char search_direction);
->>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
->>>>>>> 96a51c0721c625aa57e1791285110e4dcf4d219b
 #endif

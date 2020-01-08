@@ -10,24 +10,20 @@ NAME	=	pbrain-gomoku-ai
 CC	=	gcc -g
 
 SRCS	=	./src/commands.c					\
-		./src/my_str_to_word_array.c				\
-		./src/utils.c						\
-		./src/gomoku.c		   				\
-		./src/run_start.c	   				\
-		./src/run_begin.c	   				\
-		./src/run_end.c		   				\
-		./src/run_board.c					\
-		./src/error.c						\
-		./src/main.c						\
-		./src/board_utils.c					\
-		./src/print_board.c                 			\
-		./src/run_turn.c					\
-		./src/store_move.c					\
-<<<<<<< HEAD
-        ./src/moves.c
-=======
-		./src/sorting_board.c 				\
->>>>>>> 053d5425b5efbdc1fef9d7682e93fc75142264f7
+			./src/my_str_to_word_array.c				\
+			./src/utils.c						\
+			./src/gomoku.c		   				\
+			./src/run_start.c	   				\
+			./src/run_begin.c	   				\
+			./src/run_end.c		   				\
+			./src/run_board.c					\
+			./src/error.c						\
+			./src/main.c						\
+			./src/board_utils.c					\
+			./src/print_board.c                 			\
+			./src/run_turn.c					\
+        	./src/moves.c						\
+			./src/sorting_board.c 				\
 
 OBJS	=	$(SRCS:.c=.o)
 

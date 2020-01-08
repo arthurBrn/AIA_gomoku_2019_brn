@@ -50,58 +50,9 @@ int run_begin(char *str, t_gomoku *gomoku)
         write(1, new_play, strlen(new_play));
         write(1, ",", 1);
         write(1, new_play, strlen(new_play));
-        write(1, "\n", 1);
-
-	/*      HORIZONTAL  */
-	gomoku->board = store_board(gomoku->board,"8,8,2", ",");
-
-	gomoku->board = store_board(gomoku->board,"6,2,2", ",");
-	gomoku->board = store_board(gomoku->board,"5,2,2", ",");	
-	gomoku->board = store_board(gomoku->board,"4,2,1", ",");
-	gomoku->board = store_board(gomoku->board,"3,2,1", ",");
-	gomoku->board = store_board(gomoku->board,"2,2,2", ",");
-	
-	gomoku->board = store_board(gomoku->board,"7,5,2", ",");	
-	gomoku->board = store_board(gomoku->board,"2,3,2", ",");
-
-	gomoku->board = store_board(gomoku->board,"4,1,2", ",");
-	gomoku->board = store_board(gomoku->board,"3,1,2", ",");
-	
-	
-	
-	
-	/* VERTICAL
-
-	gomoku->board = store_board(gomoku->board,"1,9,1", ",");
-	gomoku->board = store_board(gomoku->board,"1,8,1", ",");
-	gomoku->board = store_board(gomoku->board,"1,7,1", ",");
-	gomoku->board = store_board(gomoku->board,"1,6,1", ",");
-	gomoku->board = store_board(gomoku->board,"1,5,1", ",");
-	
-	gomoku->board = store_board(gomoku->board,"2,2,2", ",");
-
-	gomoku->board = store_board(gomoku->board,"3,2,2", ",");
-	gomoku->board = store_board(gomoku->board,"3,1,2", ",");
-
-	gomoku->board = store_board(gomoku->board,"4,2,2", ",");
-	gomoku->board = store_board(gomoku->board,"4,1,2", ",");
-	
-	gomoku->board = store_board(gomoku->board,"5,2,2", ",");	
-	gomoku->board = store_board(gomoku->board,"5,3,1", ",");
-	gomoku->board = store_board(gomoku->board,"5,4,1", ",");	
-	
-	gomoku->board = store_board(gomoku->board,"6,2,2", ",");		
-
-	gomoku->board = store_board(gomoku->board,"7,5,2", ",");
-
-	gomoku->board = store_board(gomoku->board,"8,8,2", ",");
-	*/
-
+        write(1, "\n", 1);	
 	if (store_begin_move(gomoku, new_play) == MY_EXIT_FAILURE)
             return (MY_EXIT_FAILURE);
-	
-	print_the_board(gomoku, gomoku->board);
-	
 	return (0);
     }
 }

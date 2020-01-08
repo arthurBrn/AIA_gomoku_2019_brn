@@ -105,10 +105,10 @@ void sort_board_per_y(t_board *board, char search_direction)
     // (void)search_direction;
 
     while (hold->next != NULL) {
-        if ( search_direction == 'h' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
+        if (search_direction == 'h' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
             swap(hold);
             hold = board;
-        } else ( search_direction == 'v' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
+        } else if (search_direction == 'v' && ((hold->y > hold->next->y) || ((hold->y == hold->next->y) && (hold->x < hold->next->x)))) {
             swap(hold);
             hold = board;
         }

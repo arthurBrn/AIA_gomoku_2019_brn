@@ -52,7 +52,7 @@ t_board *init_board();
 int storing_error(char *coordonate, t_gomoku *gomoku, char *delim);
 int error_board(t_gomoku *gomoku, char *s1);
 void set_node(t_board *board, char *coordonate, char *delim);
-t_board *store_move(t_board *board, char *coordonate, char *delim);
+t_board *store_board(t_board *board, char *coordonate, char *delim);
 int run_board(char *s1, t_gomoku *gomoku);
 void print_list(t_board *board);
 void print_node(t_board *board);
@@ -65,8 +65,8 @@ int check_string(char *str, t_gomoku *gomoku);
 void print_the_board(t_gomoku *gom, t_board *board);
 char *concat_coordonate(t_gomoku *gomoku, char *xy);
 void swap(t_board *holder);
-void sort_board(t_board *board);    
+void sort_board(t_board *board);
 
-void sort_board_per_x(t_board *board);
-void sort_board_per_y(t_board *board);
+void sort_board_per_x(t_board *board, char search_direction);
+void sort_board_per_y(t_board *board, char search_direction);
 #endif

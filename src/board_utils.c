@@ -84,7 +84,7 @@ void swap(t_board *holder)
     holder->next->player = p_holder;
 }
 
-void sort_board_per_x(t_board *board)
+void sort_board_per_x(t_board *board, char search_direction)
 {
     t_board *holder = board;
 
@@ -99,16 +99,27 @@ void sort_board_per_x(t_board *board)
     }
 }
 
-void sort_board_per_y(t_board *board)
+void sort_board_per_y(t_board *board, char search_direction)
 {
     t_board *hold = board;
+    // (void)search_direction;
 
     while (hold->next != NULL) {
-        if ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x))) {
+        if ( search_direction == 'h' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
             swap(hold);
             hold = board;
-        } else {
+        } else ( search_direction == 'v' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
+            swap(hold);
+            hold = board;
+        }
+        else {
             hold = hold->next;
         }
+
+
+        // else if ( search_direction == 'v' && ((hold->y < hold->next->y) || ((hold->y == hold->next->y) && (hold->x > hold->next->x)))) {
+            // swap(hold);
+            // hold = board;
+        // } 
     }
 }

@@ -12,8 +12,8 @@
 // {
 //     t_board *node_one = init_board();
 
-//     node_one = store_move(node_one, "1,1,1", ",");
-//     node_one = store_move(node_one, "2,2,2", ",");
+//     node_one = store_board(node_one, "1,1,1", ",");
+//     node_one = store_board(node_one, "2,2,2", ",");
 
 //     swap(node_one);
 //     cr_assert_eq(node_one->x, 1);
@@ -29,12 +29,12 @@
 // {
 //     t_board *board = init_board();
 
-//     board = store_move(board, "1,2,2", ",");
-//     board = store_move(board, "2,1,1", ",");
-//     board = store_move(board, "4,4,2", ",");
-//     board = store_move(board, "3,2,2", ",");
-//     board = store_move(board, "1,3,2", ",");
-//     board = store_move(board, "5,3,2", ",");
+//     board = store_board(board, "1,2,2", ",");
+//     board = store_board(board, "2,1,1", ",");
+//     board = store_board(board, "4,4,2", ",");
+//     board = store_board(board, "3,2,2", ",");
+//     board = store_board(board, "1,3,2", ",");
+//     board = store_board(board, "5,3,2", ",");
 
 //     cr_assert_eq(list_length(board), 6);
 //     sort_board(board);
@@ -63,12 +63,12 @@ Test(sort_board, sort_board_working)
 {
     t_board *board = init_board();
 
-    board = store_move(board, "1,2,2", ",");
-    board = store_move(board, "2,2,1", ",");
-    board = store_move(board, "4,4,2", ",");
-    board = store_move(board, "3,4,2", ",");
-    board = store_move(board, "6,4,2", ",");
-    board = store_move(board, "5,4,2", ",");
+    board = store_board(board, "1,2,2", ",");
+    board = store_board(board, "2,2,1", ",");
+    board = store_board(board, "4,4,2", ",");
+    board = store_board(board, "3,4,2", ",");
+    board = store_board(board, "6,4,2", ",");
+    board = store_board(board, "5,4,2", ",");
 
     cr_assert_eq(list_length(board), 6);
     sort_board(board);
@@ -97,8 +97,8 @@ Test(sort_board, sort_board_working)
 // {
 //     t_board *board = init_board();
 
-//     board = store_move(board, "1,2,2", ",");
-//     board = store_move(board, "1,3,2", ",");
+//     board = store_board(board, "1,2,2", ",");
+//     board = store_board(board, "1,3,2", ",");
 
 //     cr_assert_eq(list_length(board), 2);
 //     sort_board(board);
@@ -115,8 +115,8 @@ Test(sort_board, sort_board_working)
 // {
 //     t_board *board = init_board();
 
-//     board = store_move(board, "1,2,2", ",");
-//     board = store_move(board, "2,2,2", ",");
+//     board = store_board(board, "1,2,2", ",");
+//     board = store_board(board, "2,2,2", ",");
 
 //     cr_assert_eq(list_length(board), 2);
 //     sort_board(board);

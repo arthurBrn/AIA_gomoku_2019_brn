@@ -16,7 +16,7 @@ Test(list_length, find_length_four)
 
     node = init_board();
     for (; i >= 0; i--)
-        node = store_move(node, coord[i], ",");
+        node = store_board(node, coord[i], ",");
     cr_assert_eq(list_length(node), 4);
 }
 
@@ -36,7 +36,7 @@ Test(list_length, not_losing_the_head)
 
     node = init_board();    
     for (; i >= 0; i--)
-        node = store_move(node, coord[i], ",");
+        node = store_board(node, coord[i], ",");
     keep_the_head = node;
     cr_assert_eq(list_length(node), 4);
     cr_assert_eq(keep_the_head, node);
@@ -51,7 +51,7 @@ Test(print_list, keeping_the_head)
 
     node = init_board();    
     for (; i >= 0; i--)
-        node = store_move(node, coord[i], ",");
+        node = store_board(node, coord[i], ",");
     keep_the_head = node;
     print_list(node);
     cr_assert_eq(keep_the_head, node);
@@ -186,20 +186,20 @@ Test(set_node, assign_correct_values)
     cr_assert_null(gom->board->next);
 }
 
-Test(store_move, add_one_node)
+Test(store_board, add_one_node)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     char *coordonate = "1,1,1";
 
     gom->board = init_board();
-    store_move(gom->board, coordonate, ",");
+    store_board(gom->board, coordonate, ",");
     cr_assert_eq(gom->board->x, 1);
     cr_assert_eq(gom->board->y, 1);
     cr_assert_eq(gom->board->player, 1);
     cr_assert_null(gom->board->next);
 }
 
-Test(store_move, add_several_node)
+Test(store_board, add_several_node)
 {
     t_gomoku *gom = malloc(sizeof(t_gomoku));
     t_board *board = malloc(sizeof(t_board));
@@ -210,7 +210,7 @@ Test(store_move, add_several_node)
 
     gom->board = init_board();
     for (; i >= 0; i--)
-        gom->board = store_move(gom->board, coord[i], ",");
+        gom->board = store_board(gom->board, coord[i], ",");
     cr_assert_eq(list_length(gom->board), 4);
     board = gom->board;
     for (;board != NULL; board = board->next) {

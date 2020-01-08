@@ -7,8 +7,7 @@
 
 #include "gomoku.h"
 
-char *if_all_open_are_true(char *res)
-{
+char *if_all_open_are_true(char *res) {
     char *x = malloc(sizeof(char) * 2);
     char *y = malloc(sizeof(char) * 2);
 
@@ -28,8 +27,7 @@ char *if_all_open_are_true(char *res)
     return (res);
 }
 
-char *if_only_second_open_are_true(char *res)
-{
+char *if_only_second_open_are_true(char *res) {
     char *x = malloc(sizeof(char) * 2);
     char *y = malloc(sizeof(char) * 2);
 
@@ -65,30 +63,16 @@ char *where_play(t_gomoku *gomoku) {
 
 void makes_moves(t_gomoku *gomoku) {
     t_board *save = gomoku->board;
-    char *str;
 
     while (save != NULL) {
-        if (save->len == 4) {
-            str = where_play(gomoku);
-            write(1, str, strlen(str));
-            break;
-        }
-        else if (save->len == 3) {
-            str = where_play(gomoku);
-            write(1, str, strlen(str));
-            break;
-
-        }
-        else if (save->len == 2) {
-            str = where_play(gomoku);
-            write(1, str, strlen(str));
-            break;
-        }
-        else if (save->len == 1) {
-            str = where_play(gomoku);
-            write(1, str, strlen(str));
-            break;
-        }
+        if (save->len == 4)
+            return (write(1, where_play(), strlen(where_play(gomoku))));
+        else if (save->len == 3)
+            return (write(1, where_play(), strlen(where_play(gomoku))));
+        else if (save->len == 2)
+            return (write(1, where_play(), strlen(where_play(gomoku))));
+        else if (save->len == 1)
+            return (write(1, where_play(), strlen(where_play(gomoku))));
         save = save->next;
     }
 }

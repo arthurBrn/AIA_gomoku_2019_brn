@@ -50,13 +50,17 @@ int run_turn(char *str, t_gomoku *gomoku)
     str = strcat(str, ",2");
     if (storing_error(str, gomoku, ",") != 84)
     {
-        gomoku->board = store_move(gomoku->board, str, ",");
+        gomoku->board = store_board(gomoku->board, str, ",");
     }
     else
         return (84);
     print_the_board(gomoku, gomoku->board);
-    sort_board_per_x(gomoku->board);
-    sort_board_per_y(gomoku->board);
+    printf("===horizontal===\n");
+    sort_board_per_x(gomoku->board, 'h');
+    sort_board_per_y(gomoku->board, 'h');
+    // printf("===vertical===\n");
+    // sort_board_per_x(gomoku->board, 'v');
+    // sort_board_per_y(gomoku->board, 'v');
     print_list(gomoku->board);
     // printf("===horizontal===\n");
     printf("===horizontal===\n");

@@ -47,7 +47,7 @@ void set_node(t_board *board, char *coordonate, char *delim)
     board->player = atoi(split_coordonate[2]);
 }
 
-t_board *store_move(t_board *board, char *coordonate, char *delim)
+t_board *store_board(t_board *board, char *coordonate, char *delim)
 {
     t_board *new_node = NULL;
     if (board->next == NULL && board->x == -1)
@@ -80,7 +80,7 @@ int run_board(char *s1, t_gomoku *gomoku)
         coordonate[size - 1] = '\0';
         if (storing_error(coordonate, gomoku, ",") != 84)
         {
-            gomoku->board = store_move(gomoku->board, coordonate, ",");
+            gomoku->board = store_board(gomoku->board, coordonate, ",");
             print_list(gomoku->board);
             print_the_board(gomoku, gomoku->board);
         }
@@ -95,16 +95,16 @@ int run_board(char *s1, t_gomoku *gomoku)
 // {
 //     t_board *board = init_board();
 
-// 	board = store_move(board,"2,2,2", ",");
-// 	board = store_move(board,"5,0,2", ",");
-// 	board = store_move(board,"3,2,2", ",");
-// 	board = store_move(board,"8,8,2", ",");
-// 	board = store_move(board,"6,2,2", ",");
-// 	board = store_move(board,"5,2,2", ",");
-// 	board = store_move(board,"4,2,2", ",");
-// 	board = store_move(board,"7,5,2", ",");
-// 	board = store_move(board,"3,1,2", ",");
-// 	board = store_move(board,"4,1,2", ",");
+// 	board = store_board(board,"2,2,2", ",");
+// 	board = store_board(board,"5,0,2", ",");
+// 	board = store_board(board,"3,2,2", ",");
+// 	board = store_board(board,"8,8,2", ",");
+// 	board = store_board(board,"6,2,2", ",");
+// 	board = store_board(board,"5,2,2", ",");
+// 	board = store_board(board,"4,2,2", ",");
+// 	board = store_board(board,"7,5,2", ",");
+// 	board = store_board(board,"3,1,2", ",");
+// 	board = store_board(board,"4,1,2", ",");
 
 //     printf("%s", "List size");
 //     putchar('\n');

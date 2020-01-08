@@ -7,14 +7,16 @@
 
 #include "gomoku.h"
 
-int isnum(char *str) {
+int isnum(char *str) 
+{
     for (int i = 0; (str[i]); i++)
         if (isdigit(str[i]) == 0 || str[i] == ' ')
             return (MY_EXIT_FAILURE);
     return (0);
 }
 
-char *itoa(int nb, char *str, int size) {
+char *itoa(int nb, char *str, int size) 
+{
     str[size] = '\0';
     while (size--) {
         str[size] = (nb % 10) + '0';
@@ -23,7 +25,8 @@ char *itoa(int nb, char *str, int size) {
     return (str);
 }
 
-int play_len(char *play) {
+int play_len(char *play) 
+{
     int i = 0;
     int len = 0;
 
@@ -33,7 +36,8 @@ int play_len(char *play) {
     return (len);
 }
 
-char *delete_zero(char *play) {
+char *delete_zero(char *play) 
+{
     int len = play_len(play);
     int i = 0;
     int j = 0;
@@ -47,7 +51,8 @@ char *delete_zero(char *play) {
     return (new_play);
 }
 
-char *concat_coordonate(t_gomoku *gomoku, char *xy) {
+char *concat_coordonate(t_gomoku *gomoku, char *xy) 
+{
     char *str = malloc(sizeof(char) * 7);
     char *player = malloc(sizeof(char) * 2);
     player = itoa(gomoku->player, player, 1);

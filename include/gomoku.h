@@ -89,4 +89,10 @@ int error_begin(t_gomoku *gomoku);
 int store_begin_move(t_gomoku *gomoku, char *xy);
 int run_begin(char *str, t_gomoku *gomoku);
 int error_end(t_gomoku *gomoku);
+int error_start(char *str, t_gomoku *gomoku);
+int check_horizontal(t_gomoku *gomoku);
+int check_vertical(t_gomoku *gomoku);
+void store_move(int *position, bool open1, bool open2);
+int play_len(char *play);
+
 #endif

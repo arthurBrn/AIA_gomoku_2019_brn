@@ -16,8 +16,9 @@
 #include <unistd.h>
 #include <math.h>
 #include <ctype.h>
-#include "board.h"
 #include <stdbool.h>
+#include "board.h"
+#include "move.h"
 
 typedef struct {
     int size;
@@ -71,4 +72,5 @@ void sort_board_per_x(t_board *board, char search_direction);
 void sort_board_per_y(t_board *board, char search_direction);
 bool check_open_1(int start_x, int start_y, int end_x, int end_y);
 bool check_open_2(int start_x, int start_y, int end_x, int end_y);
+void make_moves(t_move *move);
 #endif

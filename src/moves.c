@@ -7,19 +7,19 @@
 
 #include "gomoku.h"
 
-char *if_all_open_are_true(char *res) {
+char *if_all_open_are_true(char *res, t_move *move) {
     char *x = malloc(sizeof(char) * 2);
     char *y = malloc(sizeof(char) * 2);
 
-    if (save->start_x == save->end_x) {
-        x = itoa(save->start_x - 1, x, 2);
-        y = itoa(save->start_y, y, 2);
+    if (move->start_x == move->end_x) {
+        x = itoa(move->start_x - 1, x, 2);
+        y = itoa(move->start_y, y, 2);
         strcat(res, x);
         strcat(res, ",");
         strcat(res, y);
     } else {
-        x = itoa(save->start_x, x, 2);
-        y = itoa(save->start_y - 1, y, 2);
+        x = itoa(move->start_x, x, 2);
+        y = itoa(move->start_y - 1, y, 2);
         strcat(res, x);
         strcat(res, ",");
         strcat(res, y);
@@ -27,19 +27,19 @@ char *if_all_open_are_true(char *res) {
     return (res);
 }
 
-char *if_only_second_open_are_true(char *res) {
+char *if_only_second_open_are_true(char *res, t_move *move) {
     char *x = malloc(sizeof(char) * 2);
     char *y = malloc(sizeof(char) * 2);
 
-    if (save->start_x == save->end_x) {
-        x = itoa(save->end_x + 1, x, 2);
-        y = itoa(save->end_y, y, 2);
+    if (move->start_x == move->end_x) {
+        x = itoa(move->end_x + 1, x, 2);
+        y = itoa(move->end_y, y, 2);
         strcat(res, x);
         strcat(res, ",");
         strcat(res, y);
     } else {
-        x = itoa(save->end_x, x, 2);
-        y = itoa(save->end_y + 1, y, 2);
+        x = itoa(move->end_x, x, 2);
+        y = itoa(move->end_y + 1, y, 2);
         strcat(res, x);
         strcat(res, ",");
         strcat(res, y);
@@ -48,31 +48,37 @@ char *if_only_second_open_are_true(char *res) {
 }
 
 
-char *where_play(t_gomoku *gomoku) {
+char *where_play(t_move *move) {
     char *res = malloc(sizeof(char) * 5);
 
-    if ((save->first_open == true && save->second_open == true) ||
-        (save->first_open == true && save->second_open == false)) {
-        res = if_all_open_are_true(res);
-    } else if (save->first_open == false && save->second_open == true) {
-        res = if_only_second_open_are_true(res);
+    if ((move->open1 == true && move->open2 == true) ||
+        (move->open1 == true && move->open2 == false)) {
+        res = if_all_open_are_true(res, move);
+    } else if (move->open1 == false && move->open2 == true) {
+        res = if_only_second_open_are_true(res, move);
     }
     res[strlen(res) + 1] = '\0';
     return (res);
 }
 
-void makes_moves(t_gomoku *gomoku) {
-    t_board *save = gomoku->board;
+void make_moves(t_move *move) {
+    t_move *save = move;
 
     while (save != NULL) {
-        if (save->len == 4)
-            return (write(1, where_play(), strlen(where_play(gomoku))));
-        else if (save->len == 3)
-            return (write(1, where_play(), strlen(where_play(gomoku))));
-        else if (save->len == 2)
-            return (write(1, where_play(), strlen(where_play(gomoku))));
-        else if (save->len == 1)
-            return (write(1, where_play(), strlen(where_play(gomoku))));
+        printf("ok\n");
+        if (save->len == 4) {
+            write(1, where_play(move), strlen(where_play(move)));
+            break;
+        } else if (save->len == 3) {
+            write(1, where_play(move), strlen(where_play(move)));
+            break;
+        } else if (save->len == 2) {
+            write(1, where_play(move), strlen(where_play(move)));
+            break;
+        } else if (save->len == 1) {
+            write(1, where_play(move), strlen(where_play(move)));
+            break;
+        }
         save = save->next;
     }
 }

@@ -23,6 +23,7 @@ SRCS	=	./src/commands.c					\
 		./src/print_board.c                 			\
 		./src/run_turn.c					\
 		./src/store_move.c					\
+        ./src/moves.c
 
 OBJS	=	$(SRCS:.c=.o)
 

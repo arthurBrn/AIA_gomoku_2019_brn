@@ -35,7 +35,7 @@ void init_struct(t_gomoku *gomoku)
     gomoku->start = 0;
     gomoku->player = 0;
     gomoku->end = 0;
-    gomoku->size = 20;
+    gomoku->size = 0;
     gomoku->begin = 0;
     // gomoku->patterns = init_patterns();
     // gomoku->patterns_value = init_patterns_values();

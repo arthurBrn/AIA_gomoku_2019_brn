@@ -35,6 +35,7 @@ int check_vertical(t_gomoku *gomoku) {
             compteur++;
             save = save->next;
         }
+	
         printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
         save = save->next;
     }

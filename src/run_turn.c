@@ -7,35 +7,14 @@
 
 #include "gomoku.h"
 
-int check_horizontal(t_gomoku *gomoku)
-{
+int check_horizontal(t_gomoku *gomoku) {
     int compteur = 1;
     t_board *save = gomoku->board;
 
-    while (save != NULL)
-    {
+    while (save != NULL) {
         compteur = 1;
-        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) && save->player == save->next->player)
-        {
-            compteur++;
-            save = save->next;
-        }
-        printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
-        save = save->next;
-    }
-    return (compteur);
-}
-int check_vertical(t_gomoku *gomoku)
-{
-    int compteur = 1;
-    int compteur2 = 0;
-    t_board *save = gomoku->board;
-
-    while (save != NULL)
-    {
-        compteur = 1;
-        while (save->next != NULL && (save->x == save->next->x) && (save->y + 1 == save->next->y) && save->player == save->next->player)
-        {
+        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) &&
+               save->player == save->next->player) {
             compteur++;
             save = save->next;
         }
@@ -45,14 +24,36 @@ int check_vertical(t_gomoku *gomoku)
     return (compteur);
 }
 
-int run_turn(char *str, t_gomoku *gomoku)
-{
+int check_vertical(t_gomoku *gomoku) {
+    int compteur = 1;
+    t_board *save = gomoku->board;
+
+    while (save != NULL) {
+        compteur = 1;
+        while (save->next != NULL && (save->x == save->next->x) && (save->y + 1 == save->next->y) &&
+               save->player == save->next->player) {
+            compteur++;
+            save = save->next;
+        }
+        printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
+        save = save->next;
+    }
+    return (compteur);
+}
+
+int run_turn(char *str, t_gomoku *gomoku) {
     str = strcat(str, ",2");
+<<<<<<< HEAD
     if (storing_error(str, gomoku, ",") != 84)
     {
         gomoku->board = store_board(gomoku->board, str, ",");
     }
     else
+=======
+    if (storing_error(str, gomoku, ",") != 84) {
+        gomoku->board = store_move(gomoku->board, str, ",");
+    } else
+>>>>>>> 3e3786be1cde25f1cf871d2345953807be26c335
         return (84);
     print_the_board(gomoku, gomoku->board);
     printf("===horizontal===\n");

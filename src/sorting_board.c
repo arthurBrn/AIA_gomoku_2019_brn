@@ -18,6 +18,7 @@ void sort_board_per_x(t_board *board, char *search_direction)
                 swap(holder);
                 holder = board;
             }
+
             else
                 holder = holder->next;
         }
@@ -58,4 +59,24 @@ void sort_board_per_y(t_board *board, char *search_direction)
                 hold = hold->next;
         }
     }
+}
+
+void swap(t_board *holder)
+{
+    int x_holder = 0;
+    int y_holder = 0;
+    int p_holder = 0;
+
+    x_holder = holder->x;
+    y_holder = holder->y;
+    p_holder = holder->player;
+
+    holder->x = holder->next->x;
+    holder->y = holder->next->y;
+    holder->player = holder->next->player;
+
+    holder->next->x = x_holder;
+    holder->next->y = y_holder;
+    holder->next->player = p_holder;
+    // holder = board;  
 }

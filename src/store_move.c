@@ -5,6 +5,7 @@
 ** fill linked list moves
 */
 
+#include "gomoku.h"
 #include "move.h"
 #include <stdbool.h>
 

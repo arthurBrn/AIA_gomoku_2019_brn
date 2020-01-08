@@ -50,6 +50,7 @@ int run_turn(char *str, t_gomoku *gomoku) {
     } else
         return (84);
     print_the_board(gomoku, gomoku->board);
+    sort_board(gomoku->board);
     check_horizontal(gomoku);
     check_vertical(gomoku);
     return 0;

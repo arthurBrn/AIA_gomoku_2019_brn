@@ -18,17 +18,17 @@ t_board *init_board()
     return (board);
 }
 
-char **init_patterns()
-{
-    char *patterns[] = {"-ooo-", "xooo-", "xxx-x", "-xx-x-",
-                        "xxxxx", "-oooo-", "-oooox", "xx-xx"};
-}
+// char **init_patterns()
+// {
+//     char *patterns[] = {"-ooo-", "xooo-", "xxx-x", "-xx-x-",
+//                         "xxxxx", "-oooo-", "-oooox", "xx-xx"};
+// }
 
-int *init_patterns_values()
-{
-    int patterns_value[] = {100000, 1000, 100050, 100000,
-                            1000000, 1000050, 100050, 100050};
-}
+// int *init_patterns_values()
+// {
+//     int patterns_value[] = {100000, 1000, 100050, 100000,
+//                             1000000, 1000050, 100050, 100050};
+// }
 
 void init_struct(t_gomoku *gomoku)
 {

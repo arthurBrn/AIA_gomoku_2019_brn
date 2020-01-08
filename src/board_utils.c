@@ -14,7 +14,8 @@ void free_board_list(t_board *board)
     t_board *next = NULL;
     t_board *head_holder = board;
 
-    while (board != NULL) {
+    while (board != NULL)
+    {
         current = board;
         next = board->next;
         board = next;
@@ -64,7 +65,7 @@ int list_length(t_board *board)
     return (cpt);
 }
 
-void swap(t_board *holder, t_board *next)
+void swap(t_board *holder)
 {
     int x_holder = 0;
     int y_holder = 0;
@@ -88,9 +89,12 @@ void sort_board(t_board *board)
     t_board *holder = board;
     while (holder->next != NULL)
     {
-        if ((holder->x > holder->next->x) || ((holder->x > holder->next->x) && (holder->y >= holder->next->y)))
+        // (holder->y >= holder->next->y)
+        //if ((holder->x > holder->next->x) || ((holder->x > holder->next->x) && (holder->y >= holder->next->y)))
+        //if ((holder->x > holder->next->x) && (holder->y >= holder->next->y))
+        if ((holder->x > holder->next->x) || ((holder->x == holder->next->x) && (holder->y > holder->next->y)))
         {
-            swap(holder, holder->next);
+            swap(holder);
             holder = board;
         }
         else

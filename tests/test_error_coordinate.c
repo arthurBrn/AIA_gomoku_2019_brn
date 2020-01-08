@@ -27,7 +27,7 @@ Test(check_coordinate, valid_coordinate)
 
     gomoku->size = 10;
     res = check_coordinate(str, gomoku);;
-    cr_assert_eq(res, 1);
+    cr_assert_eq(res, MY_EXIT_FAILURE);
 }
 
 Test(check_coordinate, invalid_x_coordinate)
@@ -82,7 +82,7 @@ Test(check_coordinate, xy_coordinate_equal_to_board_size)
 
     gomoku->size=20;
     res = check_coordinate(str, gomoku);
-    cr_assert_eq(res, 1);
+    cr_assert_eq(res, 84);
 }
 
 Test(check_coordinate, xy_coordinate_equal_to_one)

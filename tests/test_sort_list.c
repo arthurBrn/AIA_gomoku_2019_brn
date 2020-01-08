@@ -11,18 +11,18 @@
 Test(swap, test_swap_working)
 {
     t_board *node_one = init_board();
-    t_board *node_two = init_board();
 
     node_one = store_move(node_one, "1,1,1", ",");
-    node_two = store_move(node_two, "2,2,2", ",");
+    node_one = store_move(node_one, "2,2,2", ",");
 
-    swap(node_one, node_two);
+    swap(node_one);
+    cr_assert_eq(node_one->x, 1);
+    cr_assert_eq(node_one->y, 1);
+    cr_assert_eq(node_one->player, 1);
+    node_one = node_one->next;
     cr_assert_eq(node_one->x, 2);
     cr_assert_eq(node_one->y, 2);
     cr_assert_eq(node_one->player, 2);
-    cr_assert_eq(node_two->x, 1);
-    cr_assert_eq(node_two->y, 1);
-    cr_assert_eq(node_two->player, 1);
 }
 
 Test(sort_board, sort_board_working)
@@ -40,7 +40,7 @@ Test(sort_board, sort_board_working)
     sort_board(board);
     cr_assert_eq(list_length(board), 6);
     cr_assert_eq(board->x, 1);
-    cr_assert_eq(board->y, 2);
+    cr_assert_eq(board->y, 2);  
     board = board->next;
     cr_assert_eq(board->x, 1);
     cr_assert_eq(board->y, 3);
@@ -56,4 +56,41 @@ Test(sort_board, sort_board_working)
     board = board->next;
     cr_assert_eq(board->x, 5);
     cr_assert_eq(board->y, 3);
+    cr_assert_null(board->next);
+}
+
+Test(sort_board, sort_two_nodes_same_x_diff_y)
+{
+    t_board *board = init_board();
+
+    board = store_move(board, "1,2,2", ",");
+    board = store_move(board, "1,3,2", ",");
+
+    cr_assert_eq(list_length(board), 2);
+    sort_board(board);
+    cr_assert_eq(list_length(board), 2);
+    cr_assert_eq(board->x, 1);
+    cr_assert_eq(board->y, 2);  
+    board = board->next;
+    cr_assert_eq(board->x, 1);
+    cr_assert_eq(board->y, 3);
+    cr_assert_null(board->next);
+}
+
+Test(sort_board, sort_two_nodes_diff_x_same_y)
+{
+    t_board *board = init_board();
+
+    board = store_move(board, "1,2,2", ",");
+    board = store_move(board, "2,2,2", ",");
+
+    cr_assert_eq(list_length(board), 2);
+    sort_board(board);
+    cr_assert_eq(list_length(board), 2);
+    cr_assert_eq(board->x, 1);
+    cr_assert_eq(board->y, 2);  
+    board = board->next;
+    cr_assert_eq(board->x, 2);
+    cr_assert_eq(board->y, 2);
+    cr_assert_null(board->next);
 }

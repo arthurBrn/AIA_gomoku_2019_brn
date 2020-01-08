@@ -15,15 +15,9 @@ int check_horizontal(t_gomoku *gomoku)
     while (save != NULL)
     {
         compteur = 1;
-<<<<<<< HEAD
-        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y))
-        {
-            compteur++;
-=======
         while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) && save->player == save->next->player)
         {
             compteur++;
->>>>>>> f862f1e835020d7ec27682a72e4029a5c0625022
             save = save->next;
         }
         printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);

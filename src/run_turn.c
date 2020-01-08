@@ -13,11 +13,11 @@ int check_horizontal(t_gomoku *gomoku) {
 
     while (save != NULL) {
         compteur = 1;
-        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y)) {
-            compteur++;
+        while (save->next != NULL && (save->x + 1 == save->next->x) && (save->y == save->next->y) && save->player == save->next->player) {
+	  compteur++;
             save = save->next;
-        }
-        printf("%d\n", compteur);
+	}
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
         save = save->next;
     }
     return (compteur);
@@ -29,16 +29,14 @@ int check_vertical(t_gomoku *gomoku) {
 
     while (save != NULL) {
         compteur = 1;
-        while (save->next != NULL && (save->x == save->next->x) && (save->y + 1 == save->next->y)) {
+        while (save->next != NULL && (save->x == save->next->x) && (save->y + 1 == save->next->y) &&save->player == save->next->player) {
             compteur++;
             save = save->next;
         }
-        if (compteur2 < compteur)
-            compteur2 = compteur;
-        printf("%d\n", compteur2);
+	printf("[xy] => %d,%d, p : %d -> %d\n", save->x, save->y, save->player, compteur);
         save = save->next;
     }
-    return (compteur2);
+    return (compteur);
 }
 
 
@@ -50,7 +48,9 @@ int run_turn(char *str, t_gomoku *gomoku) {
     } else
         return (84);
     print_the_board(gomoku, gomoku->board);
+    printf("===horizontal===\n");
     check_horizontal(gomoku);
+    printf("===vertical===\n");
     check_vertical(gomoku);
     return 0;
 }
